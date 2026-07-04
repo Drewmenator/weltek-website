@@ -1,0 +1,45 @@
+# Deployment checklist (Vercel)
+
+## 1. Environment variables (Vercel → Project → Settings → Environment Variables)
+- [ ] `RESEND_API_KEY` — from resend.com. Without it, the contact form returns a 503 and tells users to email directly.
+- [ ] `CONTACT_TO` — defaults to `info@weltekng.com`.
+- [ ] `CONTACT_FROM` — a sender verified in Resend. Verify the `weltekng.com` domain in Resend, then use e.g. `Weltek Website <no-reply@weltekng.com>`. Until then `onboarding@resend.dev` works for testing only.
+- [ ] Set for Production (and Preview if you want previews to send).
+
+## 2. Resend setup
+- [ ] Create a Resend account and API key.
+- [ ] Add and verify the `weltekng.com` domain (DNS records) so mail is not spam-filtered.
+- [ ] Send a test submission from each form (general, careers, vendor) and confirm delivery + that Reply-To is the enquirer's email.
+
+## 3. Assets to replace before launch (see docs/CONTENT-GAPS.md)
+- [ ] `public/weltek-capability-statement.pdf` — real PDF.
+- [ ] `public/images/*.svg` — real industrial photography (keep filenames or update references).
+- [ ] `public/images/og-default.svg` — real 1200x630 OG image (PNG/JPG).
+- [ ] `components/Logo.tsx` — real logo, and confirm brand hex in `app/globals.css`.
+
+## 4. SEO / metadata
+- [ ] Confirm `site.url` in `lib/site.ts` is the final production URL.
+- [ ] `sitemap.xml` and `robots.txt` are generated (`app/sitemap.ts`, `app/robots.ts`) — verify at `/sitemap.xml` and `/robots.txt`.
+- [ ] Organization JSON-LD present (validate with Google Rich Results Test).
+- [ ] Per-page titles/descriptions reviewed (all set via `metadata` exports).
+- [ ] Submit the sitemap in Google Search Console after launch.
+
+## 5. Build & quality gates
+- [ ] `npm run build` passes with no type errors.
+- [ ] `npm run lint` clean.
+- [ ] Lighthouse (mobile) targets: Performance ≥ 90, Accessibility ≥ 95, Best Practices ≥ 95, SEO = 100. Run against the deployed URL, not dev.
+- [ ] 404 page renders (`app/not-found.tsx`).
+- [ ] Favicon shows (`app/icon.svg`).
+
+## 6. Deploy steps
+1. Push the repo to GitHub.
+2. Import into Vercel (framework auto-detected as Next.js).
+3. Add the environment variables above.
+4. Deploy. Vercel handles image optimization and static generation automatically.
+5. Add the custom domain `weltekng.com` in Vercel → Domains and update DNS.
+6. Smoke test on a real iPhone and a real Android device (see docs/RESPONSIVE-TESTING.md).
+
+## 7. Post-launch
+- [ ] Verify contact form delivery in production.
+- [ ] Confirm analytics (if desired — not yet added; e.g. Vercel Analytics or GA4). [CONFIRM]
+- [ ] Set up uptime monitoring. [CONFIRM]

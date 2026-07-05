@@ -31,6 +31,7 @@ export const team: TeamMember[] = [
     title: "Managing Director",
     group: "Executive Leadership",
     bio: "",
+    photo: "/images/team/pedro-egbe.webp",
   },
   {
     name: "Igweka Uche",
@@ -45,6 +46,7 @@ export const team: TeamMember[] = [
     title: "General Manager, Finance",
     group: "General Management",
     bio: "",
+    photo: "/images/team/sakenim-esiri.png",
   },
   {
     name: "Peter Egwegbete",

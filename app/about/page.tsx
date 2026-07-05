@@ -4,6 +4,7 @@ import { Container } from "@/components/ui/Container";
 import { StatStrip } from "@/components/StatStrip";
 import { CTASection } from "@/components/CTASection";
 import { SectionHeading } from "@/components/ui/SectionHeading";
+import { TeamSection } from "@/components/team/TeamSection";
 
 export const metadata: Metadata = {
   title: "About Weltek | EPC Company in Nigeria",
@@ -109,30 +110,8 @@ export default function AboutPage() {
         </Container>
       </section>
 
-      {/* Leadership placeholder */}
-      <section className="bg-surface">
-        <Container className="py-16 lg:py-24">
-          <div className="grid gap-10 lg:grid-cols-[1fr_1.4fr] lg:gap-16">
-            <SectionHeading
-              eyebrow="Leadership & team"
-              title="Experienced engineers, project managers and field crews"
-            />
-            <div className="max-w-2xl">
-              <p className="leading-relaxed text-steel">
-                Weltek is run by engineers who have spent their careers on
-                Nigerian projects. Our teams cover engineering, project
-                management, procurement, instrumentation and electrical,
-                automation, field construction and HSE.
-              </p>
-              <p className="mt-4 rounded-[4px] border border-dashed border-border bg-surface-alt p-4 text-sm text-graphite">
-                [CONFIRM] Leadership names, titles and biographies to be supplied
-                by Weltek for publication, with a short profile of the technical
-                team and total headcount.
-              </p>
-            </div>
-          </div>
-        </Container>
-      </section>
+      {/* Leadership & team */}
+      <TeamSection />
 
       <CTASection
         heading="Work with a team that has delivered for three decades"

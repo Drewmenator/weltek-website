@@ -12,9 +12,10 @@
   --color-steel: #34515f;
   --color-ink: #16242e;
 
-  /* Warm accent (used sparingly) */
-  --color-bronze: #ac6127;
-  --color-bronze-strong: #8a4c1e;
+  /* Warm accent (used sparingly). Darkened to clear WCAG AA (4.5:1) for small
+     overline/label text on cream surfaces while staying on-brand. */
+  --color-bronze: #9c561f;
+  --color-bronze-strong: #82481b;
   --color-bronze-soft: #c68a52;
   --color-gold: #c6a052;
 
@@ -28,7 +29,7 @@
   --color-border: #ddd8cd;
   --color-border-strong: #cdc6b6;
   --color-border-dark: #22414f;
-  --color-graphite: #64727a;
+  --color-graphite: #5a6870;
 
   --font-heading: var(--font-archivo), "Archivo", system-ui, sans-serif;
   --font-body: var(--font-inter), "Inter", system-ui, sans-serif;

@@ -25,6 +25,7 @@ export default function ServicesPage() {
 
       <section className="bg-surface-alt">
         <Container className="py-16 lg:py-24">
+          <h2 className="sr-only">All services</h2>
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {services.map((service, i) => (
               <Reveal key={service.slug} delay={(i % 3) * 80}>

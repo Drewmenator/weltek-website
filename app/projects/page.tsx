@@ -24,6 +24,7 @@ export default function ProjectsPage() {
 
       <section className="bg-surface">
         <Container className="py-14 lg:py-20">
+          <h2 className="sr-only">Project portfolio</h2>
           <ProjectsExplorer projects={projects} filters={projectFilters} />
         </Container>
       </section>

@@ -41,7 +41,13 @@ export function Header() {
           : "border-b border-transparent"
       )}
     >
-      <Container className="flex h-[72px] items-center justify-between gap-6">
+      <span aria-hidden className="absolute inset-x-0 top-0 h-[2px] bg-bronze" />
+      <Container
+        className={cn(
+          "flex items-center justify-between gap-6 transition-[height] duration-200",
+          scrolled ? "h-[72px] lg:h-[60px]" : "h-[72px]"
+        )}
+      >
         <Logo tagline={false} />
 
         {/* Desktop nav */}

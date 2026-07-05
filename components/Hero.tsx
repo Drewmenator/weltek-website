@@ -2,43 +2,71 @@ import Image from "next/image";
 import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
 
+const clients = [
+  "Shell / SNEPCo / SPDC",
+  "Chevron",
+  "ExxonMobil",
+  "NPDC",
+  "Energia",
+  "NGC",
+];
+
 export function Hero() {
   return (
-    <section className="relative isolate overflow-hidden bg-navy text-white">
-      {/* Industrial photography (placeholder). Bleeds off the right on desktop. */}
-      <div className="absolute inset-0 lg:left-[42%]">
+    <section className="relative isolate overflow-hidden bg-navy-900 text-white">
+      {/* Industrial graphic (placeholder). Full-bleed, biased right on desktop. */}
+      <div className="absolute inset-0">
         <Image
           src="/images/hero-topside.svg"
-          alt="Weltek field engineers on an offshore topside facility"
+          alt="Offshore topside facility, representative of Weltek's EPC delivery"
           fill
           priority
-          sizes="(max-width: 1024px) 100vw, 60vw"
-          className="object-cover"
+          sizes="100vw"
+          className="object-cover object-center lg:object-right"
         />
-        {/* Navy scrim so headline stays legible on any photo */}
-        <div className="absolute inset-0 bg-gradient-to-t from-navy via-navy/70 to-navy/20 lg:bg-gradient-to-r lg:from-navy lg:via-navy/85 lg:to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-navy-900 via-navy-900/85 to-navy-900/45 lg:bg-gradient-to-r lg:from-navy-900 lg:via-navy-900/80 lg:to-navy-900/10" />
       </div>
 
-      <Container className="relative flex h-dvh flex-col justify-end pb-16 pt-28 safe-pt sm:justify-center lg:min-h-0 lg:py-32">
-        <div className="max-w-xl lg:max-w-[46%]">
-          <p className="overline text-gold">Engineering · Procurement · Construction</p>
-          <h1 className="mt-5 text-[2.4rem] leading-[1.04] sm:text-[3rem] lg:text-[3.4rem] text-white">
-            Live-plant EPC execution for Nigeria&rsquo;s energy sector.
-          </h1>
-          <p className="mt-6 max-w-lg text-[1.1rem] leading-relaxed text-white/80">
-            Thirty years of offshore, onshore and swamp delivery. Topside
-            facilities, wellhead control panels, power systems and the
-            instrumentation that ties them together, built and commissioned by
-            teams who work on producing plants.
-          </p>
-          <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-            <Button href="/services" variant="primary">
-              Explore Our Capabilities
-            </Button>
-            <Button href="/contact" variant="secondary" tone="onDark">
-              Speak With Our Team
-            </Button>
+      <Container className="safe-pt safe-pb relative flex h-dvh flex-col">
+        <div className="flex flex-1 flex-col justify-center pb-8 pt-28 lg:pt-32">
+          <div className="max-w-2xl lg:max-w-[56%]">
+            <p className="overline flex items-center gap-3 text-bronze-soft">
+              <span aria-hidden className="h-px w-8 bg-bronze" />
+              Engineering · Procurement · Construction
+            </p>
+            <h1 className="mt-6 text-balance text-[2.5rem] leading-[1.02] text-white sm:text-[3.2rem] lg:text-[3.75rem]">
+              Engineering, procurement and construction for critical energy assets.
+            </h1>
+            <p className="mt-6 max-w-xl text-[1.075rem] leading-relaxed text-white/75">
+              Weltek delivers EPC, power systems, automation, instrumentation
+              and brownfield services for oil and gas, power and industrial
+              clients across Nigeria. Thirty years of building and commissioning
+              on producing plants.
+            </p>
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+              <Button href="/services" variant="primary">
+                Explore Our Capabilities
+              </Button>
+              <Button href="/contact" variant="secondary" tone="onDark">
+                Speak With Our Team
+              </Button>
+            </div>
           </div>
+        </div>
+
+        {/* Client proof row */}
+        <div className="relative border-t border-white/15 py-5">
+          <p className="overline text-white/40">Project delivery for</p>
+          <ul className="mt-3 flex flex-wrap items-center gap-x-6 gap-y-2">
+            {clients.map((c) => (
+              <li
+                key={c}
+                className="text-sm font-medium tracking-wide text-white/70"
+              >
+                {c}
+              </li>
+            ))}
+          </ul>
         </div>
       </Container>
     </section>

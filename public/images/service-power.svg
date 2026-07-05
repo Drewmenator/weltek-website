@@ -1,17 +1,49 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" width="1600" height="1000" role="img" aria-label="Power Systems placeholder">
-  <rect width="1600" height="1000" fill="#0e2a3b"/>
-  <rect width="1600" height="1000" fill="url(#vg)"/>
-  <g stroke="#33505f" stroke-width="1" opacity="0.18"><line x1="100" y1="0" x2="100" y2="1000" /><line x1="200" y1="0" x2="200" y2="1000" /><line x1="300" y1="0" x2="300" y2="1000" /><line x1="400" y1="0" x2="400" y2="1000" /><line x1="500" y1="0" x2="500" y2="1000" /><line x1="600" y1="0" x2="600" y2="1000" /><line x1="700" y1="0" x2="700" y2="1000" /><line x1="800" y1="0" x2="800" y2="1000" /><line x1="900" y1="0" x2="900" y2="1000" /><line x1="1000" y1="0" x2="1000" y2="1000" /><line x1="1100" y1="0" x2="1100" y2="1000" /><line x1="1200" y1="0" x2="1200" y2="1000" /><line x1="1300" y1="0" x2="1300" y2="1000" /><line x1="1400" y1="0" x2="1400" y2="1000" /><line x1="1500" y1="0" x2="1500" y2="1000" /><line x1="0" y1="100" x2="1600" y2="100" /><line x1="0" y1="200" x2="1600" y2="200" /><line x1="0" y1="300" x2="1600" y2="300" /><line x1="0" y1="400" x2="1600" y2="400" /><line x1="0" y1="500" x2="1600" y2="500" /><line x1="0" y1="600" x2="1600" y2="600" /><line x1="0" y1="700" x2="1600" y2="700" /><line x1="0" y1="800" x2="1600" y2="800" /><line x1="0" y1="900" x2="1600" y2="900" /></g>
-  <g><line x1="181" y1="0" x2="1169" y2="1000" stroke="#33505f" stroke-width="2" opacity="0.5"/><line x1="362" y1="0" x2="492" y2="1000" stroke="#33505f" stroke-width="2" opacity="0.5"/><line x1="543" y1="0" x2="1415" y2="1000" stroke="#33505f" stroke-width="2" opacity="0.5"/><line x1="724" y1="0" x2="738" y2="1000" stroke="#33505f" stroke-width="2" opacity="0.5"/></g>
-  <rect x="60" y="60" width="1480" height="880" fill="none" stroke="#33505f" stroke-width="2" opacity="0.5"/>
-  <rect x="60" y="60" width="150" height="10" fill="#b0692f"/>
-  <rect x="60" y="60" width="10" height="120" fill="#b0692f"/>
-  <text x="90" y="850" fill="#ffffff" font-family="Archivo, Arial, sans-serif" font-size="52" font-weight="700" letter-spacing="1">Power Systems</text>
-  <text x="90" y="900" fill="#9fb2bd" font-family="Arial, sans-serif" font-size="26" letter-spacing="3">PLACEHOLDER · REPLACE WITH INDUSTRIAL PHOTOGRAPHY</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" width="1600" height="1000" role="img" aria-label="Power systems">
   <defs>
-    <linearGradient id="vg" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#0e2a3b"/>
-      <stop offset="1" stop-color="#0b2231"/>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#081a26"/>
+      <stop offset="0.55" stop-color="#0e2a3b"/>
+      <stop offset="1" stop-color="#123448"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.5" cy="0.42" r="0.75">
+      <stop offset="0" stop-color="#17415a" stop-opacity="0.55"/>
+      <stop offset="1" stop-color="#000000" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="vig" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#000" stop-opacity="0"/>
+      <stop offset="0.75" stop-color="#000" stop-opacity="0"/>
+      <stop offset="1" stop-color="#081a26" stop-opacity="0.85"/>
     </linearGradient>
   </defs>
+  <rect width="1600" height="1000" fill="url(#sky)"/>
+  <rect width="1600" height="1000" fill="url(#glow)"/>
+  <path d="M40 0V1000 M80 0V1000 M120 0V1000 M160 0V1000 M200 0V1000 M240 0V1000 M280 0V1000 M320 0V1000 M360 0V1000 M400 0V1000 M440 0V1000 M480 0V1000 M520 0V1000 M560 0V1000 M600 0V1000 M640 0V1000 M680 0V1000 M720 0V1000 M760 0V1000 M800 0V1000 M840 0V1000 M880 0V1000 M920 0V1000 M960 0V1000 M1000 0V1000 M1040 0V1000 M1080 0V1000 M1120 0V1000 M1160 0V1000 M1200 0V1000 M1240 0V1000 M1280 0V1000 M1320 0V1000 M1360 0V1000 M1400 0V1000 M1440 0V1000 M1480 0V1000 M1520 0V1000 M1560 0V1000 M0 40H1600 M0 80H1600 M0 120H1600 M0 160H1600 M0 200H1600 M0 240H1600 M0 280H1600 M0 320H1600 M0 360H1600 M0 400H1600 M0 440H1600 M0 480H1600 M0 520H1600 M0 560H1600 M0 600H1600 M0 640H1600 M0 680H1600 M0 720H1600 M0 760H1600 M0 800H1600 M0 840H1600 M0 880H1600 M0 920H1600 M0 960H1600" stroke="#3f5f70" stroke-width="1" opacity="0.10"/>
+  <path d="M200 0V1000 M400 0V1000 M600 0V1000 M800 0V1000 M1000 0V1000 M1200 0V1000 M1400 0V1000 M0 200H1600 M0 400H1600 M0 600H1600 M0 800H1600" stroke="#3f5f70" stroke-width="1" opacity="0.16"/>
+  <g stroke="#5f7d8c" stroke-width="1.5" opacity="0.6" fill="none">
+    <path d="M330 350 Q 700 430 1090 340"/>
+    <path d="M330 395 Q 700 480 1090 388"/>
+    <path d="M1090 340 Q 1300 380 1520 360"/>
+  </g><g stroke="#3f5f70" stroke-width="3" fill="none">
+      <path d="M260 860 L312 300 L348 300 L400 860"/>
+      <path d="M278 730 H382"/>
+      <path d="M290 610 H370"/>
+      <path d="M240 340 H420"/>
+      <path d="M260 390 H400"/>
+      <path d="M260 860 L348 300" stroke-width="1.5" opacity="0.6"/>
+      <path d="M400 860 L312 300" stroke-width="1.5" opacity="0.6"/>
+    </g><g stroke="#3f5f70" stroke-width="2.7" fill="none">
+      <path d="M1027 860 L1073.8 312 L1106.2 312 L1153 860"/>
+      <path d="M1043.2 743 H1136.8"/>
+      <path d="M1054 635 H1126"/>
+      <path d="M1009 348 H1171"/>
+      <path d="M1027 393 H1153"/>
+      <path d="M1027 860 L1106.2 312" stroke-width="1.35" opacity="0.6"/>
+      <path d="M1153 860 L1073.8 312" stroke-width="1.35" opacity="0.6"/>
+    </g><g stroke="#5f7d8c" stroke-width="2" opacity="0.8">
+    <rect x="1180" y="740" width="240" height="120" fill="none"/>
+    <line x1="1210" y1="740" x2="1210" y2="700"/><circle cx="1210" cy="694" r="8" fill="none"/><line x1="1265" y1="740" x2="1265" y2="700"/><circle cx="1265" cy="694" r="8" fill="none"/><line x1="1320" y1="740" x2="1320" y2="700"/><circle cx="1320" cy="694" r="8" fill="none"/><line x1="1375" y1="740" x2="1375" y2="700"/><circle cx="1375" cy="694" r="8" fill="none"/>
+  </g><line x1="0" y1="860" x2="1600" y2="860" stroke="#3f5f70" stroke-width="3"/>
+  <rect width="1600" height="1000" fill="url(#vig)"/>
+  <rect x="0" y="0" width="1600" height="6" fill="#b0692f"/>
+  <text x="40" y="966" fill="#ffffff" opacity="0.30" font-family="Arial,sans-serif" font-size="20" letter-spacing="3">WELTEK · POWER SYSTEMS · PLACEHOLDER</text>
 </svg>

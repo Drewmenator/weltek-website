@@ -14,11 +14,19 @@ export function CTASection({
 }) {
   const dark = variant === "navy";
   return (
-    <section className={cn(dark ? "bg-navy text-white" : "bg-surface-alt")}>
-      <Container className="py-16 lg:py-20">
-        <div className="grid items-center gap-8 lg:grid-cols-[1.4fr_1fr]">
+    <section
+      className={cn(
+        "relative",
+        dark ? "tech-grid bg-navy-900 text-white" : "bg-surface-alt"
+      )}
+    >
+      {dark && (
+        <span aria-hidden className="absolute inset-x-0 top-0 h-[3px] bg-bronze" />
+      )}
+      <Container className="py-16 lg:py-24">
+        <div className="grid items-center gap-8 lg:grid-cols-[1.5fr_1fr]">
           <div>
-            <h2 className={cn("text-[1.8rem] sm:text-[2.2rem]", dark && "text-white")}>
+            <h2 className={cn("text-[1.9rem] text-balance sm:text-[2.4rem]", dark && "text-white")}>
               {heading}
             </h2>
             <p

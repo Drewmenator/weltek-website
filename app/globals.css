@@ -4,24 +4,40 @@
 /* Weltek design tokens (Phase 0/1 locked palette — Option B)          */
 /* ------------------------------------------------------------------ */
 @theme {
+  /* Authority / ink */
   --color-navy: #0e2a3b;
-  --color-navy-800: #0b2231;
+  --color-navy-900: #071722;
+  --color-navy-800: #0a2130;
   --color-navy-700: #12344a;
-  --color-steel: #33505f;
-  --color-bronze: #b0692f;
-  --color-bronze-strong: #8f5320;
-  --color-ink: #14232e;
+  --color-steel: #34515f;
+  --color-ink: #16242e;
+
+  /* Warm accent (used sparingly) */
+  --color-bronze: #ac6127;
+  --color-bronze-strong: #8a4c1e;
+  --color-bronze-soft: #c68a52;
+  --color-gold: #c6a052;
+
+  /* Surfaces — warm paper/cream instead of clinical white */
   --color-surface: #ffffff;
-  --color-surface-alt: #f4f5f2;
-  --color-border: #dbdfde;
-  --color-border-dark: #23414f;
-  --color-graphite: #6b7a82;
-  --color-gold: #c9a24b;
+  --color-canvas: #f6f4ef;
+  --color-surface-alt: #f1eee6;
+  --color-surface-deep: #e8e3d8;
+
+  /* Lines + secondary text */
+  --color-border: #ddd8cd;
+  --color-border-strong: #cdc6b6;
+  --color-border-dark: #22414f;
+  --color-graphite: #64727a;
 
   --font-heading: var(--font-archivo), "Archivo", system-ui, sans-serif;
   --font-body: var(--font-inter), "Inter", system-ui, sans-serif;
 
-  --radius-card: 4px;
+  --radius-card: 3px;
+
+  /* Restrained corporate elevation (never shadow-lg-on-everything) */
+  --shadow-card: 0 1px 2px rgba(14, 42, 59, 0.04), 0 14px 30px -18px rgba(14, 42, 59, 0.18);
+  --shadow-panel: 0 30px 60px -30px rgba(7, 23, 34, 0.5);
 }
 
 /* ------------------------------------------------------------------ */
@@ -37,7 +53,7 @@ html {
 }
 
 body {
-  background: var(--color-surface);
+  background: var(--color-canvas);
   color: var(--color-ink);
   font-family: var(--font-body);
   font-synthesis-weight: none;
@@ -99,6 +115,27 @@ body {
 @utility tnum {
   font-variant-numeric: tabular-nums;
   font-feature-settings: "tnum" 1;
+}
+
+/* Faint engineering grid for dark authority sections (adds technical texture) */
+@utility tech-grid {
+  background-image:
+    linear-gradient(
+      to right,
+      color-mix(in srgb, #5f7d8c 16%, transparent) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      to bottom,
+      color-mix(in srgb, #5f7d8c 16%, transparent) 1px,
+      transparent 1px
+    );
+  background-size: 46px 46px;
+}
+
+/* Hairline top accent used on cards/panels */
+@utility rule-bronze {
+  border-top: 2px solid var(--color-bronze);
 }
 
 /* Reveal-on-scroll entrance (respects reduced motion above) */

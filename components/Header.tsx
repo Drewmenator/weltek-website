@@ -35,8 +35,10 @@ export function Header() {
   return (
     <header
       className={cn(
-        "sticky top-0 z-50 safe-px bg-surface transition-colors duration-200",
-        scrolled || open ? "border-b border-border" : "border-b border-transparent"
+        "sticky top-0 z-50 safe-px bg-surface transition-shadow duration-200",
+        scrolled || open
+          ? "border-b border-border shadow-[0_10px_30px_-24px_rgba(14,42,59,0.5)]"
+          : "border-b border-transparent"
       )}
     >
       <Container className="flex h-[72px] items-center justify-between gap-4">
@@ -57,7 +59,7 @@ export function Header() {
             >
               {item.label}
               {isActive(item.href) && (
-                <span className="absolute inset-x-0 -bottom-px h-[2px] bg-bronze" />
+                <span className="animate-line absolute inset-x-0 -bottom-px h-[2px] bg-bronze" />
               )}
             </Link>
           ))}

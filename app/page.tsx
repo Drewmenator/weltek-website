@@ -171,7 +171,8 @@ export default function Home() {
       <ClientsStrip />
 
       {/* HSE / Quality */}
-      <section className="bg-navy text-white">
+      <section className="tech-grid relative bg-navy-900 text-white">
+        <span aria-hidden className="absolute inset-x-0 top-0 h-[3px] bg-bronze" />
         <Container className="py-20 lg:py-28">
           <div className="grid gap-12 lg:grid-cols-[1fr_1.2fr] lg:gap-16">
             <div>

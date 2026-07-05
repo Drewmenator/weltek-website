@@ -3,6 +3,7 @@ import { PageHeader } from "@/components/ui/PageHeader";
 import { Container } from "@/components/ui/Container";
 import { CTASection } from "@/components/CTASection";
 import { ServiceCard } from "@/components/cards/ServiceCard";
+import { Reveal } from "@/components/ui/Reveal";
 import { services } from "@/content/services";
 
 export const metadata: Metadata = {
@@ -25,8 +26,10 @@ export default function ServicesPage() {
       <section className="bg-surface-alt">
         <Container className="py-16 lg:py-24">
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {services.map((service) => (
-              <ServiceCard key={service.slug} service={service} />
+            {services.map((service, i) => (
+              <Reveal key={service.slug} delay={(i % 3) * 80}>
+                <ServiceCard service={service} />
+              </Reveal>
             ))}
           </div>
         </Container>

@@ -5,8 +5,9 @@ type Variant = "primary" | "secondary" | "ghost";
 type Tone = "onLight" | "onDark";
 
 const base =
-  "inline-flex items-center justify-center gap-2 min-h-[48px] px-6 text-[0.95rem] font-semibold rounded-[4px] " +
-  "transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 " +
+  "inline-flex items-center justify-center gap-2 min-h-[48px] px-6 text-[0.95rem] font-semibold rounded-[3px] " +
+  "transition-[color,background-color,border-color,transform] duration-150 active:translate-y-px " +
+  "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 " +
   "focus-visible:ring-bronze focus-visible:ring-offset-surface disabled:opacity-60 disabled:pointer-events-none";
 
 function styles(variant: Variant, tone: Tone) {

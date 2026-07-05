@@ -30,20 +30,32 @@ export function Hero() {
       <Container className="safe-pt safe-pb relative flex h-dvh flex-col">
         <div className="flex flex-1 flex-col justify-center pb-8 pt-28 lg:pt-32">
           <div className="max-w-2xl lg:max-w-[56%]">
-            <p className="overline flex items-center gap-3 text-bronze-soft">
-              <span aria-hidden className="h-px w-8 bg-bronze" />
+            <p
+              className="overline animate-rise flex items-center gap-3 text-bronze-soft"
+              style={{ animationDelay: "40ms" }}
+            >
+              <span aria-hidden className="animate-line h-px w-8 bg-bronze" style={{ animationDelay: "120ms" }} />
               Engineering · Procurement · Construction
             </p>
-            <h1 className="mt-6 text-balance text-[2.5rem] leading-[1.02] text-white sm:text-[3.2rem] lg:text-[3.75rem]">
+            <h1
+              className="mt-6 text-balance animate-rise text-[2.5rem] leading-[1.02] text-white sm:text-[3.2rem] lg:text-[3.75rem]"
+              style={{ animationDelay: "120ms" }}
+            >
               Engineering, procurement and construction for critical energy assets.
             </h1>
-            <p className="mt-6 max-w-xl text-[1.075rem] leading-relaxed text-white/75">
+            <p
+              className="mt-6 max-w-xl animate-rise text-[1.075rem] leading-relaxed text-white/75"
+              style={{ animationDelay: "220ms" }}
+            >
               Weltek delivers EPC, power systems, automation, instrumentation
               and brownfield services for oil and gas, power and industrial
               clients across Nigeria. Thirty years of building and commissioning
               on producing plants.
             </p>
-            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+            <div
+              className="mt-8 flex animate-rise flex-col gap-3 sm:flex-row"
+              style={{ animationDelay: "320ms" }}
+            >
               <Button href="/services" variant="primary">
                 Explore Our Capabilities
               </Button>
@@ -55,7 +67,10 @@ export function Hero() {
         </div>
 
         {/* Client proof row */}
-        <div className="relative border-t border-white/15 py-5">
+        <div
+          className="relative animate-rise border-t border-white/15 py-5"
+          style={{ animationDelay: "440ms" }}
+        >
           <p className="overline text-white/40">Project delivery for</p>
           <ul className="mt-3 flex flex-wrap items-center gap-x-6 gap-y-2">
             {clients.map((c) => (

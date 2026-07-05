@@ -138,6 +138,33 @@ body {
   border-top: 2px solid var(--color-bronze);
 }
 
+/* ------------------------------------------------------------------ */
+/* Motion — restrained entrances (all reduced-motion safe via the      */
+/* global override above, which zeroes duration; fill:both keeps the   */
+/* end state so nothing stays hidden).                                 */
+/* ------------------------------------------------------------------ */
+@keyframes weltek-fade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes weltek-line {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+
+/* Load entrance (above-the-fold hero / page headers). Pair with an
+   inline animation-delay for staggering. */
+@utility animate-rise {
+  animation: weltek-rise 0.7s cubic-bezier(0.16, 0.7, 0.3, 1) both;
+}
+@utility animate-fade {
+  animation: weltek-fade 0.9s ease both;
+}
+@utility animate-line {
+  transform-origin: left;
+  animation: weltek-line 0.7s cubic-bezier(0.16, 0.7, 0.3, 1) both;
+}
+
 /* Reveal-on-scroll entrance (respects reduced motion above) */
 @keyframes weltek-rise {
   from { opacity: 0; transform: translateY(14px); }

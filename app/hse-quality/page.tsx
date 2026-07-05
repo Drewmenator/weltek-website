@@ -3,6 +3,7 @@ import { PageHeader } from "@/components/ui/PageHeader";
 import { Container } from "@/components/ui/Container";
 import { CTASection } from "@/components/CTASection";
 import { SectionHeading } from "@/components/ui/SectionHeading";
+import { Reveal } from "@/components/ui/Reveal";
 import { credentials } from "@/content/credentials";
 
 export const metadata: Metadata = {
@@ -52,11 +53,15 @@ export default function HsePage() {
       <section className="bg-surface">
         <Container className="py-16 lg:py-24">
           <div className="grid gap-x-10 gap-y-12 md:grid-cols-2">
-            {practices.map((p) => (
-              <div key={p.title} className="border-t-2 border-bronze pt-5">
+            {practices.map((p, i) => (
+              <Reveal
+                key={p.title}
+                delay={(i % 2) * 90}
+                className="border-t-2 border-bronze pt-5"
+              >
                 <h2 className="text-[1.3rem] text-navy">{p.title}</h2>
                 <p className="mt-3 leading-relaxed text-steel">{p.body}</p>
-              </div>
+              </Reveal>
             ))}
           </div>
         </Container>

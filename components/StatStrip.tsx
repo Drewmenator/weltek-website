@@ -1,4 +1,5 @@
 import { Container } from "@/components/ui/Container";
+import { CountUp } from "@/components/ui/CountUp";
 import { site } from "@/lib/site";
 
 export function StatStrip() {
@@ -12,9 +13,10 @@ export function StatStrip() {
               key={stat.label}
               className="bg-navy-800 px-3 py-9 text-center lg:py-12"
             >
-              <p className="tnum font-heading text-[2.6rem] font-bold leading-none text-gold lg:text-[3rem]">
-                {stat.figure}
-              </p>
+              <CountUp
+                value={stat.figure}
+                className="tnum block font-heading text-[2.6rem] font-bold leading-none text-gold lg:text-[3rem]"
+              />
               <p className="mt-3 text-[0.8rem] uppercase tracking-[0.08em] text-white/60">
                 {stat.label}
               </p>

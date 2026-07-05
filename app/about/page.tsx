@@ -4,6 +4,7 @@ import { Container } from "@/components/ui/Container";
 import { StatStrip } from "@/components/StatStrip";
 import { CTASection } from "@/components/CTASection";
 import { SectionHeading } from "@/components/ui/SectionHeading";
+import { Reveal } from "@/components/ui/Reveal";
 import { TeamSection } from "@/components/team/TeamSection";
 
 export const metadata: Metadata = {
@@ -100,11 +101,15 @@ export default function AboutPage() {
             title="The principles behind the work"
           />
           <div className="mt-12 grid gap-x-10 gap-y-10 sm:grid-cols-2">
-            {values.map((v) => (
-              <div key={v.title} className="border-t border-border pt-5">
+            {values.map((v, i) => (
+              <Reveal
+                key={v.title}
+                delay={(i % 2) * 90}
+                className="border-t border-border pt-5"
+              >
                 <h3 className="text-[1.2rem] text-navy">{v.title}</h3>
                 <p className="mt-2 leading-relaxed text-steel">{v.body}</p>
-              </div>
+              </Reveal>
             ))}
           </div>
         </Container>

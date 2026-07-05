@@ -23,8 +23,9 @@ export function CaseStudyTemplate({ project }: { project: Project }) {
   return (
     <>
       {/* Header */}
-      <section className="safe-px border-b border-border-dark bg-navy text-white">
-        <Container className="py-12 lg:py-16">
+      <section className="safe-px tech-grid relative border-b border-border-dark bg-navy-900 text-white">
+        <span aria-hidden className="absolute inset-x-0 top-0 h-[3px] bg-bronze" />
+        <Container className="py-14 lg:py-20">
           <Breadcrumb
             tone="onDark"
             items={[
@@ -33,10 +34,26 @@ export function CaseStudyTemplate({ project }: { project: Project }) {
               { label: project.title },
             ]}
           />
-          <p className="overline mt-6 text-gold">{project.serviceType}</p>
-          <h1 className="mt-3 max-w-3xl text-[1.9rem] leading-[1.1] text-white sm:text-[2.4rem]">
+          <p
+            className="overline animate-rise mt-7 flex items-center gap-3 text-bronze-soft"
+            style={{ animationDelay: "40ms" }}
+          >
+            <span aria-hidden className="animate-line h-px w-8 bg-bronze" style={{ animationDelay: "140ms" }} />
+            {project.serviceType}
+          </p>
+          <h1
+            className="mt-4 max-w-3xl animate-rise text-balance text-[1.9rem] leading-[1.08] text-white sm:text-[2.5rem]"
+            style={{ animationDelay: "120ms" }}
+          >
             {project.title}
           </h1>
+          <p
+            className="mt-4 animate-rise text-white/70"
+            style={{ animationDelay: "220ms" }}
+          >
+            Delivered for{" "}
+            <span className="font-semibold text-white">{project.client}</span>
+          </p>
         </Container>
       </section>
 
@@ -55,13 +72,16 @@ export function CaseStudyTemplate({ project }: { project: Project }) {
       <Container className="py-14 lg:py-20">
         <div className="grid gap-12 lg:grid-cols-[1fr_2fr] lg:gap-16">
           {/* Facts rail */}
-          <aside className="lg:border-r lg:border-border lg:pr-10">
-            <dl className="grid grid-cols-2 gap-6 lg:grid-cols-1">
-              <Field label="Client" value={project.client} />
-              <Field label="Location" value={project.location} />
-              <Field label="Sector" value={project.sector} />
-              <Field label="Service category" value={project.serviceType} />
-            </dl>
+          <aside className="lg:sticky lg:top-24 lg:self-start">
+            <div className="border border-border bg-surface p-6 shadow-card lg:p-7">
+              <p className="overline text-graphite">Project facts</p>
+              <dl className="mt-5 grid grid-cols-2 gap-x-6 gap-y-5 lg:grid-cols-1">
+                <Field label="Client" value={project.client} />
+                <Field label="Location" value={project.location} />
+                <Field label="Sector" value={project.sector} />
+                <Field label="Service category" value={project.serviceType} />
+              </dl>
+            </div>
           </aside>
 
           {/* Body */}
@@ -73,14 +93,16 @@ export function CaseStudyTemplate({ project }: { project: Project }) {
 
             <section className="mt-10">
               <h2 className="text-[1.4rem]">Scope of work</h2>
-              <ul className="mt-4 space-y-2">
-                {project.work.map((w) => (
-                  <li key={w} className="flex gap-3 text-steel">
-                    <span aria-hidden className="mt-2 h-1.5 w-1.5 shrink-0 bg-bronze" />
+              <ol className="mt-5 divide-y divide-border border-t border-border">
+                {project.work.map((w, i) => (
+                  <li key={w} className="flex gap-4 py-3.5 text-steel">
+                    <span className="tnum shrink-0 font-heading text-sm font-bold text-bronze">
+                      {String(i + 1).padStart(2, "0")}
+                    </span>
                     <span>{w}</span>
                   </li>
                 ))}
-              </ul>
+              </ol>
             </section>
 
             <section className="mt-10">
@@ -105,9 +127,9 @@ export function CaseStudyTemplate({ project }: { project: Project }) {
               <p className="mt-2 text-sm leading-relaxed text-steel">{project.hseNote}</p>
             </section>
 
-            <section className="mt-10">
-              <h2 className="text-[1.4rem]">Outcome</h2>
-              <p className="mt-3 leading-relaxed text-steel">{project.outcome}</p>
+            <section className="mt-10 border border-border bg-surface-alt p-6 shadow-card">
+              <h2 className="overline text-bronze">Outcome</h2>
+              <p className="mt-2 leading-relaxed text-navy">{project.outcome}</p>
             </section>
 
             {related.length > 0 && (

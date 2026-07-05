@@ -43,8 +43,9 @@ export default async function ServiceDetailPage({
 
   return (
     <>
-      <section className="safe-px border-b border-border-dark bg-navy text-white">
-        <Container className="py-12 lg:py-16">
+      <section className="safe-px tech-grid relative border-b border-border-dark bg-navy-900 text-white">
+        <span aria-hidden className="absolute inset-x-0 top-0 h-[3px] bg-bronze" />
+        <Container className="py-14 lg:py-20">
           <Breadcrumb
             tone="onDark"
             items={[
@@ -53,11 +54,23 @@ export default async function ServiceDetailPage({
               { label: service.title },
             ]}
           />
-          <p className="overline mt-6 text-gold">{service.sector}</p>
-          <h1 className="mt-3 max-w-3xl text-[2rem] leading-[1.1] text-white sm:text-[2.6rem]">
+          <p
+            className="overline animate-rise mt-7 flex items-center gap-3 text-bronze-soft"
+            style={{ animationDelay: "40ms" }}
+          >
+            <span aria-hidden className="animate-line h-px w-8 bg-bronze" style={{ animationDelay: "140ms" }} />
+            {service.sector}
+          </p>
+          <h1
+            className="mt-4 max-w-3xl animate-rise text-balance text-[2rem] leading-[1.06] text-white sm:text-[2.7rem]"
+            style={{ animationDelay: "120ms" }}
+          >
             {service.title}
           </h1>
-          <p className="mt-5 max-w-2xl text-[1.08rem] leading-relaxed text-white/80">
+          <p
+            className="mt-5 max-w-2xl animate-rise text-[1.08rem] leading-relaxed text-white/80"
+            style={{ animationDelay: "220ms" }}
+          >
             {service.intro}
           </p>
         </Container>
@@ -81,31 +94,37 @@ export default async function ServiceDetailPage({
             <p className="mt-4 leading-relaxed text-steel">{service.capability}</p>
 
             <h2 className="mt-10 text-[1.5rem]">Typical deliverables</h2>
-            <ul className="mt-4 space-y-2">
-              {service.deliverables.map((d) => (
-                <li key={d} className="flex gap-3 text-steel">
-                  <span aria-hidden className="mt-2 h-1.5 w-1.5 shrink-0 bg-bronze" />
+            <ol className="mt-5 divide-y divide-border border-t border-border">
+              {service.deliverables.map((d, i) => (
+                <li key={d} className="flex gap-4 py-3.5 text-steel">
+                  <span className="tnum shrink-0 font-heading text-sm font-bold text-bronze">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
                   <span>{d}</span>
                 </li>
               ))}
-            </ul>
+            </ol>
           </div>
 
-          <aside className="lg:border-l lg:border-border lg:pl-10">
-            <h2 className="overline text-graphite">Industries served</h2>
-            <ul className="mt-4 space-y-2">
-              {service.industries.map((ind) => (
-                <li key={ind} className="text-navy">
-                  {ind}
-                </li>
-              ))}
-            </ul>
-            <div className="mt-8">
+          <aside className="lg:sticky lg:top-24 lg:self-start">
+            <div className="border border-border bg-surface p-6 shadow-card lg:p-7">
+              <h2 className="overline text-graphite">Industries served</h2>
+              <ul className="mt-4 flex flex-wrap gap-2">
+                {service.industries.map((ind) => (
+                  <li
+                    key={ind}
+                    className="border border-border px-3 py-1.5 text-sm font-medium text-navy"
+                  >
+                    {ind}
+                  </li>
+                ))}
+              </ul>
               <Link
                 href="/contact"
-                className="text-sm font-semibold text-bronze hover:text-bronze-strong"
+                className="mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-bronze transition-colors hover:text-bronze-strong"
               >
-                Discuss this capability →
+                Discuss this capability
+                <span aria-hidden>→</span>
               </Link>
             </div>
           </aside>

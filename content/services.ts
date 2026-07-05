@@ -29,7 +29,7 @@ export const services: Service[] = [
       "Factory acceptance testing and installation support",
     ],
     industries: ["Oil & Gas", "Petrochemicals"],
-    image: "/images/service-offshore.svg",
+    image: "/images/photos/service-offshore.webp",
     featured: false,
   },
   {
@@ -49,7 +49,7 @@ export const services: Service[] = [
       "Commissioning back into live service",
     ],
     industries: ["Oil & Gas", "Power Generation"],
-    image: "/images/service-brownfield.svg",
+    image: "/images/photos/service-brownfield.webp",
     featured: false,
   },
   {
@@ -69,7 +69,7 @@ export const services: Service[] = [
       "Generator buildings, cable trenches and civil works",
     ],
     industries: ["Power Generation", "Industrial Facilities"],
-    image: "/images/service-power.svg",
+    image: "/images/photos/service-power.webp",
     featured: false,
   },
   {
@@ -89,7 +89,7 @@ export const services: Service[] = [
       "Loop checking and commissioning",
     ],
     industries: ["Oil & Gas", "Petrochemicals", "Food & Beverage"],
-    image: "/images/service-instrumentation.svg",
+    image: "/images/photos/service-instrumentation.webp",
     featured: false,
   },
   {
@@ -109,7 +109,7 @@ export const services: Service[] = [
       "As-built documentation and handover",
     ],
     industries: ["Oil & Gas", "Power Generation", "Food & Beverage"],
-    image: "/images/service-automation.svg",
+    image: "/images/photos/service-automation.webp",
     featured: false,
   },
   {
@@ -129,7 +129,7 @@ export const services: Service[] = [
       "Operator-specific shutdown philosophy implementation",
     ],
     industries: ["Oil & Gas"],
-    image: "/images/service-wellhead.svg",
+    image: "/images/photos/service-wellhead.webp",
     featured: true,
   },
 ];

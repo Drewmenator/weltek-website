@@ -17,7 +17,7 @@ export function Hero() {
       {/* Industrial graphic (placeholder). Full-bleed, biased right on desktop. */}
       <div className="absolute inset-0">
         <Image
-          src="/images/hero-topside.svg"
+          src="/images/photos/hero-topside.webp"
           alt="Offshore topside facility, representative of Weltek's EPC delivery"
           fill
           priority

@@ -82,7 +82,7 @@ export default function AboutPage() {
             <div className="lg:pt-1">
               <div className="relative aspect-[4/3] overflow-hidden border border-border shadow-card">
                 <Image
-                  src="/images/about-plant.svg"
+                  src="/images/photos/about-plant.webp"
                   alt="Weltek engineers commissioning a control system on a process plant"
                   fill
                   sizes="(max-width: 1024px) 100vw, 460px"

@@ -55,7 +55,7 @@ export const projects: Project[] = [
     hseNote: "Executed under station permit-to-work and isolation procedures. [CONFIRM]",
     outcome: "[CONFIRM] Outcome metrics to be provided by Weltek.",
     relatedServices: ["instrumentation-electrical", "automation"],
-    image: "/images/project-ebendo.svg",
+    image: "/images/photos/service-instrumentation.webp",
     featured: true,
   },
   {
@@ -84,7 +84,7 @@ export const projects: Project[] = [
     hseNote: "Field installation under live-field HSE controls. [CONFIRM]",
     outcome: "[CONFIRM] Outcome metrics to be provided by Weltek.",
     relatedServices: ["wellhead-control-panels", "instrumentation-electrical"],
-    image: "/images/project-whcp.svg",
+    image: "/images/photos/service-wellhead.webp",
     featured: true,
   },
   {
@@ -113,7 +113,7 @@ export const projects: Project[] = [
     hseNote: "Live-plant permit-to-work and isolation discipline throughout. [CONFIRM]",
     outcome: "[CONFIRM] Outcome metrics to be provided by Weltek.",
     relatedServices: ["brownfield-rejuvenation", "instrumentation-electrical"],
-    image: "/images/project-cawthorne.svg",
+    image: "/images/photos/service-brownfield.webp",
     featured: true,
   },
   {
@@ -139,7 +139,7 @@ export const projects: Project[] = [
     hseNote: "Offshore HSE controls and permit systems. [CONFIRM]",
     outcome: "[CONFIRM] Outcome metrics to be provided by Weltek.",
     relatedServices: ["offshore-topside-facilities", "instrumentation-electrical"],
-    image: "/images/project-topsides.svg",
+    image: "/images/photos/service-offshore.webp",
   },
   {
     slug: "lekki-power-system-upgrade",
@@ -163,7 +163,7 @@ export const projects: Project[] = [
     hseNote: "Electrical safety and isolation procedures. [CONFIRM]",
     outcome: "[CONFIRM] Outcome metrics to be provided by Weltek.",
     relatedServices: ["power-systems", "instrumentation-electrical"],
-    image: "/images/project-lekki.svg",
+    image: "/images/photos/service-power.webp",
   },
   {
     slug: "wellhead-control-panel-asasa-va",
@@ -187,7 +187,7 @@ export const projects: Project[] = [
     hseNote: "Field HSE controls during installation. [CONFIRM]",
     outcome: "[CONFIRM] Outcome metrics to be provided by Weltek.",
     relatedServices: ["wellhead-control-panels"],
-    image: "/images/project-asasa.svg",
+    image: "/images/photos/service-wellhead.webp",
   },
   {
     slug: "cao-scada-instrumentation-system",
@@ -211,7 +211,7 @@ export const projects: Project[] = [
     hseNote: "Site HSE procedures observed. [CONFIRM]",
     outcome: "[CONFIRM] Outcome metrics to be provided by Weltek.",
     relatedServices: ["automation", "instrumentation-electrical"],
-    image: "/images/project-scada.svg",
+    image: "/images/photos/service-automation.webp",
   },
   {
     slug: "gph-33kva-power-supply",
@@ -229,7 +229,7 @@ export const projects: Project[] = [
     hseNote: "Construction HSE controls. [CONFIRM]",
     outcome: "[CONFIRM] Outcome metrics to be provided by Weltek.",
     relatedServices: ["power-systems"],
-    image: "/images/project-gph.svg",
+    image: "/images/photos/service-power.webp",
   },
 ];
 

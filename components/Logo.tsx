@@ -1,9 +1,11 @@
 import Link from "next/link";
+import Image from "next/image";
 import { cn } from "@/lib/cn";
 
 /**
- * Placeholder wordmark. Swap for the supplied Weltek logo file when provided.
- * Uses a restrained geometric mark (no gradient) plus the Archivo wordmark.
+ * Weltek lockup: the hexagon "W" mark (extracted from the brand logo) paired
+ * with the wordmark. Tone-aware — the colour mark on light surfaces, a white
+ * mark on dark (navy) surfaces.
  */
 export function Logo({
   tone = "onLight",
@@ -12,23 +14,28 @@ export function Logo({
   tone?: "onLight" | "onDark";
   className?: string;
 }) {
-  const word = tone === "onDark" ? "text-white" : "text-navy";
-  const sub = tone === "onDark" ? "text-white/60" : "text-graphite";
+  const dark = tone === "onDark";
+  const word = dark ? "text-white" : "text-navy";
+  const sub = dark ? "text-white/55" : "text-graphite";
+
   return (
     <Link
       href="/"
       aria-label="Weltek Limited home"
       className={cn("group inline-flex items-center gap-3", className)}
     >
-      <span aria-hidden className="relative block h-8 w-8 shrink-0">
-        <span className="absolute inset-0 border-2 border-bronze" />
-        <span className="absolute inset-x-1 top-1 h-[3px] bg-bronze" />
-        <span className="absolute bottom-1 left-1 h-3 w-[3px] bg-bronze" />
-      </span>
+      <Image
+        src={dark ? "/images/brand/weltek-mark-white.png" : "/images/brand/weltek-mark.png"}
+        alt=""
+        width={34}
+        height={41}
+        priority
+        className="h-10 w-auto shrink-0 transition-transform duration-300 group-hover:-translate-y-0.5"
+      />
       <span className="flex flex-col leading-none">
         <span
           className={cn(
-            "font-heading text-[1.35rem] font-bold tracking-[0.02em]",
+            "font-heading text-[1.35rem] font-bold tracking-[0.03em]",
             word
           )}
         >
@@ -36,7 +43,7 @@ export function Logo({
         </span>
         <span
           className={cn(
-            "overline mt-1 hidden text-[0.6rem] tracking-[0.28em] sm:block",
+            "overline mt-1 hidden text-[0.58rem] tracking-[0.26em] sm:block",
             sub
           )}
         >

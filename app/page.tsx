@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { Hero } from "@/components/Hero";
 import { StatStrip } from "@/components/StatStrip";
 import { CredentialsStrip } from "@/components/CredentialsStrip";
+import { ClientsStrip } from "@/components/ClientsStrip";
 import { CTASection } from "@/components/CTASection";
 import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
@@ -165,6 +166,9 @@ export default function Home() {
           </div>
         </Container>
       </section>
+
+      {/* Clients & operators */}
+      <ClientsStrip />
 
       {/* HSE / Quality */}
       <section className="bg-navy text-white">

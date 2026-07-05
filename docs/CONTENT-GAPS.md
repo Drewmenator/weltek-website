@@ -17,13 +17,12 @@ Location: `content/credentials.ts`, homepage credentials strip, HSE/Quality page
 > When a number is confirmed, set `confirm: false` and add `refNumber` on that entry in `content/credentials.ts`. The "to confirm" flag disappears automatically.
 
 ## 2. Projects (`content/projects.ts`)
-For each project: confirm permission to name the client publicly and to use any logo.
+Client **names cleared for public use (confirmed 2026-07-05).** Naming Shell/SNEPCo/SPDC, Chevron, ExxonMobil, NPDC, Energia and NGC is approved. Note: this covers names, not client **logos** — logo/trademark usage still needs separate written permission before any logo is displayed.
 
 - **Locations** for: Ebendo, OML-111/65, Cawthorne Channel, SNEPCo topsides, Lekki, Asasa VA, CAO/SCADA, GPH.
 - **Dates / durations** for each project.
 - **Outcomes / metrics** — every project currently reads `[CONFIRM] Outcome metrics to be provided`. Provide 1–2 concrete results each (uptime, schedule, panels delivered, etc.).
 - **HSE notes** — confirm the safety statement per project (currently generic + `[CONFIRM]`).
-- Confirm the client short-names are how Weltek is permitted to refer to them (e.g. "SPDC (Shell)", "SNEPCo").
 
 ## 3. Company facts
 - **Founding year** (site says 30+ years; confirm exact year for "since 19XX").

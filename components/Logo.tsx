@@ -9,9 +9,11 @@ import { cn } from "@/lib/cn";
  */
 export function Logo({
   tone = "onLight",
+  tagline = true,
   className,
 }: {
   tone?: "onLight" | "onDark";
+  tagline?: boolean;
   className?: string;
 }) {
   const dark = tone === "onDark";
@@ -41,14 +43,16 @@ export function Logo({
         >
           WELTEK
         </span>
-        <span
-          className={cn(
-            "overline mt-1 hidden text-[0.58rem] tracking-[0.26em] sm:block",
-            sub
-          )}
-        >
-          Engineering · Procurement · Construction
-        </span>
+        {tagline && (
+          <span
+            className={cn(
+              "overline mt-1 hidden whitespace-nowrap text-[0.58rem] tracking-[0.22em] sm:block",
+              sub
+            )}
+          >
+            Engineering · Procurement · Construction
+          </span>
+        )}
       </span>
     </Link>
   );

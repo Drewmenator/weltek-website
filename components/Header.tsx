@@ -41,28 +41,33 @@ export function Header() {
           : "border-b border-transparent"
       )}
     >
-      <Container className="flex h-[72px] items-center justify-between gap-4">
-        <Logo />
+      <Container className="flex h-[72px] items-center justify-between gap-6">
+        <Logo tagline={false} />
 
         {/* Desktop nav */}
-        <nav className="hidden items-center gap-7 lg:flex" aria-label="Primary">
-          {primaryNav.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              className={cn(
-                "relative py-2 text-[0.9rem] font-medium transition-colors",
-                isActive(item.href)
-                  ? "text-navy"
-                  : "text-steel hover:text-navy"
-              )}
-            >
-              {item.label}
-              {isActive(item.href) && (
-                <span className="animate-line absolute inset-x-0 -bottom-px h-[2px] bg-bronze" />
-              )}
-            </Link>
-          ))}
+        <nav className="hidden items-center gap-7 lg:flex xl:gap-9" aria-label="Primary">
+          {primaryNav.map((item) => {
+            const active = isActive(item.href);
+            return (
+              <Link
+                key={item.href}
+                href={item.href}
+                aria-current={active ? "page" : undefined}
+                className={cn(
+                  "group relative whitespace-nowrap py-2 text-[0.9rem] font-medium tracking-[0.01em] transition-colors",
+                  active ? "text-navy" : "text-steel hover:text-navy"
+                )}
+              >
+                {item.label}
+                <span
+                  className={cn(
+                    "absolute inset-x-0 -bottom-0.5 h-[2px] origin-left bg-bronze transition-transform duration-200 ease-out",
+                    active ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"
+                  )}
+                />
+              </Link>
+            );
+          })}
         </nav>
 
         <div className="hidden items-center gap-3 xl:flex">

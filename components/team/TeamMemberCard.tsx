@@ -1,13 +1,23 @@
 import Image from "next/image";
 import { type TeamMember, initials } from "@/content/team";
+import { cn } from "@/lib/cn";
 
-export function TeamMemberCard({ member }: { member: TeamMember }) {
+/**
+ * Presentational team tile: portrait (photo or initials) + name + title.
+ * Bios are shown in a modal (see TeamGrid), not inline. Pass `interactive`
+ * when the tile opens a profile so it gains hover/focus affordances.
+ */
+export function TeamMemberCard({
+  member,
+  interactive = false,
+}: {
+  member: TeamMember;
+  interactive?: boolean;
+}) {
   const monogram = initials(member.name);
 
   return (
-    <figure className="group flex flex-col">
-      {/* Portrait — real headshot, or a squared placeholder (no circles, to match
-          the industrial system). */}
+    <figure className="flex flex-col">
       <div className="relative aspect-[4/5] overflow-hidden border border-border bg-navy">
         {member.photo ? (
           <Image
@@ -15,7 +25,11 @@ export function TeamMemberCard({ member }: { member: TeamMember }) {
             alt={member.name || member.title}
             fill
             sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 280px"
-            className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+            className={cn(
+              "object-cover",
+              interactive &&
+                "transition-transform duration-500 group-hover:scale-[1.03]"
+            )}
           />
         ) : (
           <div className="flex h-full w-full items-center justify-center">
@@ -32,9 +46,19 @@ export function TeamMemberCard({ member }: { member: TeamMember }) {
             )}
           </div>
         )}
+
+        {member.photo && <span className="absolute inset-x-0 top-0 h-[3px] bg-bronze" />}
+
+        {interactive && (
+          <span className="pointer-events-none absolute inset-0 flex items-end bg-gradient-to-t from-navy/75 via-navy/10 to-transparent opacity-0 transition-opacity duration-200 group-hover:opacity-100 group-focus-visible:opacity-100">
+            <span className="p-3 text-[0.7rem] font-semibold uppercase tracking-[0.14em] text-white">
+              View profile
+            </span>
+          </span>
+        )}
       </div>
 
-      <figcaption className="mt-4">
+      <figcaption className="mt-4 text-left">
         <p className="font-heading text-[1.05rem] font-bold leading-tight text-navy">
           {member.name ? (
             <>
@@ -52,8 +76,13 @@ export function TeamMemberCard({ member }: { member: TeamMember }) {
           )}
         </p>
         <p className="mt-0.5 text-sm font-medium text-bronze">{member.title}</p>
-        {member.bio && (
-          <p className="mt-2 text-sm leading-relaxed text-steel">{member.bio}</p>
+        {interactive && (
+          <span className="mt-2 inline-flex items-center gap-1 text-sm font-semibold text-navy transition-colors group-hover:text-bronze">
+            View profile
+            <span aria-hidden className="transition-transform group-hover:translate-x-0.5">
+              →
+            </span>
+          </span>
         )}
       </figcaption>
     </figure>

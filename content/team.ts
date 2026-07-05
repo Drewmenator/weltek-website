@@ -30,7 +30,7 @@ export const team: TeamMember[] = [
     honorific: "Mr",
     title: "Managing Director",
     group: "Executive Leadership",
-    bio: "",
+    bio: "Pedro founded Weltek in 1986 and has led it since. He began his career in 1974 with Flopetrol Schlumberger, supervising wireline, well testing and flowstation production services, and his expertise spans mechanical, electrical, instrumentation and control systems integration. A past chairman of the Petroleum Technology Association of Nigeria (PETAN), he helped drive the Nigerian Content Act into law, and holds a BSc in Industrial Technology from the University of Southwestern Louisiana and an MBA from the University of Port Harcourt.",
     photo: "/images/team/pedro-egbe.webp",
   },
   {
@@ -43,9 +43,9 @@ export const team: TeamMember[] = [
   {
     name: "Sakenim Esiri",
     honorific: "Mrs",
-    title: "General Manager, Finance",
+    title: "General Manager, Finance & Operations",
     group: "General Management",
-    bio: "",
+    bio: "Sakenim is a finance and operations executive with over a decade in the engineering, procurement and construction sector, pairing deep financial expertise with hands-on leadership. As General Manager, Finance & Operations, she oversees budgeting, internal controls, risk management, compliance and team development, and has led systems upgrades, governance improvements and operational restructuring focused on sustainable growth. Known for integrity, analytical rigour and composure under pressure, she turns complex financial insight into clear strategic action.",
     photo: "/images/team/sakenim-esiri.png",
   },
   {

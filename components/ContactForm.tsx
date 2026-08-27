@@ -29,7 +29,7 @@ const vendorCategories = [
 const enquiryTypes = ["Project enquiry", "Vendor / Partner", "General enquiry"];
 
 const inputBase =
-  "w-full rounded-[3px] border border-border-strong bg-surface px-4 py-3.5 text-[16px] text-ink " +
+  "w-full rounded-card border border-border-strong bg-surface px-4 py-3.5 text-[16px] text-ink " +
   "transition-colors placeholder:text-graphite hover:border-graphite " +
   "focus:border-bronze focus:outline-none focus:ring-2 focus:ring-bronze/30";
 const labelBase = "mb-2 block text-sm font-semibold text-navy";
@@ -249,7 +249,7 @@ export function ContactForm({ variant = "general" }: { variant?: Variant }) {
       {status === "error" && (
         <p
           role="alert"
-          className="rounded-[3px] border-l-2 border-bronze bg-bronze/5 px-4 py-3 text-sm font-medium text-bronze-strong"
+          className="rounded-card border-l-2 border-bronze bg-bronze/5 px-4 py-3 text-sm font-medium text-bronze-strong"
         >
           {errorMsg}
         </p>
@@ -262,7 +262,7 @@ export function ContactForm({ variant = "general" }: { variant?: Variant }) {
         <button
           type="submit"
           disabled={status === "sending"}
-          className="inline-flex min-h-[52px] w-full items-center justify-center gap-2 rounded-[3px] bg-bronze px-8 text-[0.95rem] font-semibold text-white transition-[background-color,transform] hover:bg-bronze-strong active:translate-y-px focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-bronze focus-visible:ring-offset-2 disabled:opacity-60 sm:w-auto"
+          className="inline-flex min-h-[52px] w-full items-center justify-center gap-2 rounded-card bg-bronze px-8 text-small font-semibold text-white transition-[background-color,transform] hover:bg-bronze-strong active:translate-y-px focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-bronze focus-visible:ring-offset-2 disabled:opacity-60 sm:w-auto"
         >
           {status === "sending" ? "Sending..." : "Send message"}
           {status !== "sending" && <span aria-hidden>→</span>}

@@ -30,7 +30,7 @@ export function SectionHeading({
       )}
       <h2
         className={cn(
-          "text-[1.6rem] sm:text-[2rem]",
+          "text-[1.9rem] sm:text-section",
           tone === "onDark" && "text-white"
         )}
       >
@@ -39,7 +39,7 @@ export function SectionHeading({
       {intro && (
         <p
           className={cn(
-            "mt-4 text-[1.05rem] leading-relaxed",
+            "mt-4 text-body leading-relaxed",
             tone === "onDark" ? "text-white/75" : "text-steel"
           )}
         >

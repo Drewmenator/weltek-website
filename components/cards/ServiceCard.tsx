@@ -40,7 +40,7 @@ export function ServiceCard({
         )}
       >
         <p className="eyebrow text-bronze">{service.sector}</p>
-        <h3 className="mt-2 text-[1.25rem] font-bold text-navy">
+        <h3 className="mt-2 text-card font-bold text-navy">
           {service.title}
         </h3>
         <p className="mt-3 text-sm leading-relaxed text-steel">{service.short}</p>

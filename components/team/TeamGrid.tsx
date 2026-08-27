@@ -131,7 +131,7 @@ function TeamProfileModal({
           <div className="p-6 sm:p-8">
             <p
               id="team-profile-name"
-              className="font-heading text-[1.4rem] font-bold leading-tight text-navy"
+              className="font-heading text-subsection font-bold leading-tight text-navy"
             >
               {member.honorific && (
                 <span className="font-body text-base font-medium text-graphite">
@@ -141,7 +141,7 @@ function TeamProfileModal({
               {member.name}
             </p>
             <p className="mt-1 text-sm font-semibold text-bronze">{member.title}</p>
-            <p className="mt-5 text-[0.95rem] leading-relaxed text-steel">
+            <p className="mt-5 text-small leading-relaxed text-steel">
               {member.bio}
             </p>
           </div>

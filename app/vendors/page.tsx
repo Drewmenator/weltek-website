@@ -45,10 +45,10 @@ export default function VendorsPage() {
           <div className="mt-10 grid gap-8 sm:grid-cols-3">
             {steps.map((s) => (
               <div key={s.n} className="border-t border-border pt-5">
-                <p className="tnum font-heading text-[1.5rem] font-bold text-bronze">
+                <p className="tnum font-heading text-subsection font-bold text-bronze">
                   {s.n}
                 </p>
-                <h3 className="mt-2 text-[1.15rem] text-navy">{s.title}</h3>
+                <h3 className="mt-2 text-lead text-navy">{s.title}</h3>
                 <p className="mt-2 leading-relaxed text-steel">{s.body}</p>
               </div>
             ))}

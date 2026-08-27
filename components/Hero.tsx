@@ -54,13 +54,13 @@ export function Hero() {
               Engineering · Procurement · Construction
             </p>
             <h1
-              className="mt-6 text-balance animate-rise text-[2.5rem] leading-[1.02] text-white sm:text-[3.2rem] lg:text-[3.75rem]"
+              className="mt-6 text-balance animate-rise text-[2.5rem] leading-[1.02] text-white sm:text-[3.4rem] lg:text-display"
               style={{ animationDelay: "120ms" }}
             >
               Engineering, procurement and construction for critical energy assets.
             </h1>
             <p
-              className="mt-6 max-w-xl animate-rise text-[1.075rem] leading-relaxed text-white/75"
+              className="mt-6 max-w-xl animate-rise text-lead leading-relaxed text-white/75"
               style={{ animationDelay: "220ms" }}
             >
               Weltek delivers EPC, power systems, automation, instrumentation
@@ -84,7 +84,7 @@ export function Hero() {
             <Link
               href={film.href}
               aria-label={film.label}
-              className="group mt-5 flex animate-rise items-center gap-3 border border-white/20 bg-navy-900/40 p-2.5 lg:hidden"
+              className="group mt-5 flex animate-rise items-center gap-3 border border-white/20 bg-navy-900 p-2.5 lg:hidden"
               style={{ animationDelay: "380ms" }}
             >
               <span className="relative block h-14 w-14 shrink-0 overflow-hidden">
@@ -106,7 +106,7 @@ export function Hero() {
                 </span>
               </span>
               <span className="min-w-0">
-                <span className="eyebrow block text-[0.6rem] text-bronze-soft">
+                <span className="eyebrow block text-micro text-bronze-soft">
                   {film.eyebrow}
                 </span>
                 <span className="mt-0.5 block truncate text-sm font-semibold text-white">
@@ -142,14 +142,14 @@ export function Hero() {
                 <PlayIcon className="ml-0.5 h-5 w-5" />
               </span>
             </span>
-            <span className="block border border-t-0 border-white/15 bg-navy-900/70 p-3.5">
-              <span className="eyebrow block text-[0.62rem] text-bronze-soft">
+            <span className="block border border-t-0 border-white/15 bg-navy-900 p-3.5">
+              <span className="eyebrow block text-micro text-bronze-soft">
                 {film.eyebrow}
               </span>
               <span className="mt-1 block text-sm font-semibold text-white">
                 {film.title}
               </span>
-              <span className="mt-0.5 block text-xs text-white/60">
+              <span className="mt-0.5 block text-xs text-white/80">
                 {film.caption}
               </span>
             </span>

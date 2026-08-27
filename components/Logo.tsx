@@ -46,7 +46,7 @@ export function Logo({
         {tagline && (
           <span
             className={cn(
-              "eyebrow mt-1 hidden whitespace-nowrap text-[0.58rem] tracking-[0.22em] sm:block",
+              "eyebrow mt-1 hidden whitespace-nowrap text-micro tracking-[0.22em] sm:block",
               sub
             )}
           >

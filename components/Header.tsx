@@ -59,7 +59,7 @@ export function Header() {
                 href={item.href}
                 aria-current={active ? "page" : undefined}
                 className={cn(
-                  "group relative whitespace-nowrap py-2 text-[0.9rem] font-medium tracking-[0.01em] transition-colors",
+                  "group relative flex items-center whitespace-nowrap py-3 text-small font-medium tracking-[0.01em] transition-colors",
                   active ? "text-navy" : "text-steel hover:text-navy"
                 )}
               >
@@ -144,7 +144,7 @@ export function Header() {
                 href={item.href}
                 onClick={() => setOpen(false)}
                 className={cn(
-                  "flex min-h-[56px] items-center border-b border-border text-[1.1rem] font-medium",
+                  "flex min-h-[56px] items-center border-b border-border text-card font-medium",
                   isActive(item.href) ? "text-bronze" : "text-navy"
                 )}
               >

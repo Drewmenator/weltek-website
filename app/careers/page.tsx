@@ -54,7 +54,7 @@ export default function CareersPage() {
           <div className="mt-10 grid gap-8 sm:grid-cols-3">
             {reasons.map((r) => (
               <div key={r.title} className="border-t-2 border-bronze pt-5">
-                <h3 className="text-[1.15rem] text-navy">{r.title}</h3>
+                <h3 className="text-lead text-navy">{r.title}</h3>
                 <p className="mt-2 leading-relaxed text-steel">{r.body}</p>
               </div>
             ))}
@@ -69,7 +69,7 @@ export default function CareersPage() {
           <div className="mt-10 grid gap-x-8 gap-y-8 sm:grid-cols-2 lg:grid-cols-4">
             {roleFamilies.map((rf) => (
               <div key={rf.title} className="border border-border bg-surface p-5">
-                <h3 className="text-[1.05rem] text-navy">{rf.title}</h3>
+                <h3 className="text-body text-navy">{rf.title}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-steel">{rf.body}</p>
               </div>
             ))}

@@ -42,8 +42,8 @@ export default function IndustriesPage() {
                 </div>
               </div>
               <div className={i % 2 === 1 ? "lg:order-1" : ""}>
-                <h2 className="text-[1.6rem] sm:text-[2rem]">{industry.name}</h2>
-                <p className="mt-4 text-[1.05rem] leading-relaxed text-steel">
+                <h2 className="text-[1.9rem] sm:text-section">{industry.name}</h2>
+                <p className="mt-4 text-body leading-relaxed text-steel">
                   {industry.detail}
                 </p>
               </div>

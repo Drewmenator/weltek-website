@@ -50,7 +50,7 @@ export const services: Service[] = [
     ],
     industries: ["Oil & Gas", "Power Generation"],
     image: "/images/photos/service-brownfield.webp",
-    featured: false,
+    featured: true,
   },
   {
     slug: "power-systems",
@@ -130,7 +130,7 @@ export const services: Service[] = [
     ],
     industries: ["Oil & Gas"],
     image: "/images/photos/service-wellhead.webp",
-    featured: true,
+    featured: false,
   },
 ];
 

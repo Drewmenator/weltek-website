@@ -8,10 +8,10 @@ export default function NotFound() {
     <section className="safe-px bg-navy text-white">
       <Container className="flex min-h-[70vh] flex-col justify-center py-24">
         <p className="eyebrow text-gold">Error 404</p>
-        <h1 className="mt-4 max-w-2xl text-[2rem] text-white sm:text-[2.8rem]">
+        <h1 className="mt-4 max-w-2xl text-[2rem] text-white sm:text-title">
           That page could not be found.
         </h1>
-        <p className="mt-5 max-w-xl text-[1.05rem] leading-relaxed text-white/80">
+        <p className="mt-5 max-w-xl text-body leading-relaxed text-white/80">
           The page may have moved or the link may be out of date. Use the links
           below, or head back to the homepage.
         </p>

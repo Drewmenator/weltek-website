@@ -38,7 +38,7 @@ export function ClientsStrip() {
                   className="h-7 w-auto"
                 />
                 {c.label && (
-                  <span className="font-heading text-[1.05rem] font-bold tracking-wide text-navy">
+                  <span className="font-heading text-body font-bold tracking-wide text-navy">
                     {c.label}
                   </span>
                 )}

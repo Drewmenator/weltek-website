@@ -33,13 +33,13 @@ export function Footer() {
 
           {/* Services */}
           <nav aria-label="Services">
-            <h2 className="eyebrow text-white/45">Services</h2>
-            <ul className="mt-5 space-y-3">
+            <h2 className="eyebrow text-white/60">Services</h2>
+            <ul className="mt-5 space-y-1">
               {services.map((s) => (
                 <li key={s.slug}>
                   <Link
                     href={`/services/${s.slug}`}
-                    className="text-sm text-white/70 transition-colors hover:text-white"
+                    className="inline-flex min-h-[28px] items-center text-sm text-white/70 transition-colors hover:text-white"
                   >
                     {s.title}
                   </Link>
@@ -51,13 +51,13 @@ export function Footer() {
           {/* Company */}
           {company && (
             <nav aria-label="Company">
-              <h2 className="eyebrow text-white/45">Company</h2>
-              <ul className="mt-5 space-y-3">
+              <h2 className="eyebrow text-white/60">Company</h2>
+              <ul className="mt-5 space-y-1">
                 {company.items.map((item) => (
                   <li key={item.href}>
                     <Link
                       href={item.href}
-                      className="text-sm text-white/70 transition-colors hover:text-white"
+                      className="inline-flex min-h-[28px] items-center text-sm text-white/70 transition-colors hover:text-white"
                     >
                       {item.label}
                     </Link>
@@ -66,7 +66,7 @@ export function Footer() {
                 <li>
                   <Link
                     href="/projects"
-                    className="text-sm text-white/70 transition-colors hover:text-white"
+                    className="inline-flex min-h-[28px] items-center text-sm text-white/70 transition-colors hover:text-white"
                   >
                     Projects
                   </Link>
@@ -74,7 +74,7 @@ export function Footer() {
                 <li>
                   <Link
                     href="/industries"
-                    className="text-sm text-white/70 transition-colors hover:text-white"
+                    className="inline-flex min-h-[28px] items-center text-sm text-white/70 transition-colors hover:text-white"
                   >
                     Industries
                   </Link>
@@ -85,7 +85,7 @@ export function Footer() {
 
           {/* Contact */}
           <div>
-            <h2 className="eyebrow text-white/45">Contact</h2>
+            <h2 className="eyebrow text-white/60">Contact</h2>
             <ul className="mt-5 space-y-5 text-sm">
               {site.offices.map((office) => (
                 <li key={office.label}>

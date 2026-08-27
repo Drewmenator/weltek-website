@@ -59,7 +59,7 @@ export default function HsePage() {
                 delay={(i % 2) * 90}
                 className="border-t-2 border-bronze pt-5"
               >
-                <h2 className="text-[1.3rem] text-navy">{p.title}</h2>
+                <h2 className="text-subsection text-navy">{p.title}</h2>
                 <p className="mt-3 leading-relaxed text-steel">{p.body}</p>
               </Reveal>
             ))}
@@ -78,12 +78,12 @@ export default function HsePage() {
           <ul className="mt-12 grid gap-x-8 gap-y-8 sm:grid-cols-2 lg:grid-cols-3">
             {credentials.map((c) => (
               <li key={c.label} className="border border-border bg-surface p-6">
-                <p className="font-heading text-[1.15rem] font-bold text-navy">
+                <p className="font-heading text-lead font-bold text-navy">
                   {c.label}
                 </p>
                 <p className="mt-2 text-sm leading-relaxed text-steel">{c.detail}</p>
                 {!c.confirm && c.refNumber && (
-                  <p className="mt-3 text-[0.7rem] font-semibold uppercase tracking-wide text-bronze">
+                  <p className="mt-3 text-micro font-semibold uppercase tracking-wide text-bronze">
                     {c.refNumber}
                   </p>
                 )}

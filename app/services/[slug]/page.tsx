@@ -61,13 +61,13 @@ export default async function ServiceDetailPage({
             {service.sector}
           </p>
           <h1
-            className="mt-4 max-w-3xl animate-rise text-balance text-[2rem] leading-[1.06] text-white sm:text-[2.7rem]"
+            className="mt-4 max-w-3xl animate-rise text-balance text-[2rem] leading-[1.06] text-white sm:text-title"
             style={{ animationDelay: "120ms" }}
           >
             {service.title}
           </h1>
           <p
-            className="mt-5 max-w-2xl animate-rise text-[1.08rem] leading-relaxed text-white/80"
+            className="mt-5 max-w-2xl animate-rise text-lead leading-relaxed text-white/80"
             style={{ animationDelay: "220ms" }}
           >
             {service.intro}
@@ -89,10 +89,10 @@ export default async function ServiceDetailPage({
       <Container className="py-16 lg:py-24">
         <div className="grid gap-12 lg:grid-cols-[2fr_1fr] lg:gap-16">
           <div className="max-w-2xl">
-            <h2 className="text-[1.4rem]">Our capability</h2>
+            <h2 className="text-subsection">Our capability</h2>
             <p className="mt-4 leading-relaxed text-steel">{service.capability}</p>
 
-            <h2 className="mt-10 text-[1.4rem]">Typical deliverables</h2>
+            <h2 className="mt-10 text-subsection">Typical deliverables</h2>
             <ol className="mt-5 divide-y divide-border border-t border-border">
               {service.deliverables.map((d, i) => (
                 <li key={d} className="flex gap-4 py-3.5 text-steel">
@@ -155,7 +155,7 @@ export default async function ServiceDetailPage({
 
         {relatedProjects.length > 0 && (
           <div className="mt-16 border-t border-border pt-12">
-            <h2 className="text-[1.4rem]">Related projects</h2>
+            <h2 className="text-subsection">Related projects</h2>
             <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
               {relatedProjects.map((p) => (
                 <ProjectCard key={p.slug} project={p} />

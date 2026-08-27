@@ -49,11 +49,11 @@ export default function AboutPage() {
           <div className="grid gap-12 lg:grid-cols-[1.15fr_0.85fr] lg:items-start lg:gap-16">
             <div>
               <p className="eyebrow text-bronze">Who we are</p>
-              <h2 className="mt-3 text-balance text-[1.7rem] sm:text-[2.1rem]">
+              <h2 className="mt-3 text-balance text-[1.9rem] sm:text-section">
                 An engineering-led EPC company built on three decades of field
                 delivery.
               </h2>
-              <div className="mt-6 space-y-4 text-[1.05rem] leading-relaxed text-steel">
+              <div className="mt-6 space-y-4 text-body leading-relaxed text-steel">
                 <p>
                   Weltek is an Engineering, Procurement and Construction company
                   that provides specialised services to the oil and gas, power
@@ -133,7 +133,7 @@ export default function AboutPage() {
                     0{i + 1}
                   </span>
                   <div>
-                    <h3 className="text-[1.2rem] text-navy">{v.title}</h3>
+                    <h3 className="text-lead text-navy">{v.title}</h3>
                     <p className="mt-2 leading-relaxed text-steel">{v.body}</p>
                   </div>
                 </div>

@@ -13,12 +13,12 @@ export function CredentialsStrip({ className }: { className?: string }) {
               key={c.label}
               className="min-w-[8.5rem] shrink-0 snap-start border-t-2 border-bronze pt-3 lg:min-w-0"
             >
-              <p className="font-heading text-[1.05rem] font-bold text-navy">
+              <p className="font-heading text-body font-bold text-navy">
                 {c.label}
               </p>
               <p className="mt-1 text-xs leading-snug text-graphite">{c.detail}</p>
               {!c.confirm && c.refNumber && (
-                <p className="mt-2 text-[0.7rem] font-semibold text-steel">
+                <p className="mt-2 text-micro font-semibold text-steel">
                   {c.refNumber}
                 </p>
               )}

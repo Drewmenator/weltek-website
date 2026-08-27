@@ -10,7 +10,7 @@ function Field({ label, value }: { label: string; value: string }) {
   return (
     <div>
       <dt className="eyebrow text-graphite">{label}</dt>
-      <dd className="mt-1 text-[0.95rem] font-medium text-navy">{value}</dd>
+      <dd className="mt-1 text-small font-medium text-navy">{value}</dd>
     </div>
   );
 }
@@ -41,13 +41,13 @@ export function CaseStudyTemplate({ project }: { project: Project }) {
             {project.serviceType}
           </p>
           <h1
-            className="mt-4 max-w-3xl animate-rise text-balance text-[1.9rem] leading-[1.08] text-white sm:text-[2.5rem]"
+            className="mt-4 max-w-3xl animate-rise text-balance text-[2rem] leading-[1.08] text-white sm:text-title"
             style={{ animationDelay: "120ms" }}
           >
             {project.title}
           </h1>
           <p
-            className="mt-5 max-w-2xl animate-rise text-[1.08rem] leading-relaxed text-white/80"
+            className="mt-5 max-w-2xl animate-rise text-lead leading-relaxed text-white/80"
             style={{ animationDelay: "220ms" }}
           >
             Delivered for {project.client}.
@@ -73,12 +73,12 @@ export function CaseStudyTemplate({ project }: { project: Project }) {
         <div className="grid gap-12 lg:grid-cols-[2fr_1fr] lg:gap-16">
           <div className="max-w-2xl">
             <section>
-              <h2 className="text-[1.4rem]">The challenge</h2>
+              <h2 className="text-subsection">The challenge</h2>
               <p className="mt-3 leading-relaxed text-steel">{project.challenge}</p>
             </section>
 
             <section className="mt-10">
-              <h2 className="text-[1.4rem]">Scope of work</h2>
+              <h2 className="text-subsection">Scope of work</h2>
               <ol className="mt-5 divide-y divide-border border-t border-border">
                 {project.work.map((w, i) => (
                   <li key={w} className="flex gap-4 py-3.5 text-steel">
@@ -92,12 +92,12 @@ export function CaseStudyTemplate({ project }: { project: Project }) {
             </section>
 
             <section className="mt-10">
-              <h2 className="text-[1.4rem]">Weltek&rsquo;s role</h2>
+              <h2 className="text-subsection">Weltek&rsquo;s role</h2>
               <p className="mt-3 leading-relaxed text-steel">{project.role}</p>
             </section>
 
             <section className="mt-10">
-              <h2 className="text-[1.4rem]">Execution highlights</h2>
+              <h2 className="text-subsection">Execution highlights</h2>
               <ul className="mt-4 space-y-2">
                 {project.highlights.map((h) => (
                   <li key={h} className="flex gap-3 text-steel">
@@ -111,7 +111,7 @@ export function CaseStudyTemplate({ project }: { project: Project }) {
             {/* HSE note and outcome render only once Weltek confirms them. */}
             {project.hseNote && (
               <section className="mt-10 border-l-2 border-bronze bg-surface-alt p-5">
-                <h2 className="text-[1.1rem]">HSE &amp; quality</h2>
+                <h2 className="text-card">HSE &amp; quality</h2>
                 <p className="mt-2 text-sm leading-relaxed text-steel">
                   {project.hseNote}
                 </p>

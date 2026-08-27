@@ -25,7 +25,7 @@ export default function ContactPage() {
         <Container className="grid gap-12 py-16 lg:grid-cols-[1fr_1.3fr] lg:gap-16 lg:py-24">
           {/* Details */}
           <div>
-            <h2 className="text-[1.4rem]">Our offices</h2>
+            <h2 className="text-subsection">Our offices</h2>
             <div className="mt-6 space-y-8">
               {site.offices.map((office) => (
                 <div key={office.label} className="border-t border-border pt-5">
@@ -69,7 +69,7 @@ export default function ContactPage() {
 
           {/* Form */}
           <div>
-            <h2 className="text-[1.4rem]">Send a message</h2>
+            <h2 className="text-subsection">Send a message</h2>
             <p className="mt-2 text-steel">
               Fields marked as required must be completed. We aim to respond
               within two business days.

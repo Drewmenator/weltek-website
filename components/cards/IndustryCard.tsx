@@ -27,7 +27,7 @@ export function IndustryCard({
       />
       <div className="absolute inset-0 bg-gradient-to-t from-navy-900 via-navy-900/45 to-navy-900/5" />
       <div className="relative p-6">
-        <h3 className="text-[1.25rem] font-bold text-white">{industry.name}</h3>
+        <h3 className="text-card font-bold text-white">{industry.name}</h3>
         <p className="mt-2 text-sm leading-relaxed text-white/70">
           {industry.blurb}
         </p>

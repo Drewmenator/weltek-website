@@ -79,7 +79,10 @@ export default function Home() {
               </Button>
             </div>
           </Reveal>
-          <Reveal delay={80} className="relative min-h-[20rem] overflow-hidden border border-border lg:min-h-full">
+          {/* Captioned rather than decorative. Naming what the photograph
+              actually shows turns it into evidence for the live-plant claim,
+              which is the one thing this site is built to prove. */}
+          <Reveal delay={80} className="relative min-h-[22rem] overflow-hidden border border-border lg:min-h-full">
             <Image
               src="/images/photos/weltek-panel-commissioning.webp"
               alt="Weltek engineer commissioning a control panel in the field"
@@ -87,6 +90,12 @@ export default function Home() {
               sizes="(max-width: 1024px) 100vw, 560px"
               className="object-cover"
             />
+            <div className="absolute inset-x-0 bottom-0 border-t-2 border-bronze bg-navy-900/92 p-4">
+              <span className="eyebrow block text-bronze-soft">In the field</span>
+              <span className="mt-1 block text-small text-white">
+                Commissioning a control panel on a producing plant.
+              </span>
+            </div>
           </Reveal>
         </Container>
       </section>

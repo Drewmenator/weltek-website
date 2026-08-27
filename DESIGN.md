@@ -154,6 +154,14 @@ the HSE section, and its lead claim is now the featured brownfield card.
   not apply in dev while the production build is correct. If a token change is
   not showing, `rm -rf .next/dev .next/cache` and restart before debugging it.
 
+## Parked, not deleted
+
+The "Company film" card (eyebrow *Company film*, title *Watch the Weltek story*,
+caption *Three decades of delivery on Nigerian fields*) was removed rather than
+relocated, because with the play control gone there was no card left, only a
+photograph. Restore it as a real player, not a link, once a film exists: embed
+or modal, poster frame, captions. It should not go back in the hero.
+
 ## Known trade-off
 
 The homepage is roughly 6,600px against a peer range of 5,242 to 5,543. Removing
@@ -173,3 +181,6 @@ one, and it has not been made.
 | 2026-08-26 | Clients strip moved to position 2 | Strongest credibility signal was the smallest, most buried element |
 | 2026-08-26 | "Why Weltek" section removed | Restated services and HSE; lead claim became the featured card |
 | 2026-08-26 | Lead tiles on services and projects | Fourteen identical rectangles gave the reader no entry point |
+| 2026-08-26 | Film card removed from the hero | It sat on the only part of the hero photograph the gradient was built to reveal, and was a photo inside a photo |
+| 2026-08-26 | Play control retired site-wide | There is no video asset anywhere in the repo; the control navigated to a text page, which is a false affordance |
+| 2026-08-26 | "Who we are" photo captioned | Naming what it shows turns a decorative image into evidence for the live-plant claim |

@@ -92,8 +92,7 @@ body {
 /* ------------------------------------------------------------------ */
 /* Utilities — mobile viewport + safe-area (iOS/Android)               */
 /* ------------------------------------------------------------------ */
-@utility h-dvh {
-  min-height: 100svh;
+@utility min-h-viewport {
   min-height: 100dvh;
 }
 @utility safe-pt { padding-top: env(safe-area-inset-top); }
@@ -103,8 +102,8 @@ body {
   padding-right: env(safe-area-inset-right);
 }
 
-/* Eyebrow / overline */
-@utility overline {
+/* Eyebrow / overline label */
+@utility eyebrow {
   font-family: var(--font-heading);
   text-transform: uppercase;
   letter-spacing: 0.14em;

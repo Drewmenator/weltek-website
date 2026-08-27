@@ -24,7 +24,7 @@ export function SectionHeading({
       )}
     >
       {eyebrow && (
-        <p className={cn("overline mb-3 text-bronze", tone === "onDark" && "text-gold")}>
+        <p className={cn("eyebrow mb-3 text-bronze", tone === "onDark" && "text-gold")}>
           {eyebrow}
         </p>
       )}

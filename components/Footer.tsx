@@ -5,7 +5,7 @@ import { footerNav, site } from "@/lib/site";
 import { services } from "@/content/services";
 
 export function Footer() {
-  const year = 2026; // static build; update annually [CONFIRM cadence]
+  const year = 2026; // static build; revisit each January
   const company = footerNav.find((c) => c.title === "Company");
 
   return (
@@ -15,7 +15,7 @@ export function Footer() {
         <div className="grid gap-12 lg:grid-cols-[1.5fr_1fr_0.9fr_1.3fr]">
           {/* Brand + capability CTA */}
           <div>
-            <Logo tone="onDark" />
+            <Logo tone="onDark" tagline={false} />
             <p className="mt-6 max-w-xs text-sm leading-relaxed text-white/65">
               A Nigerian EPC company delivering offshore, onshore and swamp
               projects for the oil and gas, power and process industries to a
@@ -33,7 +33,7 @@ export function Footer() {
 
           {/* Services */}
           <nav aria-label="Services">
-            <h2 className="overline text-white/45">Services</h2>
+            <h2 className="eyebrow text-white/45">Services</h2>
             <ul className="mt-5 space-y-3">
               {services.map((s) => (
                 <li key={s.slug}>
@@ -51,7 +51,7 @@ export function Footer() {
           {/* Company */}
           {company && (
             <nav aria-label="Company">
-              <h2 className="overline text-white/45">Company</h2>
+              <h2 className="eyebrow text-white/45">Company</h2>
               <ul className="mt-5 space-y-3">
                 {company.items.map((item) => (
                   <li key={item.href}>
@@ -85,7 +85,7 @@ export function Footer() {
 
           {/* Contact */}
           <div>
-            <h2 className="overline text-white/45">Contact</h2>
+            <h2 className="eyebrow text-white/45">Contact</h2>
             <ul className="mt-5 space-y-5 text-sm">
               {site.offices.map((office) => (
                 <li key={office.label}>

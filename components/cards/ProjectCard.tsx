@@ -31,7 +31,7 @@ export function ProjectCard({
         </span>
       </div>
       <div className="flex flex-1 flex-col p-6">
-        <p className="overline text-bronze">{project.serviceType}</p>
+        <p className="eyebrow text-bronze">{project.serviceType}</p>
         <h3 className="mt-2 text-[1.18rem] font-bold leading-snug text-navy">
           {project.title}
         </h3>

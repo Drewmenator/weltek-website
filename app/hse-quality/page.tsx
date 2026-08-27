@@ -73,7 +73,7 @@ export default function HsePage() {
           <SectionHeading
             eyebrow="Standards & certifications"
             title="Credentials that support shortlisting"
-            intro="Registration and certification numbers are being confirmed for publication. Contact us for current certificates."
+            intro="Contact us for current copies of our registrations and certificates."
           />
           <ul className="mt-12 grid gap-x-8 gap-y-8 sm:grid-cols-2 lg:grid-cols-3">
             {credentials.map((c) => (
@@ -82,16 +82,22 @@ export default function HsePage() {
                   {c.label}
                 </p>
                 <p className="mt-2 text-sm leading-relaxed text-steel">{c.detail}</p>
-                <p className="mt-3 text-[0.7rem] font-semibold uppercase tracking-wide text-bronze">
-                  {c.confirm ? "Registration / cert no. to confirm" : c.refNumber}
-                </p>
+                {!c.confirm && c.refNumber && (
+                  <p className="mt-3 text-[0.7rem] font-semibold uppercase tracking-wide text-bronze">
+                    {c.refNumber}
+                  </p>
+                )}
               </li>
             ))}
           </ul>
         </Container>
       </section>
 
-      <CTASection variant="navy" />
+      <CTASection
+        variant="navy"
+        heading="Deliver your next scope safely"
+        body="Send us your scope. We will plan and execute it with the same HSE discipline, offshore, on land or in the swamp."
+      />
     </>
   );
 }

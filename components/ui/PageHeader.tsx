@@ -23,10 +23,9 @@ export function PageHeader({
         )}
         {eyebrow && (
           <p
-            className="overline animate-rise flex items-center gap-3 text-bronze-soft"
+            className="eyebrow animate-rise text-bronze-soft"
             style={{ animationDelay: "40ms" }}
           >
-            <span aria-hidden className="animate-line h-px w-8 bg-bronze" style={{ animationDelay: "140ms" }} />
             {eyebrow}
           </p>
         )}

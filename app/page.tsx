@@ -84,7 +84,7 @@ export default function Home() {
       <section className="bg-surface">
         <Container className="grid gap-12 py-20 lg:grid-cols-2 lg:gap-16 lg:py-28">
           <Reveal>
-            <p className="overline text-bronze">Who we are</p>
+            <p className="eyebrow text-bronze">Who we are</p>
             <h2 className="mt-3 text-[1.7rem] sm:text-[2.1rem]">
               An engineering-led EPC company built on three decades of field
               delivery.
@@ -111,8 +111,8 @@ export default function Home() {
           </Reveal>
           <Reveal delay={80} className="relative min-h-[20rem] overflow-hidden border border-border lg:min-h-full">
             <Image
-              src="/images/about-plant.svg"
-              alt="Weltek engineers commissioning a control system on a process plant"
+              src="/images/photos/weltek-panel-commissioning.webp"
+              alt="Weltek engineer commissioning a control panel in the field"
               fill
               sizes="(max-width: 1024px) 100vw, 560px"
               className="object-cover"

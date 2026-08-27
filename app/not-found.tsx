@@ -7,7 +7,7 @@ export default function NotFound() {
   return (
     <section className="safe-px bg-navy text-white">
       <Container className="flex min-h-[70vh] flex-col justify-center py-24">
-        <p className="overline text-gold">Error 404</p>
+        <p className="eyebrow text-gold">Error 404</p>
         <h1 className="mt-4 max-w-2xl text-[2rem] text-white sm:text-[2.8rem]">
           That page could not be found.
         </h1>

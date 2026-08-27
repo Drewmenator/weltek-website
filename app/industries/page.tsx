@@ -52,7 +52,11 @@ export default function IndustriesPage() {
         </Container>
       </section>
 
-      <CTASection variant="navy" />
+      <CTASection
+        variant="navy"
+        heading="Working in one of these sectors?"
+        body="Send us your scope. We will respond with the right engineering and field team for your industry."
+      />
     </>
   );
 }

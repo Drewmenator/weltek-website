@@ -48,7 +48,7 @@ export default function AboutPage() {
         <Container className="py-16 lg:py-24">
           <div className="grid gap-12 lg:grid-cols-[1.15fr_0.85fr] lg:items-start lg:gap-16">
             <div>
-              <p className="overline text-bronze">Who we are</p>
+              <p className="eyebrow text-bronze">Who we are</p>
               <h2 className="mt-3 text-balance text-[1.7rem] sm:text-[2.1rem]">
                 An engineering-led EPC company built on three decades of field
                 delivery.
@@ -91,7 +91,7 @@ export default function AboutPage() {
               </div>
               <div className="mt-6 grid gap-px border border-border bg-border">
                 <div className="bg-surface p-6">
-                  <h3 className="overline text-bronze">Our mission</h3>
+                  <h3 className="eyebrow text-bronze">Our mission</h3>
                   <p className="mt-2 leading-relaxed text-navy">
                     To design, build and operate industrial plants and
                     infrastructure using current technology and high-calibre
@@ -99,7 +99,7 @@ export default function AboutPage() {
                   </p>
                 </div>
                 <div className="bg-surface p-6">
-                  <h3 className="overline text-bronze">Our vision</h3>
+                  <h3 className="eyebrow text-bronze">Our vision</h3>
                   <p className="mt-2 leading-relaxed text-navy">
                     To be a leading EPC company in Nigerian oil and gas,
                     refining, petrochemical, power, water, food and beverage and

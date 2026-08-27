@@ -87,10 +87,6 @@ export default function CareersPage() {
                 title="Submit your details for future roles"
                 intro="There are no published vacancies at the moment. Send your details and role family, and we will contact you when a suitable position opens."
               />
-              <p className="mt-6 rounded-[4px] border border-dashed border-border bg-surface-alt p-4 text-sm text-graphite">
-                [CONFIRM] Current vacancy list to be provided by Weltek HR when
-                roles are open.
-              </p>
             </div>
             <div>
               <ContactForm variant="careers" />

@@ -65,10 +65,6 @@ export default function VendorsPage() {
                 title="Register as a vendor or partner"
                 intro="Complete the form and our procurement team will follow up. Supplier compliance documents will be requested during onboarding."
               />
-              <p className="mt-6 rounded-[4px] border border-dashed border-border bg-surface p-4 text-sm text-graphite">
-                [CONFIRM] Supplier compliance document checklist and procurement
-                contact email to be provided by Weltek.
-              </p>
             </div>
             <div>
               <ContactForm variant="vendor" />

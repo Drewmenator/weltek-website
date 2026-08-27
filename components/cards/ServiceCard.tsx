@@ -39,7 +39,7 @@ export function ServiceCard({
           featured && "sm:justify-center sm:p-9"
         )}
       >
-        <p className="overline text-bronze">{service.sector}</p>
+        <p className="eyebrow text-bronze">{service.sector}</p>
         <h3 className="mt-2 text-[1.25rem] font-bold text-navy">
           {service.title}
         </h3>

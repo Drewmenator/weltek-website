@@ -35,23 +35,22 @@ export function Header() {
   return (
     <header
       className={cn(
-        "sticky top-0 z-50 safe-px bg-surface transition-shadow duration-200",
+        "sticky top-0 z-50 safe-px transition-shadow duration-200",
         scrolled || open
           ? "border-b border-border shadow-[0_10px_30px_-24px_rgba(14,42,59,0.5)]"
           : "border-b border-transparent"
       )}
     >
+      <span
+        aria-hidden
+        className="absolute inset-0 -z-10 bg-surface backdrop-blur-md transition-colors duration-200"
+      />
       <span aria-hidden className="absolute inset-x-0 top-0 h-[2px] bg-bronze" />
-      <Container
-        className={cn(
-          "flex items-center justify-between gap-6 transition-[height] duration-200",
-          scrolled ? "h-[72px] lg:h-[60px]" : "h-[72px]"
-        )}
-      >
+      <Container className="flex h-[72px] items-center justify-between gap-6">
         <Logo tagline={false} />
 
         {/* Desktop nav */}
-        <nav className="hidden items-center gap-7 lg:flex xl:gap-9" aria-label="Primary">
+        <nav className="hidden items-center gap-5 lg:flex xl:gap-9" aria-label="Primary">
           {primaryNav.map((item) => {
             const active = isActive(item.href);
             return (
@@ -76,10 +75,9 @@ export function Header() {
           })}
         </nav>
 
-        <div className="hidden items-center gap-3 xl:flex">
-          <Button href={site.capabilityStatement} download variant="secondary">
-            Capability Statement
-          </Button>
+        {/* One primary action only. A second desktop button pushed the row 31px
+            past the 1200px container, squeezing the logo into the nav. */}
+        <div className="hidden items-center lg:flex">
           <Button href="/contact" variant="primary">
             Request a Proposal
           </Button>
@@ -91,7 +89,7 @@ export function Header() {
           aria-label={open ? "Close menu" : "Open menu"}
           aria-expanded={open}
           onClick={() => setOpen((v) => !v)}
-          className="flex h-11 w-11 items-center justify-center xl:hidden"
+          className="flex h-11 w-11 cursor-pointer items-center justify-center lg:hidden"
         >
           <span className="relative block h-4 w-6">
             <span
@@ -119,7 +117,7 @@ export function Header() {
       {/* Mobile drawer */}
       <div
         className={cn(
-          "fixed inset-x-0 bottom-0 top-[72px] z-40 xl:hidden",
+          "fixed inset-x-0 bottom-0 top-[72px] z-40 lg:hidden",
           open ? "pointer-events-auto" : "pointer-events-none"
         )}
         aria-hidden={!open}

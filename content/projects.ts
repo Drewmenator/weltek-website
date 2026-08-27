@@ -11,18 +11,19 @@ export type Project = {
   slug: string;
   title: string;
   client: string;
-  location: string;
+  /** Optional until Weltek confirms. Omitted fields are simply not rendered. */
+  location?: string;
   sector: string;
   serviceType: string;
   filters: ProjectFilter[];
   scope: string;
-  // Case-study fields. Outcomes are placeholders until confirmed by Weltek.
+  // Case-study fields.
   challenge: string;
   work: string[];
   role: string;
   highlights: string[];
-  hseNote: string;
-  outcome: string; // [CONFIRM]
+  hseNote?: string;
+  outcome?: string;
   relatedServices: string[]; // service slugs
   image: string;
   featured?: boolean;
@@ -33,7 +34,6 @@ export const projects: Project[] = [
     slug: "ebendo-integrated-metering-system",
     title: "Ebendo Flow Station Integrated Metering System",
     client: "Energia",
-    location: "Ebendo Field, Nigeria [CONFIRM]",
     sector: "Oil & Gas",
     serviceType: "EPC · Instrumentation & Electrical",
     filters: ["Oil & Gas", "I&E", "EPC"],
@@ -52,8 +52,6 @@ export const projects: Project[] = [
       "Integrated metering into a producing flow station",
       "In-house instrumentation and electrical execution",
     ],
-    hseNote: "Executed under station permit-to-work and isolation procedures. [CONFIRM]",
-    outcome: "[CONFIRM] Outcome metrics to be provided by Weltek.",
     relatedServices: ["instrumentation-electrical", "automation"],
     image: "/images/photos/service-instrumentation.webp",
     featured: true,
@@ -62,7 +60,6 @@ export const projects: Project[] = [
     slug: "wellhead-control-panels-oml-111-65",
     title: "7 Wellhead Control Panels for OML-111/65",
     client: "NPDC",
-    location: "OML-111 / OML-65, Nigeria [CONFIRM]",
     sector: "Oil & Gas",
     serviceType: "Wellhead Control Panels",
     filters: ["Oil & Gas", "Wellhead Control Panels", "EPC"],
@@ -81,8 +78,6 @@ export const projects: Project[] = [
       "Seven panels delivered to a single shutdown philosophy",
       "In-house fabrication and function testing",
     ],
-    hseNote: "Field installation under live-field HSE controls. [CONFIRM]",
-    outcome: "[CONFIRM] Outcome metrics to be provided by Weltek.",
     relatedServices: ["wellhead-control-panels", "instrumentation-electrical"],
     image: "/images/photos/service-wellhead.webp",
     featured: true,
@@ -91,7 +86,6 @@ export const projects: Project[] = [
     slug: "cawthorne-channel-flow-station-revamp",
     title: "Cawthorne Channel Flow Station Revamp",
     client: "SPDC (Shell)",
-    location: "Cawthorne Channel, Rivers State [CONFIRM]",
     sector: "Oil & Gas",
     serviceType: "Brownfield Rejuvenation",
     filters: ["Oil & Gas", "Brownfield", "EPC"],
@@ -110,8 +104,6 @@ export const projects: Project[] = [
       "Modifications carried out on a producing facility",
       "Phased tie-ins to protect production",
     ],
-    hseNote: "Live-plant permit-to-work and isolation discipline throughout. [CONFIRM]",
-    outcome: "[CONFIRM] Outcome metrics to be provided by Weltek.",
     relatedServices: ["brownfield-rejuvenation", "instrumentation-electrical"],
     image: "/images/photos/service-brownfield.webp",
     featured: true,
@@ -120,7 +112,6 @@ export const projects: Project[] = [
     slug: "topsides-facilities-snepco",
     title: "Topsides Facilities Installation & Commissioning",
     client: "SNEPCo (Shell)",
-    location: "Offshore Nigeria [CONFIRM]",
     sector: "Oil & Gas",
     serviceType: "EPC · Offshore Topside Facilities",
     filters: ["Oil & Gas", "EPC", "I&E"],
@@ -136,8 +127,6 @@ export const projects: Project[] = [
     ],
     role: "Installation and commissioning contractor for topside facilities.",
     highlights: ["Offshore topside execution", "In-house I&E scope"],
-    hseNote: "Offshore HSE controls and permit systems. [CONFIRM]",
-    outcome: "[CONFIRM] Outcome metrics to be provided by Weltek.",
     relatedServices: ["offshore-topside-facilities", "instrumentation-electrical"],
     image: "/images/photos/service-offshore.webp",
   },
@@ -145,7 +134,6 @@ export const projects: Project[] = [
     slug: "lekki-power-system-upgrade",
     title: "Lekki Power System Upgrade",
     client: "Chevron",
-    location: "Lekki, Lagos [CONFIRM]",
     sector: "Power",
     serviceType: "Power Systems",
     filters: ["Power", "EPC"],
@@ -160,8 +148,6 @@ export const projects: Project[] = [
     ],
     role: "Power systems upgrade contractor.",
     highlights: ["Distribution and switchgear upgrade", "Executed around live operations"],
-    hseNote: "Electrical safety and isolation procedures. [CONFIRM]",
-    outcome: "[CONFIRM] Outcome metrics to be provided by Weltek.",
     relatedServices: ["power-systems", "instrumentation-electrical"],
     image: "/images/photos/service-power.webp",
   },
@@ -169,7 +155,6 @@ export const projects: Project[] = [
     slug: "wellhead-control-panel-asasa-va",
     title: "12-Module Wellhead Control Panel, Asasa VA",
     client: "ExxonMobil",
-    location: "Asasa VA, Nigeria [CONFIRM]",
     sector: "Oil & Gas",
     serviceType: "Wellhead Control Panels",
     filters: ["Oil & Gas", "Wellhead Control Panels"],
@@ -184,8 +169,6 @@ export const projects: Project[] = [
     ],
     role: "Design, fabrication and commissioning contractor.",
     highlights: ["12 modules in a single panel", "In-house function testing"],
-    hseNote: "Field HSE controls during installation. [CONFIRM]",
-    outcome: "[CONFIRM] Outcome metrics to be provided by Weltek.",
     relatedServices: ["wellhead-control-panels"],
     image: "/images/photos/service-wellhead.webp",
   },
@@ -193,7 +176,6 @@ export const projects: Project[] = [
     slug: "cao-scada-instrumentation-system",
     title: "Electronic Instrumentation System for CAO / SCADA",
     client: "SPDC (Shell)",
-    location: "Nigeria [CONFIRM]",
     sector: "Oil & Gas",
     serviceType: "Automation · Instrumentation",
     filters: ["Oil & Gas", "Automation", "I&E"],
@@ -208,8 +190,6 @@ export const projects: Project[] = [
     ],
     role: "Instrumentation and automation contractor.",
     highlights: ["Field instrumentation for SCADA", "Automation integration"],
-    hseNote: "Site HSE procedures observed. [CONFIRM]",
-    outcome: "[CONFIRM] Outcome metrics to be provided by Weltek.",
     relatedServices: ["automation", "instrumentation-electrical"],
     image: "/images/photos/service-automation.webp",
   },
@@ -217,7 +197,6 @@ export const projects: Project[] = [
     slug: "gph-33kva-power-supply",
     title: "33kVA Power Supply Installation",
     client: "GPH City Development Authority",
-    location: "Port Harcourt, Rivers State [CONFIRM]",
     sector: "Power",
     serviceType: "Power Systems",
     filters: ["Power", "EPC"],
@@ -226,8 +205,6 @@ export const projects: Project[] = [
     work: ["Power supply engineering", "Installation", "Testing", "Commissioning"],
     role: "Power supply installation contractor.",
     highlights: ["33kVA supply installation", "Civil and electrical scope"],
-    hseNote: "Construction HSE controls. [CONFIRM]",
-    outcome: "[CONFIRM] Outcome metrics to be provided by Weltek.",
     relatedServices: ["power-systems"],
     image: "/images/photos/service-power.webp",
   },

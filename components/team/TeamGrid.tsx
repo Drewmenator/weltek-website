@@ -27,7 +27,7 @@ export function TeamGrid() {
         if (members.length === 0) return null;
         return (
           <div key={group} className="mt-12">
-            <h3 className="overline text-graphite">{group}</h3>
+            <h3 className="eyebrow text-graphite">{group}</h3>
             <div className="mt-6 grid grid-cols-2 gap-x-6 gap-y-10 sm:grid-cols-3 lg:grid-cols-4">
               {members.map((member, i) =>
                 member.bio ? (

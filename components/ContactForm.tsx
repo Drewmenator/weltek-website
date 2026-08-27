@@ -242,8 +242,7 @@ export function ContactForm({ variant = "general" }: { variant?: Variant }) {
       {variant === "careers" && (
         <p className="text-xs text-graphite">
           To include a CV, add a link to it in your message (for example a
-          shared drive link). File upload will be added when the careers portal
-          goes live. [CONFIRM]
+          shared drive link).
         </p>
       )}
 

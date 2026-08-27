@@ -62,10 +62,20 @@ export function rateLimit(
 }
 
 /**
- * Client address, trusting Vercel's edge to set x-forwarded-for. The leftmost
- * entry is the original client; the rest are proxies. Falls back to a shared
- * bucket rather than failing open per-request, so an unidentifiable caller
- * still gets limited.
+ * Client address, taken from the leftmost x-forwarded-for entry.
+ *
+ * This is only safe because Vercel's edge overwrites the header with the real
+ * client address before the function sees it, which was confirmed against the
+ * deployment: requests carrying a spoofed x-forwarded-for still land in the
+ * caller's own bucket rather than a bucket of their choosing.
+ *
+ * That assumption is load-bearing. On a host that appends to the header rather
+ * than replacing it, the leftmost entry is attacker-controlled and the limit
+ * becomes trivially bypassable. If this ever moves off Vercel, read the client
+ * address from the platform's trusted source instead.
+ *
+ * Falls back to a shared bucket rather than failing open, so an unidentifiable
+ * caller is still limited.
  */
 export function clientKey(request: Request): string {
   const fwd = request.headers.get("x-forwarded-for");

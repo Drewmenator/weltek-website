@@ -47,8 +47,8 @@ export function Hero() {
             >
               Weltek delivers EPC, power systems, automation, instrumentation
               and brownfield services for oil and gas, power and industrial
-              clients across Nigeria. Thirty years of building and commissioning
-              on producing plants.
+              clients across Nigeria. Building and commissioning on producing
+              plants since 1986.
             </p>
             <div
               className="mt-8 flex animate-rise flex-col gap-3 sm:flex-row"

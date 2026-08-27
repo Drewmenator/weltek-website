@@ -7,7 +7,7 @@ import { SectionHeading } from "@/components/ui/SectionHeading";
 export const metadata: Metadata = {
   title: "Vendors & Partners | Supplier Registration",
   description:
-    "Register as a Weltek vendor or partner. We work with suppliers of equipment, materials, fabrication, instrumentation, logistics and inspection services who meet our compliance requirements.",
+    "Register as a Weltek vendor or partner. Submit your company details and our procurement team will follow up on supplier onboarding.",
   alternates: { canonical: "/vendors" },
 };
 

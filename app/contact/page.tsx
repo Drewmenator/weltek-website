@@ -7,7 +7,7 @@ import { site } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Contact | Request a Proposal from Weltek Nigeria",
   description:
-    "Contact Weltek Limited in Port Harcourt, Nigeria. Request a proposal, discuss a project, or reach the team by phone or email. Offices in Port Harcourt and Texas.",
+    "Request a proposal from Weltek. Offices in Port Harcourt, Nigeria and Missouri City, Texas. Call or send your scope and we will respond.",
   alternates: { canonical: "/contact" },
 };
 

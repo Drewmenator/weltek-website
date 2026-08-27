@@ -79,7 +79,7 @@ export function TeamMemberCard({
         {interactive && (
           <span className="mt-2 inline-flex items-center gap-1 text-sm font-semibold text-navy transition-colors group-hover:text-bronze">
             View profile
-            <span aria-hidden className="transition-transform group-hover:translate-x-0.5">
+            <span aria-hidden className="transition-transform motion-safe:group-hover:translate-x-0.5">
               →
             </span>
           </span>

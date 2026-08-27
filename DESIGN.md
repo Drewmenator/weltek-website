@@ -154,6 +154,17 @@ the HSE section, and its lead claim is now the featured brownfield card.
   Never `width`, `height`, `top` or `margin`: those trigger layout and paint on
   every frame. The card accent rule and the hamburger both used to.
 - **Never `transition-all`.** Name the properties.
+- **Reduced motion means gentler, not none.** The block keeps opacity, colour,
+  border, shadow, fill and stroke transitions, because those carry feedback and
+  do not cause vestibular discomfort. It drops everything positional. Entrance
+  keyframes are redefined as pure fades rather than having their duration
+  zeroed, so content still arrives legibly instead of popping in. Positional
+  utilities are gated at the call site with `motion-safe:` so they are absent
+  entirely rather than snapping.
+- **The reduced-motion block must sit at the END of `globals.css`.** It
+  redefines `@keyframes weltek-rise`, and `@keyframes` cascade by document
+  order: the last matching definition wins. Placed earlier, the override is
+  silently dead and the element still travels.
 
 ## Tailwind v4 traps, learned the hard way
 
@@ -211,3 +222,4 @@ one, and it has not been made.
 | 2026-08-26 | "Who we are" photo captioned | Naming what it shows turns a decorative image into evidence for the live-plant claim |
 | 2026-08-26 | Motion pass: easing tokens, press feedback, no `transition-all` | Built-in curves read as unconsidered; a 1px press nudge is not felt |
 | 2026-08-26 | `Reveal` transition list corrected | It named `transform`, which v4 does not use for `translate`, so the lift never animated |
+| 2026-08-26 | Reduced motion narrowed from a blanket override | Zeroing every duration also killed colour and opacity feedback, and left infinite animations spinning at near-zero duration |

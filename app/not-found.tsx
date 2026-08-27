@@ -1,7 +1,15 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
 import { primaryNav } from "@/lib/site";
+
+export const metadata: Metadata = {
+  title: "Page not found",
+  description:
+    "That page could not be found. Browse Weltek's capabilities, projects and contact details.",
+  robots: { index: false, follow: true },
+};
 
 export default function NotFound() {
   return (

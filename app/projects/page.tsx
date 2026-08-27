@@ -8,7 +8,7 @@ import { projects, projectFilters } from "@/content/projects";
 export const metadata: Metadata = {
   title: "Projects | EPC, Power, Automation & Wellhead Control Panels",
   description:
-    "Selected Weltek projects delivered for Shell, Chevron, ExxonMobil, NPDC, Energia and others across oil and gas, power, automation, instrumentation and brownfield rejuvenation in Nigeria.",
+    "Selected Weltek projects across oil and gas, power and automation, delivered for Shell, Chevron, ExxonMobil, NPDC and Energia.",
   alternates: { canonical: "/projects" },
 };
 

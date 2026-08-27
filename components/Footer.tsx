@@ -5,7 +5,8 @@ import { footerNav, site } from "@/lib/site";
 import { services } from "@/content/services";
 
 export function Footer() {
-  const year = 2026; // static build; revisit each January
+  // Derived at build time. A literal here silently goes wrong every January.
+  const year = new Date().getFullYear();
   const company = footerNav.find((c) => c.title === "Company");
 
   return (

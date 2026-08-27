@@ -7,7 +7,7 @@ import { SectionHeading } from "@/components/ui/SectionHeading";
 export const metadata: Metadata = {
   title: "Careers | Engineering, Project, Field & HSE Roles",
   description:
-    "Build a career at Weltek. We hire across engineering, project management, procurement, field construction, instrumentation and electrical, automation, HSE and administration.",
+    "Engineering, project, field and HSE roles at Weltek. Send your details and we will contact you when a suitable position opens.",
   alternates: { canonical: "/careers" },
 };
 

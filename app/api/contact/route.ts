@@ -68,8 +68,15 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: "Invalid request." }, { status: 400 });
   }
 
-  // Honeypot: bots fill hidden fields. Pretend success, send nothing.
+  // Honeypot: bots fill hidden fields. Report success so a bot learns nothing,
+  // but log it. If an aggressive autofill ever trips this for a real person,
+  // their enquiry is at least recoverable from the logs rather than gone.
   if (data.company_website) {
+    console.warn("[contact] honeypot tripped, message NOT sent:", {
+      name: (data.name || "").slice(0, 80),
+      email: (data.email || "").slice(0, 120),
+      honeypot: String(data.company_website).slice(0, 40),
+    });
     return NextResponse.json({ ok: true });
   }
 

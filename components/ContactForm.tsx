@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { services } from "@/content/services";
 import { cn } from "@/lib/cn";
 
@@ -38,19 +38,24 @@ const req = <span className="text-bronze"> *</span>;
 export function ContactForm({ variant = "general" }: { variant?: Variant }) {
   const [status, setStatus] = useState<"idle" | "sending" | "ok" | "error">("idle");
   const [errorMsg, setErrorMsg] = useState<string | null>(null);
+  const confirmationRef = useRef<HTMLDivElement | null>(null);
+
+  // The form unmounts on success, so focus would otherwise fall to <body> and
+  // the confirmation would never be announced. Move focus to it instead.
+  useEffect(() => {
+    if (status === "ok") confirmationRef.current?.focus();
+  }, [status]);
 
   async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     const form = e.currentTarget;
     const data = Object.fromEntries(new FormData(form).entries());
 
-    // Honeypot: real users never fill this hidden field.
-    if (data.company_website) {
-      setStatus("ok");
-      form.reset();
-      return;
-    }
-
+    // The honeypot is checked server-side only. Short-circuiting here showed
+    // "Message received" without ever calling the API, so if a password
+    // manager or an aggressive autofill ever populated a field named
+    // company_website, a real enquiry would be discarded while the sender was
+    // told it had arrived. Let the server decide; it already handles this.
     setStatus("sending");
     setErrorMsg(null);
     try {
@@ -73,7 +78,13 @@ export function ContactForm({ variant = "general" }: { variant?: Variant }) {
 
   if (status === "ok") {
     return (
-      <div className="border border-border bg-surface-alt p-8 text-center">
+      <div
+        ref={confirmationRef}
+        role="status"
+        aria-live="polite"
+        tabIndex={-1}
+        className="border border-border bg-surface-alt p-8 text-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-bronze"
+      >
         <p className="font-heading text-lg font-bold text-navy">Message received</p>
         <p className="mt-2 text-sm text-steel">
           Thank you. A member of the Weltek team will be in touch shortly. For

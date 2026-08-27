@@ -32,7 +32,7 @@ export function Logo({
         width={34}
         height={41}
         priority
-        className="h-10 w-auto shrink-0 transition-transform duration-300 group-hover:-translate-y-0.5"
+        className="h-10 w-auto shrink-0 transition-transform duration-300 motion-safe:group-hover:-translate-y-0.5"
       />
       <span className="flex flex-col leading-none">
         <span

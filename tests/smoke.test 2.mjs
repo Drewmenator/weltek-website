@@ -160,17 +160,7 @@ describe("security headers", () => {
   });
 });
 
-/**
- * These depend on addressing distinct rate-limit buckets via x-forwarded-for.
- * That works against a local server but not against Vercel, whose edge replaces
- * the header with the real client address, so every case would share one
- * already-exhausted bucket and report failures that are not real. Skipped
- * rather than weakened: a test that passes for the wrong reason is worse than
- * one that does not run.
- */
-const LOCAL = /^https?:\/\/(127\.0\.0\.1|localhost)(:|$)/.test(BASE);
-
-describe("contact endpoint", { skip: LOCAL ? false : "needs per-IP isolation; run against a local server" }, () => {
+describe("contact endpoint", () => {
   const post = (body, headers = {}) =>
     get("/api/contact", {
       method: "POST",

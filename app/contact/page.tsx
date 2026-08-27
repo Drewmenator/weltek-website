@@ -25,11 +25,11 @@ export default function ContactPage() {
         <Container className="grid gap-12 py-16 lg:grid-cols-[1fr_1.3fr] lg:gap-16 lg:py-24">
           {/* Details */}
           <div>
-            <h2 className="text-[1.4rem]">Our offices</h2>
+            <h2 className="text-subsection">Our offices</h2>
             <div className="mt-6 space-y-8">
               {site.offices.map((office) => (
                 <div key={office.label} className="border-t border-border pt-5">
-                  <h3 className="overline text-bronze">{office.label}</h3>
+                  <h3 className="eyebrow text-bronze">{office.label}</h3>
                   <address className="mt-2 not-italic leading-relaxed text-navy">
                     {office.lines.join(", ")}
                   </address>
@@ -46,13 +46,13 @@ export default function ContactPage() {
                 </div>
               ))}
               <div className="border-t border-border pt-5">
-                <h3 className="overline text-bronze">Email</h3>
+                <h3 className="eyebrow text-bronze">Email</h3>
                 <p className="mt-2">
                   <a href={`mailto:${site.email}`} className="text-navy hover:text-bronze">
                     {site.email}
                   </a>
                 </p>
-                <h3 className="overline mt-5 text-bronze">LinkedIn</h3>
+                <h3 className="eyebrow mt-5 text-bronze">LinkedIn</h3>
                 <p className="mt-2">
                   <a
                     href={site.linkedin}
@@ -65,18 +65,11 @@ export default function ContactPage() {
                 </p>
               </div>
             </div>
-
-            {/* Map placeholder */}
-            <div className="mt-8 flex aspect-[16/10] items-center justify-center border border-dashed border-border bg-surface-alt text-center text-sm text-graphite">
-              [CONFIRM] Embed map of Plot 307 Danjuma Drive,
-              <br />
-              Trans Amadi, Port Harcourt
-            </div>
           </div>
 
           {/* Form */}
           <div>
-            <h2 className="text-[1.4rem]">Send a message</h2>
+            <h2 className="text-subsection">Send a message</h2>
             <p className="mt-2 text-steel">
               Fields marked as required must be completed. We aim to respond
               within two business days.

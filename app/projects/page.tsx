@@ -18,7 +18,7 @@ export default function ProjectsPage() {
       <PageHeader
         eyebrow="Projects"
         title="Delivered for the operators working Nigerian fields"
-        intro="A selection of Weltek's portfolio across oil and gas, power, automation and instrumentation. Client names are shown with permission; outcomes are being confirmed for publication."
+        intro="A selection of Weltek's portfolio across oil and gas, power, automation and instrumentation. Client names are shown with permission."
         breadcrumb={[{ label: "Home", href: "/" }, { label: "Projects" }]}
       />
 
@@ -29,7 +29,11 @@ export default function ProjectsPage() {
         </Container>
       </section>
 
-      <CTASection variant="light" />
+      <CTASection
+        variant="light"
+        heading="Planning similar work?"
+        body="Talk to the team that delivered these projects. We will bring the same discipline to your scope, onshore, offshore or swamp."
+      />
     </>
   );
 }

@@ -68,6 +68,13 @@
   --text-micro: 0.75rem;                /* 12, eyebrows, labels */
   --text-micro--line-height: 1.4;
 
+  /* Easing. The built-in curves are too weak to read as intentional:
+     Tailwind's ease-out is cubic-bezier(0, 0, 0.2, 1) and the default
+     transition curve starts slow, which is the exact moment a user is
+     watching most closely. Never use ease-in on UI. */
+  --ease-out-strong: cubic-bezier(0.23, 1, 0.32, 1);
+  --ease-in-out-strong: cubic-bezier(0.77, 0, 0.175, 1);
+
   /* Square. Every peer in the category went soft (Worley 4 to 55px, Petrofac 55px
      pills, Wood 24 to 32px). Sharp is the one thing this site already owned. */
   --radius-card: 0px;
@@ -185,22 +192,14 @@ body {
   from { opacity: 0; }
   to { opacity: 1; }
 }
-@keyframes weltek-line {
-  from { transform: scaleX(0); }
-  to { transform: scaleX(1); }
-}
 
 /* Load entrance (above-the-fold hero / page headers). Pair with an
    inline animation-delay for staggering. */
 @utility animate-rise {
-  animation: weltek-rise 0.7s cubic-bezier(0.16, 0.7, 0.3, 1) both;
+  animation: weltek-rise 0.45s var(--ease-out-strong) both;
 }
 @utility animate-fade {
-  animation: weltek-fade 0.9s ease both;
-}
-@utility animate-line {
-  transform-origin: left;
-  animation: weltek-line 0.7s cubic-bezier(0.16, 0.7, 0.3, 1) both;
+  animation: weltek-fade 0.5s ease both;
 }
 
 /* Reveal-on-scroll entrance (respects reduced motion above) */

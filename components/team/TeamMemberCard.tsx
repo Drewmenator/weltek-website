@@ -28,7 +28,7 @@ export function TeamMemberCard({
             className={cn(
               "object-cover",
               interactive &&
-                "transition-transform duration-500 group-hover:scale-[1.03]"
+                "transition-transform duration-300 ease-out-strong motion-safe:group-hover:scale-[1.03]"
             )}
           />
         ) : (

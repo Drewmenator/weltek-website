@@ -17,7 +17,7 @@ export function ProjectCard({
     <Link
       href={`/projects/${project.slug}`}
       className={cn(
-        "group flex flex-col overflow-hidden border border-border bg-surface shadow-card transition-all duration-200 hover:-translate-y-0.5 hover:border-border-strong focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-bronze",
+        "group flex flex-col overflow-hidden border border-border bg-surface shadow-card transition-[translate,border-color] duration-200 ease-out-strong hover:border-border-strong motion-safe:hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-bronze",
         featured && "md:h-full",
         className
       )}
@@ -37,7 +37,7 @@ export function ProjectCard({
               ? "(max-width: 768px) 92vw, 740px"
               : "(max-width: 640px) 85vw, (max-width: 1024px) 45vw, 360px"
           }
-          className="object-cover transition-transform duration-500 group-hover:scale-[1.05]"
+          className="object-cover transition-transform duration-300 ease-out-strong motion-safe:group-hover:scale-[1.05]"
         />
         <span className="absolute left-0 top-4 border-l-2 border-bronze bg-navy/90 py-1 pl-3 pr-4 text-micro font-semibold uppercase tracking-[0.1em] text-white">
           {project.client}

@@ -11,7 +11,7 @@ import { TeamSection } from "@/components/team/TeamSection";
 export const metadata: Metadata = {
   title: "About Weltek | EPC Company in Nigeria",
   description:
-    "Weltek Limited is a Nigerian EPC company with 30+ years and 100+ projects delivered for the oil and gas, power and process industries, built on instrumentation and electrical heritage and an HSE-led culture.",
+    "Weltek Limited is a Nigerian EPC company founded in 1986, with 100+ projects delivered for the oil and gas, power and process industries, built on instrumentation and electrical heritage and an HSE-led culture.",
   alternates: { canonical: "/about" },
 };
 
@@ -39,7 +39,7 @@ export default function AboutPage() {
     <>
       <PageHeader
         eyebrow="About Weltek"
-        title="An engineering-led EPC company, thirty years in the field."
+        title="An engineering-led EPC company, in the field since 1986."
         intro="Weltek Limited designs, builds and commissions industrial plants and infrastructure for the oil and gas, power generation, petrochemical and food and beverage industries, from Nigerian roots to a global standard."
         breadcrumb={[{ label: "Home", href: "/" }, { label: "About" }]}
       />
@@ -50,7 +50,7 @@ export default function AboutPage() {
             <div>
               <p className="eyebrow text-bronze">Who we are</p>
               <h2 className="mt-3 text-balance text-[1.9rem] sm:text-section">
-                An engineering-led EPC company built on three decades of field
+                An engineering-led EPC company built on four decades of field
                 delivery.
               </h2>
               <div className="mt-6 space-y-4 text-body leading-relaxed text-steel">
@@ -58,7 +58,7 @@ export default function AboutPage() {
                   Weltek is an Engineering, Procurement and Construction company
                   that provides specialised services to the oil and gas, power
                   generation, petrochemical and food and beverage industries.
-                  Over more than thirty years we have delivered upstream and
+                  Since 1986 we have delivered upstream and
                   infrastructure work across offshore, land and swamp locations.
                 </p>
                 <p>
@@ -147,7 +147,7 @@ export default function AboutPage() {
       <TeamSection />
 
       <CTASection
-        heading="Work with a team that has delivered for three decades"
+        heading="Work with a team that has delivered since 1986"
         body="Tell us about your scope. We will bring the right engineering and field capability to it."
       />
     </>

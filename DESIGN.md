@@ -91,8 +91,8 @@ fills and borders as well, it stops reading as a call to action.
 - **Radius is 0.** `--radius-card: 0px`, applied via `rounded-card`. Every peer
   in the category went soft: Worley 4 to 55px, Petrofac 55px pills, Wood 24 to
   32px. Sharp is the one thing this site already owned, so it is now committed
-  to rather than split at 3px. `rounded-full` stays for genuinely circular
-  things only, such as the play button.
+  to rather than split at 3px. `rounded-full` is reserved for genuinely
+  circular elements. Nothing currently qualifies, so there are none on the site.
 - Section rhythm `py-16 lg:py-20`, alternating light and dark bands.
 - **Grids get a lead tile.** A row of identical rectangles tells the reader
   nothing about where to start. Services lead with brownfield rejuvenation,

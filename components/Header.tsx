@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Logo } from "@/components/Logo";
@@ -21,12 +21,60 @@ export function Header() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  const toggleRef = useRef<HTMLButtonElement | null>(null);
+  const panelRef = useRef<HTMLElement | null>(null);
+
   // Lock body scroll while the drawer is open.
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "";
     return () => {
       document.body.style.overflow = "";
     };
+  }, [open]);
+
+  /**
+   * Make the drawer behave like the modal it looks like.
+   *
+   * Previously it was a visual overlay only: focus stayed on the body, all 41
+   * focusable elements on the page behind stayed in the tab order, and Escape
+   * did nothing. A keyboard or screen-reader user opening the menu tabbed
+   * straight into content hidden behind the scrim.
+   *
+   * Rather than hand-roll a focus trap, the page behind is made inert. The
+   * header row itself stays reachable on purpose: the drawer opens below it, so
+   * the toggle is still visible and must remain operable to close the menu.
+   */
+  useEffect(() => {
+    if (!open) return;
+
+    const main = document.getElementById("main");
+    const footer = document.querySelector("footer");
+    main?.setAttribute("inert", "");
+    footer?.setAttribute("inert", "");
+
+    const firstLink = panelRef.current?.querySelector<HTMLElement>("a[href]");
+    firstLink?.focus();
+
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        e.preventDefault();
+        setOpen(false);
+      }
+    };
+    document.addEventListener("keydown", onKeyDown);
+
+    return () => {
+      document.removeEventListener("keydown", onKeyDown);
+      main?.removeAttribute("inert");
+      footer?.removeAttribute("inert");
+    };
+  }, [open]);
+
+  /** Return focus to the control that opened it, but not on first mount. */
+  const wasOpen = useRef(false);
+  useEffect(() => {
+    if (wasOpen.current && !open) toggleRef.current?.focus();
+    wasOpen.current = open;
   }, [open]);
 
   const isActive = (href: string) =>
@@ -88,6 +136,8 @@ export function Header() {
           type="button"
           aria-label={open ? "Close menu" : "Open menu"}
           aria-expanded={open}
+          ref={toggleRef}
+          aria-controls="mobile-menu"
           onClick={() => setOpen((v) => !v)}
           className="flex h-11 w-11 cursor-pointer items-center justify-center lg:hidden"
         >
@@ -131,7 +181,11 @@ export function Header() {
           onClick={() => setOpen(false)}
         />
         <nav
-          aria-label="Mobile"
+          ref={panelRef}
+          id="mobile-menu"
+          role="dialog"
+          aria-modal="true"
+          aria-label="Site menu"
           className={cn(
             "absolute inset-0 flex flex-col bg-surface transition-transform duration-200",
             open ? "translate-y-0" : "-translate-y-4 opacity-0"

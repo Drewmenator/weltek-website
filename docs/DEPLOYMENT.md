@@ -58,3 +58,22 @@ Until cutover, set in the Vercel project:
 
 After DNS points at Vercel, delete that variable and redeploy. `lib/site.ts`
 falls back to `https://weltekng.com`, so no code change is needed either way.
+
+## Required environment variables
+
+**The contact form is non-functional until `RESEND_API_KEY` is set.** Without
+it, every submission returns 503 with a message asking the visitor to email
+instead, and the attempt is logged server-side rather than silently dropped.
+There are currently no environment variables set on the Vercel project.
+
+| Variable | Required | Notes |
+|---|---|---|
+| `RESEND_API_KEY` | **yes** | Without it the form is dead. |
+| `CONTACT_TO` | no | Defaults to `info@weltekng.com`. |
+| `CONTACT_FROM` | no | Must be a verified sender or domain in Resend. The default is a Resend sandbox address and will not deliver reliably. |
+| `NEXT_PUBLIC_SITE_URL` | no | Canonical origin override until DNS cutover. See above. |
+
+The API route rate limits to 5 submissions per address per 10 minutes, caps
+the message at 5,000 characters and rejects bodies over 32KB. The limiter is
+in-process, so it is best-effort across serverless instances: it stops a single
+client hammering one warm instance. Move it to Vercel KV if abuse becomes real.

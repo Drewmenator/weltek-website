@@ -19,7 +19,7 @@ import { industries } from "@/content/industries";
 export const metadata: Metadata = {
   title: "Weltek Limited | EPC Company in Nigeria",
   description:
-    "Weltek Limited is a Nigerian EPC company delivering, since 1986, offshore topside facilities, brownfield rejuvenation, power systems, instrumentation, automation and wellhead control panels.",
+    "Nigerian EPC contractor delivering offshore topside facilities, brownfield rejuvenation, power systems, instrumentation, automation and wellhead panels.",
   alternates: { canonical: "/" },
 };
 

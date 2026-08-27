@@ -11,7 +11,7 @@ import { TeamSection } from "@/components/team/TeamSection";
 export const metadata: Metadata = {
   title: "About Weltek | EPC Company in Nigeria",
   description:
-    "Weltek Limited is a Nigerian EPC company founded in 1986, with 100+ projects delivered for the oil and gas, power and process industries, built on instrumentation and electrical heritage and an HSE-led culture.",
+    "Weltek Limited, a Nigerian EPC contractor since 1986, with 100+ projects delivered across oil and gas, power and process industries.",
   alternates: { canonical: "/about" },
 };
 

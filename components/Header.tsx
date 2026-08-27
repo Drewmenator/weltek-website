@@ -94,7 +94,10 @@ export function Header() {
         className="absolute inset-0 -z-10 bg-surface backdrop-blur-md transition-colors duration-200"
       />
       <span aria-hidden className="absolute inset-x-0 top-0 h-[2px] bg-bronze" />
-      <Container className="flex h-[72px] items-center justify-between gap-6">
+      {/* Tighter gutters at lg: the row needs 945px of a 960px container there,
+          so 15px of slack is one longer nav label away from collapsing. From xl
+          up there is 100px spare, so the roomier gap is kept. */}
+      <Container className="flex h-[72px] items-center justify-between gap-4 xl:gap-6">
         <Logo tagline={false} />
 
         {/* Desktop nav */}

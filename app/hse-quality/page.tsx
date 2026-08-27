@@ -9,7 +9,7 @@ import { credentials } from "@/content/credentials";
 export const metadata: Metadata = {
   title: "HSE & Quality | Safety-Led EPC Delivery in Nigeria",
   description:
-    "Weltek's HSE and quality approach: safe live-plant execution, an ISO 9001 based quality management system, risk management, competency and training, and the certifications that support shortlisting.",
+    "Safe live-plant execution, permit-to-work discipline, an ISO 9001 based quality system and the certifications operators check when shortlisting.",
   alternates: { canonical: "/hse-quality" },
 };
 

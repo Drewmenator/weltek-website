@@ -9,7 +9,7 @@ import { services } from "@/content/services";
 export const metadata: Metadata = {
   title: "Services | Offshore, Power, I&E, Automation & Wellhead Control Panels",
   description:
-    "Weltek's six EPC capabilities: offshore topside facilities, onshore and swamp brownfield rejuvenation, power systems, instrumentation and electrical, automation, and wellhead control panels.",
+    "Six EPC capabilities: offshore topsides, brownfield rejuvenation, power systems, instrumentation and electrical, automation and wellhead control panels.",
   alternates: { canonical: "/services" },
 };
 

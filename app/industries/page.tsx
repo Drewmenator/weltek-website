@@ -8,7 +8,7 @@ import { industries } from "@/content/industries";
 export const metadata: Metadata = {
   title: "Industries | Oil & Gas, Power, Petrochemicals, Food & Beverage",
   description:
-    "How Weltek supports oil and gas, power generation, petrochemicals, food and beverage, and broader industrial facilities across Nigeria with EPC, I&E, power and automation capability.",
+    "Weltek serves oil and gas, power generation, petrochemicals, food and beverage and industrial facilities across Nigeria.",
   alternates: { canonical: "/industries" },
 };
 

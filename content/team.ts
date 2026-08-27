@@ -46,7 +46,7 @@ export const team: TeamMember[] = [
     title: "General Manager, Finance & Operations",
     group: "General Management",
     bio: "Sakenim is a finance and operations executive with over a decade in the engineering, procurement and construction sector, pairing deep financial expertise with hands-on leadership. As General Manager, Finance & Operations, she oversees budgeting, internal controls, risk management, compliance and team development, and has led systems upgrades, governance improvements and operational restructuring focused on sustainable growth. Known for integrity, analytical rigour and composure under pressure, she turns complex financial insight into clear strategic action.",
-    photo: "/images/team/sakenim-esiri.png",
+    photo: "/images/team/sakenim-esiri.webp",
   },
   {
     name: "Peter Egwegbete",

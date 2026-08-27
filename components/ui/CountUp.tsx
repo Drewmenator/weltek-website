@@ -1,12 +1,29 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 
 /**
- * Counts a numeric figure up from zero when it scrolls into view.
- * Preserves any non-numeric suffix/prefix (e.g. "30+", "850+").
- * Non-numeric values (e.g. "HSE") render as-is. Reduced-motion shows the
- * final value immediately.
+ * Counts a numeric figure up when it first scrolls into view.
+ *
+ * React always renders the real value. The count is a purely visual effect
+ * layered on top by mutating textContent directly, which matters for three
+ * reasons:
+ *
+ * 1. The server-rendered HTML contains the true figure. This component
+ *    previously seeded state with `0${suffix}`, so the headline credibility
+ *    numbers shipped as "0+ Projects delivered" to anything that does not run
+ *    JavaScript, and to a screen reader reading before hydration.
+ * 2. There is no hydration mismatch, because the markup React produces on the
+ *    server and the client is identical.
+ * 3. If the animation never runs (rAF throttled in a background tab, JS fails,
+ *    reduced motion), the figure is simply correct rather than stuck at zero.
+ *
+ * Mutating DOM that React owns is normally a smell. It is the right call here
+ * precisely because the animated value is decoration and the rendered value is
+ * the truth: React stays the source of the number, the effect only borrows the
+ * pixels. `value` is stable, so React never fights the mutation.
+ *
+ * Non-numeric values ("HSE") render as-is and are never animated.
  */
 export function CountUp({
   value,
@@ -22,52 +39,52 @@ export function CountUp({
   const suffix = match ? match[2] : "";
 
   const ref = useRef<HTMLSpanElement | null>(null);
-  const [display, setDisplay] = useState(target === null ? value : `0${suffix}`);
 
   useEffect(() => {
-    // Non-numeric values keep their initial render (no animation needed).
     if (target === null) return;
     const el = ref.current;
     if (!el) return;
 
-    const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    if (reduced) {
-      // Defer to a frame so this is not a synchronous set in the effect body.
-      const id = requestAnimationFrame(() => setDisplay(`${target}${suffix}`));
-      return () => cancelAnimationFrame(id);
-    }
+    // Reduced motion: leave the real figure alone. Nothing to restore.
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
     let raf = 0;
     let started = false;
+
     const io = new IntersectionObserver(
       (entries) => {
-        entries.forEach((e) => {
-          if (e.isIntersecting && !started) {
-            started = true;
-            io.disconnect();
-            const start = performance.now();
-            const step = (now: number) => {
-              const p = Math.min(1, (now - start) / duration);
-              const eased = 1 - Math.pow(1 - p, 3);
-              setDisplay(`${Math.round(eased * target)}${suffix}`);
-              if (p < 1) raf = requestAnimationFrame(step);
-            };
-            raf = requestAnimationFrame(step);
-          }
-        });
+        for (const e of entries) {
+          if (!e.isIntersecting || started) continue;
+          started = true;
+          io.disconnect();
+
+          const begin = performance.now();
+          const step = (now: number) => {
+            const p = Math.min(1, (now - begin) / duration);
+            const eased = 1 - Math.pow(1 - p, 3);
+            // The first frame lands on ~0 naturally, so the figure is never
+            // zeroed outside an actually-running animation.
+            el.textContent = p >= 1 ? value : `${Math.round(eased * target)}${suffix}`;
+            if (p < 1) raf = requestAnimationFrame(step);
+          };
+          raf = requestAnimationFrame(step);
+        }
       },
       { threshold: 0.4 }
     );
+
     io.observe(el);
     return () => {
       io.disconnect();
       cancelAnimationFrame(raf);
+      // Restore the truth if we unmount mid-count.
+      if (el.textContent !== value) el.textContent = value;
     };
   }, [target, suffix, value, duration]);
 
   return (
     <span ref={ref} className={className}>
-      {display}
+      {value}
     </span>
   );
 }

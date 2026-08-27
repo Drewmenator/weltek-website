@@ -58,8 +58,16 @@ export const team: TeamMember[] = [
   {
     name: "Enyinnia Uche",
     honorific: "Mr",
-    title: "General Manager, Projects",
-    group: "General Management",
+    title: "Project Management Lead",
+    group: "Department Leads",
+    bio: "",
+  },
+  {
+    // Honorific deliberately omitted: it was not supplied and guessing one
+    // risks getting a colleague's title wrong in public. Add it here.
+    name: "Obiajulu Uche",
+    title: "Business Development Lead",
+    group: "Department Leads",
     bio: "",
   },
 ];

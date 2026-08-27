@@ -27,7 +27,7 @@ export function Hero() {
       </div>
 
       <Container className="safe-pt safe-pb relative flex min-h-viewport flex-col">
-        <div className="flex flex-1 shrink-0 items-center pb-8 pt-28 lg:pt-32">
+        <div className="flex flex-1 shrink-0 items-center pb-8 pt-22 sm:pt-28 lg:pt-32">
           <div className="max-w-2xl lg:max-w-[56%]">
             <p
               className="eyebrow animate-rise text-bronze-soft"
@@ -42,13 +42,13 @@ export function Hero() {
               Engineering, procurement and construction for critical energy assets.
             </h1>
             <p
-              className="mt-6 max-w-xl animate-rise text-lead leading-relaxed text-white/75"
+              className="mt-6 max-w-xl animate-rise text-body leading-relaxed text-white/75 sm:text-lead"
               style={{ animationDelay: "160ms" }}
             >
-              Weltek delivers EPC, power systems, automation, instrumentation
-              and brownfield services for oil and gas, power and industrial
-              clients across Nigeria. Building and commissioning on producing
-              plants since 1986.
+              For four decades, Weltek has helped operators build, upgrade and
+              sustain critical energy infrastructure across Nigeria. Our
+              multidisciplinary teams bring engineering expertise and field
+              execution together to deliver safely on complex, live facilities.
             </p>
             <div
               className="mt-8 flex animate-rise flex-col gap-3 sm:flex-row"

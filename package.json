@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "test:only": "node --test tests/*.test.mjs",
+    "test": "npm run build && (npx next start -p 3999 >/dev/null 2>&1 &) && for i in $(seq 1 40); do curl -sf -o /dev/null http://127.0.0.1:3999 && break || sleep 1; done && BASE_URL=http://127.0.0.1:3999 node --test tests/*.test.mjs; code=$?; pkill -f 'next start -p 3999' >/dev/null 2>&1; exit $code"
   },
   "dependencies": {
     "next": "16.2.12",

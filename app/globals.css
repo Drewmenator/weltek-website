@@ -232,3 +232,95 @@ body {
       box-shadow, fill, stroke !important;
   }
 }
+
+/* ------------------------------------------------------------------ */
+/* Print                                                               */
+/* A procurement team printing a service or project page should get a  */
+/* readable document, not a screenshot of a website. Strip the          */
+/* navigation furniture and the calls to action, drop the dark grounds  */
+/* so it does not flood a printer, and keep the evidence: headings,     */
+/* copy, tables, project facts and the contact details.                 */
+/* ------------------------------------------------------------------ */
+@media print {
+  @page {
+    margin: 16mm 14mm;
+  }
+
+  html {
+    font-size: 11pt;
+  }
+
+  body {
+    background: #fff !important;
+    color: #000 !important;
+  }
+
+  /* Dark bands become white with black text rather than solid ink. */
+  [class*="bg-navy"],
+  .tech-grid {
+    background: #fff !important;
+    background-image: none !important;
+    color: #000 !important;
+  }
+  [class*="bg-navy"] * {
+    color: #000 !important;
+    border-color: #999 !important;
+  }
+
+  /* Furniture that means nothing on paper. */
+  header,
+  footer nav,
+  [role="dialog"],
+  [aria-label="Breadcrumb"] {
+    display: none !important;
+  }
+
+  /* A call to action is not useful in print; the contact details are. */
+  a[href="/contact"],
+  a[download] {
+    display: none !important;
+  }
+
+  /* Spell out destinations that the reader cannot click. */
+  main a[href^="http"]::after,
+  main a[href^="/"]::after {
+    content: " (" attr(href) ")";
+    font-size: 9pt;
+    color: #555;
+    word-break: break-all;
+  }
+  main a[href^="mailto:"]::after,
+  main a[href^="tel:"]::after {
+    content: "";
+  }
+
+  /* Never animate or hide content on paper: the reveal starts at opacity 0. */
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+    opacity: 1 !important;
+    translate: none !important;
+    transform: none !important;
+    box-shadow: none !important;
+  }
+
+  /* Keep related blocks together where the printer allows it. */
+  section,
+  article,
+  li,
+  dl,
+  figure,
+  table {
+    break-inside: avoid;
+  }
+  h1, h2, h3 {
+    break-after: avoid;
+  }
+
+  img {
+    max-width: 100% !important;
+    break-inside: avoid;
+  }
+}

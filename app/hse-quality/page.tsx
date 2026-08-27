@@ -59,7 +59,7 @@ export default function HsePage() {
                 delay={(i % 2) * 90}
                 className="border-t-2 border-bronze pt-5"
               >
-                <h2 className="text-[1.3rem] text-navy">{p.title}</h2>
+                <h2 className="text-subsection text-navy">{p.title}</h2>
                 <p className="mt-3 leading-relaxed text-steel">{p.body}</p>
               </Reveal>
             ))}
@@ -73,25 +73,31 @@ export default function HsePage() {
           <SectionHeading
             eyebrow="Standards & certifications"
             title="Credentials that support shortlisting"
-            intro="Registration and certification numbers are being confirmed for publication. Contact us for current certificates."
+            intro="Contact us for current copies of our registrations and certificates."
           />
           <ul className="mt-12 grid gap-x-8 gap-y-8 sm:grid-cols-2 lg:grid-cols-3">
             {credentials.map((c) => (
               <li key={c.label} className="border border-border bg-surface p-6">
-                <p className="font-heading text-[1.15rem] font-bold text-navy">
+                <p className="font-heading text-lead font-bold text-navy">
                   {c.label}
                 </p>
                 <p className="mt-2 text-sm leading-relaxed text-steel">{c.detail}</p>
-                <p className="mt-3 text-[0.7rem] font-semibold uppercase tracking-wide text-bronze">
-                  {c.confirm ? "Registration / cert no. to confirm" : c.refNumber}
-                </p>
+                {!c.confirm && c.refNumber && (
+                  <p className="mt-3 text-micro font-semibold uppercase tracking-wide text-bronze">
+                    {c.refNumber}
+                  </p>
+                )}
               </li>
             ))}
           </ul>
         </Container>
       </section>
 
-      <CTASection variant="navy" />
+      <CTASection
+        variant="navy"
+        heading="Deliver your next scope safely"
+        body="Send us your scope. We will plan and execute it with the same HSE discipline, offshore, on land or in the swamp."
+      />
     </>
   );
 }

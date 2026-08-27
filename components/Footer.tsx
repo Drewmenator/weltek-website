@@ -5,7 +5,7 @@ import { footerNav, site } from "@/lib/site";
 import { services } from "@/content/services";
 
 export function Footer() {
-  const year = 2026; // static build; update annually [CONFIRM cadence]
+  const year = 2026; // static build; revisit each January
   const company = footerNav.find((c) => c.title === "Company");
 
   return (
@@ -15,7 +15,7 @@ export function Footer() {
         <div className="grid gap-12 lg:grid-cols-[1.5fr_1fr_0.9fr_1.3fr]">
           {/* Brand + capability CTA */}
           <div>
-            <Logo tone="onDark" />
+            <Logo tone="onDark" tagline={false} />
             <p className="mt-6 max-w-xs text-sm leading-relaxed text-white/65">
               A Nigerian EPC company delivering offshore, onshore and swamp
               projects for the oil and gas, power and process industries to a
@@ -33,13 +33,13 @@ export function Footer() {
 
           {/* Services */}
           <nav aria-label="Services">
-            <h2 className="overline text-white/45">Services</h2>
-            <ul className="mt-5 space-y-3">
+            <h2 className="eyebrow text-white/60">Services</h2>
+            <ul className="mt-5 space-y-1">
               {services.map((s) => (
                 <li key={s.slug}>
                   <Link
                     href={`/services/${s.slug}`}
-                    className="text-sm text-white/70 transition-colors hover:text-white"
+                    className="inline-flex min-h-[28px] items-center text-sm text-white/70 transition-colors hover:text-white"
                   >
                     {s.title}
                   </Link>
@@ -51,13 +51,13 @@ export function Footer() {
           {/* Company */}
           {company && (
             <nav aria-label="Company">
-              <h2 className="overline text-white/45">Company</h2>
-              <ul className="mt-5 space-y-3">
+              <h2 className="eyebrow text-white/60">Company</h2>
+              <ul className="mt-5 space-y-1">
                 {company.items.map((item) => (
                   <li key={item.href}>
                     <Link
                       href={item.href}
-                      className="text-sm text-white/70 transition-colors hover:text-white"
+                      className="inline-flex min-h-[28px] items-center text-sm text-white/70 transition-colors hover:text-white"
                     >
                       {item.label}
                     </Link>
@@ -66,7 +66,7 @@ export function Footer() {
                 <li>
                   <Link
                     href="/projects"
-                    className="text-sm text-white/70 transition-colors hover:text-white"
+                    className="inline-flex min-h-[28px] items-center text-sm text-white/70 transition-colors hover:text-white"
                   >
                     Projects
                   </Link>
@@ -74,7 +74,7 @@ export function Footer() {
                 <li>
                   <Link
                     href="/industries"
-                    className="text-sm text-white/70 transition-colors hover:text-white"
+                    className="inline-flex min-h-[28px] items-center text-sm text-white/70 transition-colors hover:text-white"
                   >
                     Industries
                   </Link>
@@ -85,7 +85,7 @@ export function Footer() {
 
           {/* Contact */}
           <div>
-            <h2 className="overline text-white/45">Contact</h2>
+            <h2 className="eyebrow text-white/60">Contact</h2>
             <ul className="mt-5 space-y-5 text-sm">
               {site.offices.map((office) => (
                 <li key={office.label}>

@@ -23,22 +23,21 @@ export function PageHeader({
         )}
         {eyebrow && (
           <p
-            className="overline animate-rise flex items-center gap-3 text-bronze-soft"
+            className="eyebrow animate-rise text-bronze-soft"
             style={{ animationDelay: "40ms" }}
           >
-            <span aria-hidden className="animate-line h-px w-8 bg-bronze" style={{ animationDelay: "140ms" }} />
             {eyebrow}
           </p>
         )}
         <h1
-          className="mt-4 max-w-3xl text-balance animate-rise text-[2.1rem] leading-[1.06] text-white sm:text-[2.75rem]"
+          className="mt-4 max-w-3xl text-balance animate-rise text-[2.1rem] leading-[1.06] text-white sm:text-title"
           style={{ animationDelay: "120ms" }}
         >
           {title}
         </h1>
         {intro && (
           <p
-            className="mt-5 max-w-2xl animate-rise text-[1.08rem] leading-relaxed text-white/80"
+            className="mt-5 max-w-2xl animate-rise text-lead leading-relaxed text-white/80"
             style={{ animationDelay: "220ms" }}
           >
             {intro}

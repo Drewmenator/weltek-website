@@ -24,13 +24,13 @@ export function SectionHeading({
       )}
     >
       {eyebrow && (
-        <p className={cn("overline mb-3 text-bronze", tone === "onDark" && "text-gold")}>
+        <p className={cn("eyebrow mb-3 text-bronze", tone === "onDark" && "text-gold")}>
           {eyebrow}
         </p>
       )}
       <h2
         className={cn(
-          "text-[1.6rem] sm:text-[2rem]",
+          "text-[1.9rem] sm:text-section",
           tone === "onDark" && "text-white"
         )}
       >
@@ -39,7 +39,7 @@ export function SectionHeading({
       {intro && (
         <p
           className={cn(
-            "mt-4 text-[1.05rem] leading-relaxed",
+            "mt-4 text-body leading-relaxed",
             tone === "onDark" ? "text-white/75" : "text-steel"
           )}
         >

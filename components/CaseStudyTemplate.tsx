@@ -9,8 +9,8 @@ import { getService } from "@/content/services";
 function Field({ label, value }: { label: string; value: string }) {
   return (
     <div>
-      <dt className="overline text-graphite">{label}</dt>
-      <dd className="mt-1 text-[0.95rem] font-medium text-navy">{value}</dd>
+      <dt className="eyebrow text-graphite">{label}</dt>
+      <dd className="mt-1 text-small font-medium text-navy">{value}</dd>
     </div>
   );
 }
@@ -35,24 +35,22 @@ export function CaseStudyTemplate({ project }: { project: Project }) {
             ]}
           />
           <p
-            className="overline animate-rise mt-7 flex items-center gap-3 text-bronze-soft"
+            className="eyebrow animate-rise mt-7 text-bronze-soft"
             style={{ animationDelay: "40ms" }}
           >
-            <span aria-hidden className="animate-line h-px w-8 bg-bronze" style={{ animationDelay: "140ms" }} />
             {project.serviceType}
           </p>
           <h1
-            className="mt-4 max-w-3xl animate-rise text-balance text-[1.9rem] leading-[1.08] text-white sm:text-[2.5rem]"
+            className="mt-4 max-w-3xl animate-rise text-balance text-[2rem] leading-[1.08] text-white sm:text-title"
             style={{ animationDelay: "120ms" }}
           >
             {project.title}
           </h1>
           <p
-            className="mt-4 animate-rise text-white/70"
+            className="mt-5 max-w-2xl animate-rise text-lead leading-relaxed text-white/80"
             style={{ animationDelay: "220ms" }}
           >
-            Delivered for{" "}
-            <span className="font-semibold text-white">{project.client}</span>
+            Delivered for {project.client}.
           </p>
         </Container>
       </section>
@@ -69,30 +67,18 @@ export function CaseStudyTemplate({ project }: { project: Project }) {
         />
       </div>
 
-      <Container className="py-14 lg:py-20">
-        <div className="grid gap-12 lg:grid-cols-[1fr_2fr] lg:gap-16">
-          {/* Facts rail */}
-          <aside className="lg:sticky lg:top-24 lg:self-start">
-            <div className="border border-border bg-surface p-6 shadow-card lg:p-7">
-              <p className="overline text-graphite">Project facts</p>
-              <dl className="mt-5 grid grid-cols-2 gap-x-6 gap-y-5 lg:grid-cols-1">
-                <Field label="Client" value={project.client} />
-                <Field label="Location" value={project.location} />
-                <Field label="Sector" value={project.sector} />
-                <Field label="Service category" value={project.serviceType} />
-              </dl>
-            </div>
-          </aside>
-
-          {/* Body */}
+      <Container className="py-16 lg:py-24">
+        {/* Narrative leads; the facts rail follows it in source order so the
+            story is what a reader (and a crawler) meets first. */}
+        <div className="grid gap-12 lg:grid-cols-[2fr_1fr] lg:gap-16">
           <div className="max-w-2xl">
             <section>
-              <h2 className="text-[1.4rem]">The challenge</h2>
+              <h2 className="text-subsection">The challenge</h2>
               <p className="mt-3 leading-relaxed text-steel">{project.challenge}</p>
             </section>
 
             <section className="mt-10">
-              <h2 className="text-[1.4rem]">Scope of work</h2>
+              <h2 className="text-subsection">Scope of work</h2>
               <ol className="mt-5 divide-y divide-border border-t border-border">
                 {project.work.map((w, i) => (
                   <li key={w} className="flex gap-4 py-3.5 text-steel">
@@ -106,12 +92,12 @@ export function CaseStudyTemplate({ project }: { project: Project }) {
             </section>
 
             <section className="mt-10">
-              <h2 className="text-[1.4rem]">Weltek&rsquo;s role</h2>
+              <h2 className="text-subsection">Weltek&rsquo;s role</h2>
               <p className="mt-3 leading-relaxed text-steel">{project.role}</p>
             </section>
 
             <section className="mt-10">
-              <h2 className="text-[1.4rem]">Execution highlights</h2>
+              <h2 className="text-subsection">Execution highlights</h2>
               <ul className="mt-4 space-y-2">
                 {project.highlights.map((h) => (
                   <li key={h} className="flex gap-3 text-steel">
@@ -122,37 +108,71 @@ export function CaseStudyTemplate({ project }: { project: Project }) {
               </ul>
             </section>
 
-            <section className="mt-10 border-l-2 border-bronze bg-surface-alt p-5">
-              <h2 className="text-[1.1rem]">HSE &amp; quality</h2>
-              <p className="mt-2 text-sm leading-relaxed text-steel">{project.hseNote}</p>
-            </section>
+            {/* HSE note and outcome render only once Weltek confirms them. */}
+            {project.hseNote && (
+              <section className="mt-10 border-l-2 border-bronze bg-surface-alt p-5">
+                <h2 className="text-card">HSE &amp; quality</h2>
+                <p className="mt-2 text-sm leading-relaxed text-steel">
+                  {project.hseNote}
+                </p>
+              </section>
+            )}
 
-            <section className="mt-10 border border-border bg-surface-alt p-6 shadow-card">
-              <h2 className="overline text-bronze">Outcome</h2>
-              <p className="mt-2 leading-relaxed text-navy">{project.outcome}</p>
-            </section>
-
-            {related.length > 0 && (
-              <section className="mt-10 border-t border-border pt-8">
-                <h2 className="overline text-graphite">Related services</h2>
-                <div className="mt-4 flex flex-wrap gap-3">
-                  {related.map((s) => (
-                    <Link
-                      key={s.slug}
-                      href={`/services/${s.slug}`}
-                      className="border border-border px-4 py-2 text-sm font-medium text-navy transition-colors hover:border-bronze hover:text-bronze"
-                    >
-                      {s.title}
-                    </Link>
-                  ))}
-                </div>
+            {project.outcome && (
+              <section className="mt-10 border border-border bg-surface-alt p-6 shadow-card">
+                <h2 className="eyebrow text-bronze">Outcome</h2>
+                <p className="mt-2 leading-relaxed text-navy">{project.outcome}</p>
               </section>
             )}
           </div>
+
+          {/* Facts rail */}
+          <aside className="lg:sticky lg:top-24 lg:self-start">
+            <div className="border border-border bg-surface p-6 shadow-card">
+              <p className="eyebrow text-graphite">Project facts</p>
+              <dl className="mt-5 grid grid-cols-2 gap-x-6 gap-y-5 lg:grid-cols-1">
+                <Field label="Client" value={project.client} />
+                {project.location && (
+                  <Field label="Location" value={project.location} />
+                )}
+                <Field label="Sector" value={project.sector} />
+                <Field label="Service category" value={project.serviceType} />
+              </dl>
+
+              {related.length > 0 && (
+                <div className="mt-6 border-t border-border pt-5">
+                  <p className="eyebrow text-graphite">Related services</p>
+                  <div className="mt-3 flex flex-wrap gap-2">
+                    {related.map((s) => (
+                      <Link
+                        key={s.slug}
+                        href={`/services/${s.slug}`}
+                        className="border border-border px-3 py-1.5 text-sm font-medium text-navy transition-colors hover:border-bronze hover:text-bronze"
+                      >
+                        {s.title}
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              <Link
+                href="/contact"
+                className="mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-bronze transition-colors hover:text-bronze-strong"
+              >
+                Discuss a similar scope
+                <span aria-hidden>&rarr;</span>
+              </Link>
+            </div>
+          </aside>
         </div>
       </Container>
 
-      <CTASection variant="light" />
+      <CTASection
+        variant="light"
+        heading="Planning similar work?"
+        body="Talk to the team that delivered this project. We will bring the same discipline to your scope, onshore, offshore or swamp."
+      />
     </>
   );
 }

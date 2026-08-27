@@ -4,11 +4,11 @@
 /* Weltek design tokens (Phase 0/1 locked palette — Option B)          */
 /* ------------------------------------------------------------------ */
 @theme {
-  /* Authority / ink */
+  /* Authority / ink.
+     Two darks only. Four near-identical navies read as noise rather than
+     hierarchy: `ground` is the page floor, `navy` is anything raised off it. */
   --color-navy: #0e2a3b;
   --color-navy-900: #071722;
-  --color-navy-800: #0a2130;
-  --color-navy-700: #12344a;
   --color-steel: #34515f;
   --color-ink: #16242e;
 
@@ -32,9 +32,45 @@
   --color-graphite: #5a6870;
 
   --font-heading: var(--font-archivo), "Archivo", system-ui, sans-serif;
-  --font-body: var(--font-inter), "Inter", system-ui, sans-serif;
+  --font-body: var(--font-instrument), "Instrument Sans", system-ui, sans-serif;
 
-  --radius-card: 3px;
+  /* Type scale.
+     The old set had no rank below the h1: section headings at 38px sat beside
+     card headings at 34 and 32, which read as one size. These steps are wide
+     enough to be read as steps. Use the tokens, not arbitrary text-[…] values. */
+  --text-display: 4.25rem;              /* 68, homepage hero only */
+  --text-display--line-height: 1.0;
+  --text-display--letter-spacing: -0.022em;
+
+  --text-title: 2.75rem;                /* 44, page headers */
+  --text-title--line-height: 1.06;
+  --text-title--letter-spacing: -0.018em;
+
+  --text-section: 2.625rem;             /* 42, section headings */
+  --text-section--line-height: 1.08;
+  --text-section--letter-spacing: -0.015em;
+
+  --text-subsection: 1.75rem;           /* 28, sub-heads inside a section */
+  --text-subsection--line-height: 1.15;
+
+  --text-card: 1.25rem;                 /* 20, card titles */
+  --text-card--line-height: 1.25;
+
+  --text-lead: 1.25rem;                 /* 20, section intros */
+  --text-lead--line-height: 1.55;
+
+  --text-body: 1.125rem;                /* 18, running text */
+  --text-body--line-height: 1.65;
+
+  --text-small: 0.9375rem;              /* 15, captions, meta */
+  --text-small--line-height: 1.5;
+
+  --text-micro: 0.75rem;                /* 12, eyebrows, labels */
+  --text-micro--line-height: 1.4;
+
+  /* Square. Every peer in the category went soft (Worley 4 to 55px, Petrofac 55px
+     pills, Wood 24 to 32px). Sharp is the one thing this site already owned. */
+  --radius-card: 0px;
 
   /* Restrained corporate elevation (never shadow-lg-on-everything) */
   --shadow-card: 0 1px 2px rgba(14, 42, 59, 0.04), 0 14px 30px -18px rgba(14, 42, 59, 0.18);
@@ -57,6 +93,8 @@ body {
   background: var(--color-canvas);
   color: var(--color-ink);
   font-family: var(--font-body);
+  font-size: var(--text-body);
+  line-height: 1.65;
   font-synthesis-weight: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -92,8 +130,7 @@ body {
 /* ------------------------------------------------------------------ */
 /* Utilities — mobile viewport + safe-area (iOS/Android)               */
 /* ------------------------------------------------------------------ */
-@utility h-dvh {
-  min-height: 100svh;
+@utility min-h-viewport {
   min-height: 100dvh;
 }
 @utility safe-pt { padding-top: env(safe-area-inset-top); }
@@ -103,12 +140,12 @@ body {
   padding-right: env(safe-area-inset-right);
 }
 
-/* Eyebrow / overline */
-@utility overline {
+/* Eyebrow / overline label */
+@utility eyebrow {
   font-family: var(--font-heading);
   text-transform: uppercase;
   letter-spacing: 0.14em;
-  font-size: 0.75rem;
+  font-size: var(--text-micro);
   font-weight: 600;
 }
 

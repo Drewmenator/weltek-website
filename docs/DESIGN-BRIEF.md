@@ -1,5 +1,11 @@
 # Weltek website — design/UX brief for a restyle
 
+> **Superseded in part by `DESIGN.md` at the repo root.** That file is now the
+> source of truth for tokens, the type scale, colour roles, radius and homepage
+> order. This brief is kept for the audience and positioning context in the
+> first two sections, which still hold. Where the two disagree on a value
+> (palette hexes and radius have both moved), `DESIGN.md` wins.
+
 Hand this folder to a design-focused session to improve the UI/UX across the
 whole site. This file orients you; the code is the source of truth.
 

@@ -25,7 +25,7 @@ export const site = {
     { figure: "30+", label: "Years of experience" },
     { figure: "100+", label: "Projects delivered" },
     { figure: "850+", label: "Wellhead control panels" },
-    { figure: "HSE", label: "Led delivery culture" },
+    { figure: "HSE", label: "Governs every scope" },
   ],
 } as const;
 

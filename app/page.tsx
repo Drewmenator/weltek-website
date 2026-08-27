@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import type { Metadata } from "next";
 import { Hero } from "@/components/Hero";
 import { StatStrip } from "@/components/StatStrip";
@@ -11,7 +12,6 @@ import { Button } from "@/components/ui/Button";
 import { Reveal } from "@/components/ui/Reveal";
 import { ServiceCard } from "@/components/cards/ServiceCard";
 import { ProjectCard } from "@/components/cards/ProjectCard";
-import { IndustryCard } from "@/components/cards/IndustryCard";
 import { services } from "@/content/services";
 import { projects } from "@/content/projects";
 import { industries } from "@/content/industries";
@@ -25,38 +25,11 @@ export const metadata: Metadata = {
 
 const featuredProjects = projects.filter((p) => p.featured);
 
-const whyWeltek = [
-  {
-    n: "01",
-    title: "Live-plant and brownfield execution",
-    body: "We modify producing facilities without shutting them down, using permit-to-work discipline and phased tie-ins.",
-  },
-  {
-    n: "02",
-    title: "In-house automation",
-    body: "Design, programming, testing and commissioning stay under one roof, governed by an ISO 9001 based approach.",
-  },
-  {
-    n: "03",
-    title: "Instrumentation and electrical heritage",
-    body: "I&E is where Weltek started. The team that engineers a system installs and commissions it.",
-  },
-  {
-    n: "04",
-    title: "HSE-led delivery",
-    body: "Safety governs how work is planned and executed, offshore, on land and in the swamp.",
-  },
-  {
-    n: "05",
-    title: "Deep Nigerian operating experience",
-    body: "Three decades of delivery for the operators working Nigerian fields, with strong local content.",
-  },
-  {
-    n: "06",
-    title: "A proven record",
-    body: "100+ projects and 850+ wellhead control panels delivered for Shell, Chevron, ExxonMobil, NPDC and Energia.",
-  },
-];
+/** Lead tile first, so the grid has somewhere to start reading. */
+const orderedServices = [...services].sort(
+  (a, b) => Number(Boolean(b.featured)) - Number(Boolean(a.featured))
+);
+
 
 const hsePillars = [
   {
@@ -77,31 +50,28 @@ export default function Home() {
   return (
     <>
       <Hero />
+
+      {/* Proof before prose. A shortlisting buyer wants to know who already
+          trusted us and at what scale before they read a word about us. */}
+      <ClientsStrip />
       <StatStrip />
-      <CredentialsStrip />
 
       {/* Who We Are */}
       <section className="bg-surface">
-        <Container className="grid gap-12 py-20 lg:grid-cols-2 lg:gap-16 lg:py-28">
+        <Container className="grid gap-12 py-16 lg:grid-cols-2 lg:gap-16 lg:py-20">
           <Reveal>
-            <p className="overline text-bronze">Who we are</p>
-            <h2 className="mt-3 text-[1.7rem] sm:text-[2.1rem]">
+            <p className="eyebrow text-bronze">Who we are</p>
+            <h2 className="mt-3 text-[1.9rem] sm:text-section">
               An engineering-led EPC company built on three decades of field
               delivery.
             </h2>
-            <p className="mt-5 text-[1.05rem] leading-relaxed text-steel">
-              Weltek is an Engineering, Procurement and Construction company
-              serving the oil and gas, power generation, petrochemical and food
-              and beverage industries. We design, build and commission
-              industrial plants and infrastructure using current technology and
-              experienced people.
-            </p>
-            <p className="mt-4 text-[1.05rem] leading-relaxed text-steel">
-              Our strength is execution on real facilities. From topside skids
-              and wellhead control panels to power systems and the
-              instrumentation that runs them, we deliver work that has to
-              perform in the field, with a high degree of Nigerian local
-              content.
+            <p className="mt-5 text-body leading-relaxed text-steel">
+              Weltek designs, builds and commissions industrial plants and
+              infrastructure for the oil and gas, power generation,
+              petrochemical and food and beverage industries. Our strength is
+              execution on real facilities: topside skids, wellhead control
+              panels, power systems and the instrumentation that runs them,
+              delivered with a high degree of Nigerian local content.
             </p>
             <div className="mt-8">
               <Button href="/about" variant="secondary">
@@ -109,21 +79,30 @@ export default function Home() {
               </Button>
             </div>
           </Reveal>
-          <Reveal delay={80} className="relative min-h-[20rem] overflow-hidden border border-border lg:min-h-full">
+          {/* Captioned rather than decorative. Naming what the photograph
+              actually shows turns it into evidence for the live-plant claim,
+              which is the one thing this site is built to prove. */}
+          <Reveal delay={80} className="relative min-h-[22rem] overflow-hidden border border-border lg:min-h-full">
             <Image
-              src="/images/about-plant.svg"
-              alt="Weltek engineers commissioning a control system on a process plant"
+              src="/images/photos/weltek-panel-commissioning.webp"
+              alt="Weltek engineer commissioning a control panel in the field"
               fill
               sizes="(max-width: 1024px) 100vw, 560px"
               className="object-cover"
             />
+            <div className="absolute inset-x-0 bottom-0 border-t-2 border-bronze bg-navy-900/92 p-4">
+              <span className="eyebrow block text-bronze-soft">In the field</span>
+              <span className="mt-1 block text-small text-white">
+                Commissioning a control panel on a producing plant.
+              </span>
+            </div>
           </Reveal>
         </Container>
       </section>
 
       {/* Core Services */}
       <section className="border-t border-border bg-surface-alt">
-        <Container className="py-20 lg:py-28">
+        <Container className="py-16 lg:py-20">
           <div className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
             <SectionHeading
               eyebrow="What we do"
@@ -135,18 +114,19 @@ export default function Home() {
             </Button>
           </div>
           <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {services.map((service) => (
+            {orderedServices.map((service) => (
               <Reveal key={service.slug}>
-                <ServiceCard service={service} featured={service.featured} />
+                <ServiceCard service={service} />
               </Reveal>
             ))}
           </div>
+
         </Container>
       </section>
 
       {/* Featured Projects */}
       <section className="bg-surface">
-        <Container className="py-20 lg:py-28">
+        <Container className="py-16 lg:py-20">
           <div className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
             <SectionHeading
               eyebrow="Selected work"
@@ -157,23 +137,22 @@ export default function Home() {
               All projects →
             </Button>
           </div>
-          <div className="mt-12 grid gap-6 md:grid-cols-3">
-            {featuredProjects.map((project) => (
-              <Reveal key={project.slug}>
-                <ProjectCard project={project} />
+          {/* One lead tile, two supporting. A row of three identical rectangles
+              tells the reader nothing about where to start. */}
+          <div className="mt-12 grid gap-6 md:grid-cols-3 md:grid-rows-2">
+            {featuredProjects.map((project, i) => (
+              <Reveal key={project.slug} className={i === 0 ? "md:col-span-2 md:row-span-2" : undefined}>
+                <ProjectCard project={project} featured={i === 0} />
               </Reveal>
             ))}
           </div>
         </Container>
       </section>
 
-      {/* Clients & operators */}
-      <ClientsStrip />
-
       {/* HSE / Quality */}
       <section className="tech-grid relative bg-navy-900 text-white">
         <span aria-hidden className="absolute inset-x-0 top-0 h-[3px] bg-bronze" />
-        <Container className="py-20 lg:py-28">
+        <Container className="py-16 lg:py-20">
           <div className="grid gap-12 lg:grid-cols-[1fr_1.2fr] lg:gap-16">
             <div>
               <SectionHeading
@@ -191,7 +170,7 @@ export default function Home() {
             <div className="grid gap-px overflow-hidden border border-border-dark bg-border-dark sm:grid-cols-1">
               {hsePillars.map((pillar) => (
                 <div key={pillar.title} className="bg-navy p-6 lg:p-8">
-                  <h3 className="text-[1.15rem] text-white">{pillar.title}</h3>
+                  <h3 className="text-lead text-white">{pillar.title}</h3>
                   <p className="mt-2 text-sm leading-relaxed text-white/70">
                     {pillar.body}
                   </p>
@@ -202,43 +181,40 @@ export default function Home() {
         </Container>
       </section>
 
-      {/* Industries */}
-      <section className="border-t border-border bg-surface-alt">
-        <Container className="py-20 lg:py-28">
-          <SectionHeading
-            eyebrow="Industries"
-            title="Sectors we serve"
-            intro="The same engineering discipline and HSE culture, applied across energy and process industry."
-          />
-          <div className="mt-12 grid grid-cols-2 gap-4 lg:grid-cols-5">
-            {industries.map((industry, i) => (
-              <IndustryCard
-                key={industry.slug}
-                industry={industry}
-                className={i === 0 ? "col-span-2 lg:col-span-1" : ""}
-              />
-            ))}
-          </div>
-        </Container>
-      </section>
+      {/* Compliance sits directly under HSE, where a buyer checking one is
+          already looking for the other. It used to float near the top. */}
+      <CredentialsStrip />
 
-      {/* Why Weltek */}
-      <section className="bg-surface">
-        <Container className="py-20 lg:py-28">
-          <SectionHeading
-            eyebrow="Why Weltek"
-            title="What sets our delivery apart"
-          />
-          <div className="mt-12 grid gap-x-10 gap-y-10 sm:grid-cols-2 lg:grid-cols-3">
-            {whyWeltek.map((item) => (
-              <Reveal key={item.n} className="border-t border-border pt-5">
-                <p className="tnum font-heading text-[1.5rem] font-bold text-bronze">
-                  {item.n}
-                </p>
-                <h3 className="mt-2 text-[1.15rem] text-navy">{item.title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-steel">{item.body}</p>
-              </Reveal>
-            ))}
+      {/* Industries. A compact row rather than a card grid: the sectors are
+          already named in the hero, and each has its own page. */}
+      <section className="border-t border-border bg-surface">
+        <Container className="py-14">
+          <div className="flex flex-col gap-7 lg:flex-row lg:items-center lg:gap-12">
+            <div className="shrink-0 lg:max-w-[16rem]">
+              <p className="eyebrow text-graphite">Sectors we serve</p>
+              <p className="mt-2 text-sm leading-relaxed text-steel">
+                The same engineering discipline and HSE culture, applied across
+                energy and process industry.
+              </p>
+            </div>
+            <ul className="grid flex-1 gap-x-8 gap-y-3 sm:grid-cols-2 lg:grid-cols-3">
+              {industries.map((industry) => (
+                <li key={industry.slug}>
+                  <Link
+                    href={`/industries#${industry.slug}`}
+                    className="group flex min-h-[44px] items-center justify-between gap-3 border-b border-border py-2 font-medium text-navy transition-colors hover:text-bronze"
+                  >
+                    {industry.name}
+                    <span
+                      aria-hidden
+                      className="text-bronze opacity-0 transition-opacity group-hover:opacity-100"
+                    >
+                      &rarr;
+                    </span>
+                  </Link>
+                </li>
+              ))}
+            </ul>
           </div>
         </Container>
       </section>

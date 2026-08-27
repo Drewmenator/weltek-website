@@ -45,7 +45,7 @@ export default async function ServiceDetailPage({
     <>
       <section className="safe-px tech-grid relative border-b border-border-dark bg-navy-900 text-white">
         <span aria-hidden className="absolute inset-x-0 top-0 h-[3px] bg-bronze" />
-        <Container className="py-14 lg:py-20">
+        <Container className="py-10 lg:py-14">
           <Breadcrumb
             tone="onDark"
             items={[
@@ -55,20 +55,19 @@ export default async function ServiceDetailPage({
             ]}
           />
           <p
-            className="overline animate-rise mt-7 flex items-center gap-3 text-bronze-soft"
+            className="eyebrow animate-rise mt-7 text-bronze-soft"
             style={{ animationDelay: "40ms" }}
           >
-            <span aria-hidden className="animate-line h-px w-8 bg-bronze" style={{ animationDelay: "140ms" }} />
             {service.sector}
           </p>
           <h1
-            className="mt-4 max-w-3xl animate-rise text-balance text-[2rem] leading-[1.06] text-white sm:text-[2.7rem]"
+            className="mt-4 max-w-3xl animate-rise text-balance text-[2rem] leading-[1.06] text-white sm:text-title"
             style={{ animationDelay: "120ms" }}
           >
             {service.title}
           </h1>
           <p
-            className="mt-5 max-w-2xl animate-rise text-[1.08rem] leading-relaxed text-white/80"
+            className="mt-5 max-w-2xl animate-rise text-lead leading-relaxed text-white/80"
             style={{ animationDelay: "220ms" }}
           >
             {service.intro}
@@ -87,13 +86,13 @@ export default async function ServiceDetailPage({
         />
       </div>
 
-      <Container className="py-14 lg:py-20">
+      <Container className="py-16 lg:py-24">
         <div className="grid gap-12 lg:grid-cols-[2fr_1fr] lg:gap-16">
           <div className="max-w-2xl">
-            <h2 className="text-[1.5rem]">Our capability</h2>
+            <h2 className="text-subsection">Our capability</h2>
             <p className="mt-4 leading-relaxed text-steel">{service.capability}</p>
 
-            <h2 className="mt-10 text-[1.5rem]">Typical deliverables</h2>
+            <h2 className="mt-10 text-subsection">Typical deliverables</h2>
             <ol className="mt-5 divide-y divide-border border-t border-border">
               {service.deliverables.map((d, i) => (
                 <li key={d} className="flex gap-4 py-3.5 text-steel">
@@ -108,7 +107,7 @@ export default async function ServiceDetailPage({
 
           <aside className="lg:sticky lg:top-24 lg:self-start">
             <div className="border border-border bg-surface p-6 shadow-card lg:p-7">
-              <h2 className="overline text-graphite">Industries served</h2>
+              <h2 className="eyebrow text-graphite">Industries served</h2>
               <ul className="mt-4 flex flex-wrap gap-2">
                 {service.industries.map((ind) => (
                   <li
@@ -119,6 +118,30 @@ export default async function ServiceDetailPage({
                   </li>
                 ))}
               </ul>
+              <div className="mt-6 border-t border-border pt-5">
+                <h2 className="eyebrow text-graphite">Other capabilities</h2>
+                <ul className="mt-2 divide-y divide-border">
+                  {services
+                    .filter((s) => s.slug !== service.slug)
+                    .map((s) => (
+                      <li key={s.slug}>
+                        <Link
+                          href={`/services/${s.slug}`}
+                          className="group flex min-h-[44px] items-center justify-between gap-3 py-2 text-sm font-medium text-navy transition-colors hover:text-bronze"
+                        >
+                          {s.title}
+                          <span
+                            aria-hidden
+                            className="text-bronze opacity-0 transition-opacity group-hover:opacity-100"
+                          >
+                            &rarr;
+                          </span>
+                        </Link>
+                      </li>
+                    ))}
+                </ul>
+              </div>
+
               <Link
                 href="/contact"
                 className="mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-bronze transition-colors hover:text-bronze-strong"
@@ -132,7 +155,7 @@ export default async function ServiceDetailPage({
 
         {relatedProjects.length > 0 && (
           <div className="mt-16 border-t border-border pt-12">
-            <h2 className="text-[1.5rem]">Related projects</h2>
+            <h2 className="text-subsection">Related projects</h2>
             <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
               {relatedProjects.map((p) => (
                 <ProjectCard key={p.slug} project={p} />
@@ -142,7 +165,11 @@ export default async function ServiceDetailPage({
         )}
       </Container>
 
-      <CTASection variant="navy" />
+      <CTASection
+        variant="navy"
+        heading="Have a scope that needs delivering?"
+        body="Tell us what you need engineered, built or commissioned. We will respond with the right capability and team."
+      />
     </>
   );
 }

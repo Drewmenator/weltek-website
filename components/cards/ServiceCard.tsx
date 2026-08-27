@@ -14,7 +14,7 @@ export function ServiceCard({
     <Link
       href={`/services/${service.slug}`}
       className={cn(
-        "group flex flex-col overflow-hidden border border-border bg-surface shadow-card transition-all duration-200 hover:-translate-y-0.5 hover:border-border-strong focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-bronze",
+        "group flex flex-col overflow-hidden border border-border bg-surface shadow-card transition-[translate,border-color] duration-200 ease-out-strong hover:border-border-strong motion-safe:hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-bronze",
         featured && "sm:col-span-2 sm:flex-row"
       )}
     >
@@ -29,9 +29,12 @@ export function ServiceCard({
           alt=""
           fill
           sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 460px"
-          className="object-cover transition-transform duration-500 group-hover:scale-[1.05]"
+          className="object-cover transition-transform duration-300 ease-out-strong motion-safe:group-hover:scale-[1.05]"
         />
-        <span className="absolute left-0 top-0 h-[3px] w-12 bg-bronze transition-all duration-300 group-hover:w-full" />
+        <span
+          aria-hidden
+          className="absolute left-0 top-0 h-[3px] w-full origin-left scale-x-[0.13] bg-bronze transition-transform duration-300 ease-out-strong group-hover:scale-x-100"
+        />
       </div>
       <div
         className={cn(

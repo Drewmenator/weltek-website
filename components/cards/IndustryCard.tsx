@@ -23,7 +23,7 @@ export function IndustryCard({
         alt=""
         fill
         sizes="(max-width: 640px) 80vw, (max-width: 1024px) 40vw, 240px"
-        className="object-cover opacity-90 transition-transform duration-500 group-hover:scale-[1.06]"
+        className="object-cover opacity-90 transition-transform duration-300 ease-out-strong motion-safe:group-hover:scale-[1.06]"
       />
       <div className="absolute inset-0 bg-gradient-to-t from-navy-900 via-navy-900/45 to-navy-900/5" />
       <div className="relative p-6">
@@ -36,7 +36,10 @@ export function IndustryCard({
           <span aria-hidden>→</span>
         </span>
       </div>
-      <span className="absolute left-0 top-0 h-1 w-0 bg-bronze transition-all duration-300 group-hover:w-full" />
+      <span
+        aria-hidden
+        className="absolute left-0 top-0 h-1 w-full origin-left scale-x-0 bg-bronze transition-transform duration-300 ease-out-strong group-hover:scale-x-100"
+      />
     </Link>
   );
 }

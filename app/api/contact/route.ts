@@ -1,7 +1,26 @@
 import { NextResponse } from "next/server";
 import { Resend } from "resend";
+import { rateLimit, clientKey } from "@/lib/rate-limit";
 
 export const runtime = "nodejs";
+
+/** Five submissions per address per ten minutes. Generous for a human. */
+const LIMIT = 5;
+const WINDOW_MS = 10 * 60 * 1000;
+
+/** Reject oversized bodies before parsing rather than after. */
+const MAX_BODY_BYTES = 32 * 1024;
+
+/**
+ * Per-field caps. Without these a single request can carry megabytes into the
+ * outbound email. 254 on email is the RFC 5321 maximum.
+ */
+const MAX = {
+  name: 120,
+  email: 254,
+  message: 5000,
+  other: 200,
+} as const;
 
 // Simple email shape check. Server-side validation is the source of truth;
 // the client form validates too, but never trust the client.
@@ -29,6 +48,19 @@ function esc(s: string) {
 }
 
 export async function POST(request: Request) {
+  const limited = rateLimit(clientKey(request), { limit: LIMIT, windowMs: WINDOW_MS });
+  if (!limited.ok) {
+    return NextResponse.json(
+      { error: "Too many messages from this address. Please try again shortly, or email info@weltekng.com." },
+      { status: 429, headers: { "Retry-After": String(limited.retryAfter) } }
+    );
+  }
+
+  const declared = Number(request.headers.get("content-length") ?? 0);
+  if (declared > MAX_BODY_BYTES) {
+    return NextResponse.json({ error: "That message is too long." }, { status: 413 });
+  }
+
   let data: Payload;
   try {
     data = await request.json();
@@ -47,8 +79,12 @@ export async function POST(request: Request) {
 
   const errors: string[] = [];
   if (name.length < 2) errors.push("A name is required.");
+  if (name.length > MAX.name) errors.push("That name is too long.");
   if (!emailRe.test(email)) errors.push("A valid email is required.");
+  if (email.length > MAX.email) errors.push("That email address is too long.");
   if (message.length < 10) errors.push("Please include a short message.");
+  if (message.length > MAX.message)
+    errors.push(`Please keep the message under ${MAX.message} characters.`);
   if (errors.length) {
     return NextResponse.json({ error: errors.join(" ") }, { status: 422 });
   }
@@ -68,9 +104,14 @@ export async function POST(request: Request) {
   ];
   const rows = rowKeys
     .filter((k) => (data[k] || "").trim())
+    .map((k) => {
+      const v = String(data[k]).trim();
+      return [k, v.length > MAX.other ? `${v.slice(0, MAX.other)}...` : v] as const;
+    })
+    .map(([k, v]) => ({ k, v }))
     .map(
-      (k) =>
-        `<tr><td style="padding:4px 12px 4px 0;color:#6b7a82;text-transform:capitalize">${k}</td><td style="padding:4px 0;color:#14232e">${esc(String(data[k]))}</td></tr>`
+      ({ k, v }) =>
+        `<tr><td style="padding:4px 12px 4px 0;color:#6b7a82;text-transform:capitalize">${k}</td><td style="padding:4px 0;color:#14232e">${esc(v)}</td></tr>`
     )
     .join("");
 
@@ -106,7 +147,7 @@ export async function POST(request: Request) {
       from,
       to,
       replyTo: email,
-      subject: `[${FORM_LABELS[formType]}] ${name}`,
+      subject: `[${FORM_LABELS[formType]}] ${name.replace(/[\r\n]+/g, " ")}`,
       html,
     });
     if (error) {

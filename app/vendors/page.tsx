@@ -45,10 +45,10 @@ export default function VendorsPage() {
           <div className="mt-10 grid gap-8 sm:grid-cols-3">
             {steps.map((s) => (
               <div key={s.n} className="border-t border-border pt-5">
-                <p className="tnum font-heading text-[1.5rem] font-bold text-bronze">
+                <p className="tnum font-heading text-subsection font-bold text-bronze">
                   {s.n}
                 </p>
-                <h3 className="mt-2 text-[1.15rem] text-navy">{s.title}</h3>
+                <h3 className="mt-2 text-lead text-navy">{s.title}</h3>
                 <p className="mt-2 leading-relaxed text-steel">{s.body}</p>
               </div>
             ))}
@@ -65,10 +65,6 @@ export default function VendorsPage() {
                 title="Register as a vendor or partner"
                 intro="Complete the form and our procurement team will follow up. Supplier compliance documents will be requested during onboarding."
               />
-              <p className="mt-6 rounded-[4px] border border-dashed border-border bg-surface p-4 text-sm text-graphite">
-                [CONFIRM] Supplier compliance document checklist and procurement
-                contact email to be provided by Weltek.
-              </p>
             </div>
             <div>
               <ContactForm variant="vendor" />

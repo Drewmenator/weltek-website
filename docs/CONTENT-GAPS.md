@@ -1,7 +1,13 @@
-# Content-gap report — items flagged `[CONFIRM]`
+# Content-gap report
 
-Every placeholder below must be confirmed or supplied by Weltek before launch.
-None of these are invented facts; they are gaps where real data is needed.
+Every item below must be confirmed or supplied by Weltek. None of these are
+invented facts; they are gaps where real data is needed.
+
+**These gaps no longer render on the site.** Placeholder text used to print
+`[CONFIRM] …` on public pages; it now simply omits the field until real data
+exists. `location`, `hseNote` and `outcome` on `Project` are optional — fill
+one in and its row or section appears automatically. Never ship a visible
+placeholder again: this list is the record of what is outstanding.
 
 ## 1. Compliance & certifications (highest priority — shortlisting signals)
 Location: `content/credentials.ts`, homepage credentials strip, HSE/Quality page.
@@ -17,7 +23,9 @@ Location: `content/credentials.ts`, homepage credentials strip, HSE/Quality page
 > When a number is confirmed, set `confirm: false` and add `refNumber` on that entry in `content/credentials.ts`. The "to confirm" flag disappears automatically.
 
 ## 2. Projects (`content/projects.ts`)
-Client **names cleared for public use (confirmed 2026-07-05).** Naming Shell/SNEPCo/SPDC, Chevron, ExxonMobil, NPDC, Energia and NGC is approved. Note: this covers names, not client **logos** — logo/trademark usage still needs separate written permission before any logo is displayed.
+Client **names cleared for public use (confirmed 2026-07-05).** Naming Shell/SNEPCo/SPDC, Chevron, ExxonMobil, NPDC, Energia and NGC is approved.
+
+Client **logos** are displayed in `components/ClientsStrip.tsx` (Shell, Chevron, ExxonMobil, NNPC, Energia, Total, GE) under written permission confirmed 2026-08-26. Any operator added beyond that set needs its own written permission first.
 
 - **Locations** for: Ebendo, OML-111/65, Cawthorne Channel, SNEPCo topsides, Lekki, Asasa VA, CAO/SCADA, GPH.
 - **Dates / durations** for each project.
@@ -41,11 +49,11 @@ Client **names cleared for public use (confirmed 2026-07-05).** Naming Shell/SNE
 - **Procurement contact** email (if different from info@weltekng.com).
 
 ## 7. Contact (`app/contact/page.tsx`)
-- **Map embed** for Plot 307 Danjuma Drive, Trans Amadi, Port Harcourt (currently a placeholder box).
+- **Map embed** for Plot 307 Danjuma Drive, Trans Amadi, Port Harcourt (not present — the placeholder box was removed).
 - Confirm both office phone numbers and the USA office details are current.
 
 ## 8. Brand & media
-- **Official logo** file (SVG preferred). Current wordmark is a placeholder in `components/Logo.tsx`.
+- **Official logo** file in SVG (the real mark is in place as PNG at `public/images/brand/`; SVG would sharpen it).
 - **Exact brand hex values** from the logo (bronze inferred as `#B0692F`; confirm).
 - **Industrial photography** to replace the 22 placeholder SVGs in `public/images/` (filenames indicate the intended subject).
 - **Capability Statement PDF** to replace `public/weltek-capability-statement.pdf` (placeholder).

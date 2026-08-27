@@ -36,7 +36,11 @@ export default function ServicesPage() {
         </Container>
       </section>
 
-      <CTASection variant="navy" />
+      <CTASection
+        variant="navy"
+        heading="Have a scope that needs delivering?"
+        body="Tell us what you need engineered, built or commissioned. We will respond with the right capability and team."
+      />
     </>
   );
 }

@@ -51,7 +51,7 @@ export function TeamMemberCard({
 
         {interactive && (
           <span className="pointer-events-none absolute inset-0 flex items-end bg-gradient-to-t from-navy/75 via-navy/10 to-transparent opacity-0 transition-opacity duration-200 group-hover:opacity-100 group-focus-visible:opacity-100">
-            <span className="p-3 text-[0.7rem] font-semibold uppercase tracking-[0.14em] text-white">
+            <span className="p-3 text-micro font-semibold uppercase tracking-[0.14em] text-white">
               View profile
             </span>
           </span>
@@ -59,11 +59,11 @@ export function TeamMemberCard({
       </div>
 
       <figcaption className="mt-4 text-left">
-        <p className="font-heading text-[1.05rem] font-bold leading-tight text-navy">
+        <p className="font-heading text-body font-bold leading-tight text-navy">
           {member.name ? (
             <>
               {member.honorific && (
-                <span className="font-body text-[0.95rem] font-medium text-graphite">
+                <span className="font-body text-small font-medium text-graphite">
                   {member.honorific}{" "}
                 </span>
               )}

@@ -26,12 +26,12 @@ export function CTASection({
       <Container className="py-16 lg:py-24">
         <div className="grid items-center gap-8 lg:grid-cols-[1.5fr_1fr]">
           <div>
-            <h2 className={cn("text-[1.9rem] text-balance sm:text-[2.4rem]", dark && "text-white")}>
+            <h2 className={cn("text-[1.9rem] text-balance sm:text-section", dark && "text-white")}>
               {heading}
             </h2>
             <p
               className={cn(
-                "mt-4 max-w-xl text-[1.05rem] leading-relaxed",
+                "mt-4 max-w-xl text-body leading-relaxed",
                 dark ? "text-white/75" : "text-steel"
               )}
             >

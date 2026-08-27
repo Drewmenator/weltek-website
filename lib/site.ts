@@ -2,7 +2,17 @@ export const site = {
   name: "Weltek Limited",
   shortName: "Weltek",
   domain: "weltekng.com",
-  url: "https://weltekng.com",
+  /**
+   * Canonical origin. Everything derives from this: canonical links, OG and
+   * Twitter image URLs, JSON-LD, the sitemap and robots.txt.
+   *
+   * weltekng.com still serves the previous site, so until DNS moves, every
+   * absolute URL here points at a host that 404s. Set NEXT_PUBLIC_SITE_URL in
+   * the Vercel project to the live deployment origin to make sharing and
+   * crawling work in the meantime, then delete the variable once the domain
+   * is pointed here. No code change either way.
+   */
+  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://weltekng.com",
   tagline: "Engineering, Procurement and Construction",
   description:
     "Weltek Limited is a Nigerian Engineering, Procurement and Construction company with 30+ years delivering offshore topside facilities, brownfield rejuvenation, power systems, instrumentation and electrical, automation and wellhead control panels for the oil and gas, power and process industries.",

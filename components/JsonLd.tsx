@@ -11,7 +11,7 @@ export function OrganizationJsonLd() {
     name: site.name,
     legalName: "Weltek Limited",
     url: site.url,
-    logo: `${site.url}/images/og-default.svg`,
+    logo: `${site.url}/images/brand/weltek-logo.png`,
     description: site.description,
     email: site.email,
     sameAs: [site.linkedin],

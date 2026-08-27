@@ -46,13 +46,21 @@ export const metadata: Metadata = {
     siteName: site.name,
     title: "Weltek Limited | EPC Company in Nigeria",
     description: site.description,
-    images: [{ url: "/images/photos/hero-topside.webp", width: 1200, height: 630, alt: site.name }],
+    images: [
+      {
+        url: "/images/og-default.jpg",
+        width: 1200,
+        height: 630,
+        type: "image/jpeg",
+        alt: "Weltek Limited, engineering, procurement and construction",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Weltek Limited | EPC Company in Nigeria",
     description: site.description,
-    images: ["/images/photos/hero-topside.webp"],
+    images: ["/images/og-default.jpg"],
   },
   robots: { index: true, follow: true },
   alternates: { canonical: "/" },

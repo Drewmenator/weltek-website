@@ -74,7 +74,7 @@ export function ProjectCard({
             View project
             <span
               aria-hidden
-              className="transition-transform group-hover:translate-x-1"
+              className="transition-transform motion-safe:group-hover:translate-x-1"
             >
               →
             </span>

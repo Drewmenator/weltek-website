@@ -126,14 +126,6 @@ body {
   background: color-mix(in srgb, var(--color-bronze) 26%, transparent);
 }
 
-@media (prefers-reduced-motion: reduce) {
-  html { scroll-behavior: auto; }
-  *, *::before, *::after {
-    animation-duration: 0.001ms !important;
-    transition-duration: 0.001ms !important;
-  }
-}
-
 /* ------------------------------------------------------------------ */
 /* Utilities — mobile viewport + safe-area (iOS/Android)               */
 /* ------------------------------------------------------------------ */
@@ -206,4 +198,37 @@ body {
 @keyframes weltek-rise {
   from { opacity: 0; transform: translateY(14px); }
   to { opacity: 1; transform: translateY(0); }
+}
+
+/* Reduced motion means gentler, not none.
+   Movement is what triggers vestibular discomfort. Colour, opacity and shadow
+   do not, and they carry real feedback: hover, focus, form state, disabled.
+   Stripping those makes the interface harder to read, not safer. So the rule
+   here is narrow: keep everything that communicates, drop everything that
+   moves. Positional utilities are gated at the call site with `motion-safe:`,
+   so they are absent entirely rather than snapping into place. */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+
+  /* Entrance animations become pure fades. Same meaning, no travel.
+     Redefining the keyframes beats zeroing the duration: the user still gets
+     a legible entrance instead of content popping in. */
+  @keyframes weltek-rise {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  *, *::before, *::after {
+    /* Nothing may loop. An infinite animation with a near-zero duration, which
+       is what the old blanket override produced, spins faster than the thing
+       it was meant to calm. */
+    animation-iteration-count: 1 !important;
+    animation-delay: 0ms !important;
+
+    /* Only non-motion properties keep their transition. Anything positional
+       resolves instantly instead of animating. */
+    transition-property:
+      opacity, color, background-color, border-color, outline-color,
+      box-shadow, fill, stroke !important;
+  }
 }

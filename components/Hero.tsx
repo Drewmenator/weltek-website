@@ -37,13 +37,13 @@ export function Hero() {
             </p>
             <h1
               className="mt-6 text-balance animate-rise text-[2.5rem] leading-[1.02] text-white sm:text-[3.4rem] lg:text-display"
-              style={{ animationDelay: "120ms" }}
+              style={{ animationDelay: "100ms" }}
             >
               Engineering, procurement and construction for critical energy assets.
             </h1>
             <p
               className="mt-6 max-w-xl animate-rise text-lead leading-relaxed text-white/75"
-              style={{ animationDelay: "220ms" }}
+              style={{ animationDelay: "160ms" }}
             >
               Weltek delivers EPC, power systems, automation, instrumentation
               and brownfield services for oil and gas, power and industrial
@@ -52,7 +52,7 @@ export function Hero() {
             </p>
             <div
               className="mt-8 flex animate-rise flex-col gap-3 sm:flex-row"
-              style={{ animationDelay: "320ms" }}
+              style={{ animationDelay: "220ms" }}
             >
               <Button href="/services" variant="primary">
                 Explore Our Capabilities
@@ -67,7 +67,7 @@ export function Hero() {
         {/* Client proof row */}
         <div
           className="relative animate-rise border-t border-white/15 py-5"
-          style={{ animationDelay: "440ms" }}
+          style={{ animationDelay: "280ms" }}
         >
           <p className="eyebrow text-white/60">Project delivery for</p>
           <ul className="mt-3 flex flex-wrap items-center gap-x-6 gap-y-2">

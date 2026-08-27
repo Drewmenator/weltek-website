@@ -139,6 +139,22 @@ the HSE section, and its lead claim is now the featured brownfield card.
 - Form inputs at 16px or larger, which prevents iOS auto-zoom.
 - Heading order with no skipped levels. Every `img` carries `alt`.
 
+## Motion
+
+- **Easing tokens:** `ease-out-strong` `cubic-bezier(0.23, 1, 0.32, 1)` for enter
+  and exit, `ease-in-out-strong` `cubic-bezier(0.77, 0, 0.175, 1)` for on-screen
+  movement. The built-in curves are too weak to read as intentional. **Never use
+  `ease-in` on UI:** it delays the initial movement, which is the exact moment
+  the user is watching most closely.
+- **Durations:** press feedback 150ms, hovers 200 to 300ms, scroll reveal 400ms,
+  hero entrance 450ms. UI motion stays under 300ms unless it is an entrance.
+- **Press feedback:** every pressable element gets `active:scale-[0.97]`. A 1px
+  nudge is not felt.
+- **Only animate `transform`, `translate`, `scale`, `rotate` and `opacity`.**
+  Never `width`, `height`, `top` or `margin`: those trigger layout and paint on
+  every frame. The card accent rule and the hamburger both used to.
+- **Never `transition-all`.** Name the properties.
+
 ## Tailwind v4 traps, learned the hard way
 
 - **Check custom `@utility` names against Tailwind's own.** `overline` collided
@@ -150,6 +166,15 @@ the HSE section, and its lead claim is now the featured brownfield card.
 - `backdrop-filter` makes an element the containing block for `fixed`
   descendants. It broke the mobile drawer once. The header's blur is on a
   sibling span, not an ancestor, which is why the drawer still works.
+- **v4 puts transforms on standalone properties.** `-translate-y-0.5` emits
+  `translate:`, `scale-[1.05]` emits `scale:`, `rotate-45` emits `rotate:`. None
+  of them touch `transform`. The built-in `transition-transform` correctly
+  expands to `transform, translate, scale, rotate`, but an **arbitrary** list is
+  emitted verbatim, so `transition-[opacity,transform]` silently animates
+  nothing but opacity. That bug shipped in `Reveal` from the first commit: the
+  scroll reveal faded but never lifted. Write `transition-[opacity,translate]`.
+- **Tailwind v4 already gates `hover:` behind `@media (hover:hover)`.** You do
+  not need to add it yourself; all 25 hover rules on this site are gated.
 - **Turbopack global-CSS HMR goes stale.** A `globals.css` change can silently
   not apply in dev while the production build is correct. If a token change is
   not showing, `rm -rf .next/dev .next/cache` and restart before debugging it.
@@ -184,3 +209,5 @@ one, and it has not been made.
 | 2026-08-26 | Film card removed from the hero | It sat on the only part of the hero photograph the gradient was built to reveal, and was a photo inside a photo |
 | 2026-08-26 | Play control retired site-wide | There is no video asset anywhere in the repo; the control navigated to a text page, which is a false affordance |
 | 2026-08-26 | "Who we are" photo captioned | Naming what it shows turns a decorative image into evidence for the live-plant claim |
+| 2026-08-26 | Motion pass: easing tokens, press feedback, no `transition-all` | Built-in curves read as unconsidered; a 1px press nudge is not felt |
+| 2026-08-26 | `Reveal` transition list corrected | It named `transform`, which v4 does not use for `translate`, so the lift never animated |

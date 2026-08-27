@@ -262,7 +262,7 @@ export function ContactForm({ variant = "general" }: { variant?: Variant }) {
         <button
           type="submit"
           disabled={status === "sending"}
-          className="inline-flex min-h-[52px] w-full items-center justify-center gap-2 rounded-card bg-bronze px-8 text-small font-semibold text-white transition-[background-color,transform] hover:bg-bronze-strong active:translate-y-px focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-bronze focus-visible:ring-offset-2 disabled:opacity-60 sm:w-auto"
+          className="inline-flex min-h-[52px] w-full items-center justify-center gap-2 rounded-card bg-bronze px-8 text-small font-semibold text-white transition-[background-color,scale] duration-150 ease-out-strong hover:bg-bronze-strong active:scale-[0.97] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-bronze focus-visible:ring-offset-2 disabled:opacity-60 sm:w-auto"
         >
           {status === "sending" ? "Sending..." : "Send message"}
           {status !== "sending" && <span aria-hidden>→</span>}

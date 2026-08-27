@@ -94,8 +94,8 @@ export function Header() {
           <span className="relative block h-4 w-6">
             <span
               className={cn(
-                "absolute left-0 block h-[2px] w-6 bg-navy transition-all duration-200",
-                open ? "top-1/2 -translate-y-1/2 rotate-45" : "top-0"
+                "absolute left-0 top-0 block h-[2px] w-6 bg-navy transition-transform duration-200 ease-out-strong",
+                open && "translate-y-[7px] rotate-45"
               )}
             />
             <span
@@ -106,8 +106,8 @@ export function Header() {
             />
             <span
               className={cn(
-                "absolute left-0 block h-[2px] w-6 bg-navy transition-all duration-200",
-                open ? "top-1/2 -translate-y-1/2 -rotate-45" : "bottom-0"
+                "absolute bottom-0 left-0 block h-[2px] w-6 bg-navy transition-transform duration-200 ease-out-strong",
+                open && "-translate-y-[7px] -rotate-45"
               )}
             />
           </span>

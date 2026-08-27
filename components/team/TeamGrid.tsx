@@ -28,7 +28,11 @@ export function TeamGrid() {
         return (
           <div key={group} className="mt-12">
             <h3 className="eyebrow text-graphite">{group}</h3>
-            <div className="mt-6 grid grid-cols-2 gap-x-6 gap-y-10 sm:grid-cols-3 lg:grid-cols-4">
+            {/* Two columns, because every group holds exactly two people, so
+                each row fills completely. Constrained rather than stretched to
+                the full 1136px container: a roster row terminates at its text,
+                so a wider cell would only add trailing whitespace. */}
+            <div className="mt-6 grid max-w-4xl gap-x-10 gap-y-8 sm:grid-cols-2">
               {members.map((member, i) =>
                 member.bio ? (
                   <button

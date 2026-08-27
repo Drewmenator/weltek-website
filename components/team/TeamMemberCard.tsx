@@ -3,9 +3,17 @@ import { type TeamMember, initials } from "@/content/team";
 import { cn } from "@/lib/cn";
 
 /**
- * Presentational team tile: portrait (photo or initials) + name + title.
- * Bios are shown in a modal (see TeamGrid), not inline. Pass `interactive`
- * when the tile opens a profile so it gains hover/focus affordances.
+ * Compact roster row: small portrait, name, title.
+ *
+ * This was a 4:5 portrait tile in a four-column grid, which suited a larger
+ * team with photography. With six people in three groups of two it left half
+ * of every row empty at 1440, and four of the six had no photograph, so they
+ * rendered as 266x332 empty navy rectangles. A row is honest about the content
+ * that exists: it fills its cell, it does not turn a missing headshot into a
+ * large void, and it improves quietly as photographs arrive.
+ *
+ * Bios open in a modal (see TeamGrid). Pass `interactive` when the row opens
+ * one, so it gains hover and focus affordances.
  */
 export function TeamMemberCard({
   member,
@@ -17,48 +25,34 @@ export function TeamMemberCard({
   const monogram = initials(member.name);
 
   return (
-    <figure className="flex flex-col">
-      <div className="relative aspect-[4/5] overflow-hidden border border-border bg-navy">
+    <div className="flex items-center gap-4 border-t-2 border-bronze pt-4">
+      <div className="relative h-16 w-16 shrink-0 overflow-hidden border border-border bg-navy sm:h-20 sm:w-20">
         {member.photo ? (
           <Image
             src={member.photo}
             alt={member.name || member.title}
             fill
-            sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 280px"
+            sizes="80px"
             className={cn(
-              "object-cover",
+              "object-cover object-top",
               interactive &&
-                "transition-transform duration-300 ease-out-strong motion-safe:group-hover:scale-[1.03]"
+                "transition-transform duration-300 ease-out-strong motion-safe:group-hover:scale-[1.06]"
             )}
           />
         ) : (
           <div className="flex h-full w-full items-center justify-center">
-            <span className="absolute inset-x-0 top-0 h-[3px] bg-bronze" />
             {monogram ? (
-              <span className="font-heading text-4xl font-bold tracking-wide text-white/85">
+              <span className="font-heading text-lg font-bold tracking-wide text-white/85">
                 {monogram}
               </span>
             ) : (
-              <span aria-hidden className="relative block h-10 w-10">
-                <span className="absolute inset-0 border-2 border-bronze" />
-                <span className="absolute inset-x-1 top-1 h-[3px] bg-bronze" />
-              </span>
+              <span aria-hidden className="block h-6 w-6 border-2 border-bronze" />
             )}
           </div>
         )}
-
-        {member.photo && <span className="absolute inset-x-0 top-0 h-[3px] bg-bronze" />}
-
-        {interactive && (
-          <span className="pointer-events-none absolute inset-0 flex items-end bg-gradient-to-t from-navy/75 via-navy/10 to-transparent opacity-0 transition-opacity duration-200 group-hover:opacity-100 group-focus-visible:opacity-100">
-            <span className="p-3 text-micro font-semibold uppercase tracking-[0.14em] text-white">
-              View profile
-            </span>
-          </span>
-        )}
       </div>
 
-      <figcaption className="mt-4 text-left">
+      <div className="min-w-0">
         <p className="font-heading text-body font-bold leading-tight text-navy">
           {member.name ? (
             <>
@@ -67,7 +61,13 @@ export function TeamMemberCard({
                   {member.honorific}{" "}
                 </span>
               )}
-              {member.name}
+              <span
+                className={cn(
+                  interactive && "transition-colors group-hover:text-bronze"
+                )}
+              >
+                {member.name}
+              </span>
             </>
           ) : (
             <span className="font-body font-medium italic text-graphite">
@@ -75,16 +75,19 @@ export function TeamMemberCard({
             </span>
           )}
         </p>
-        <p className="mt-0.5 text-sm font-medium text-bronze">{member.title}</p>
+        <p className="mt-1 text-sm font-medium text-bronze">{member.title}</p>
         {interactive && (
-          <span className="mt-2 inline-flex items-center gap-1 text-sm font-semibold text-navy transition-colors group-hover:text-bronze">
+          <span className="mt-1.5 inline-flex items-center gap-1 text-sm font-semibold text-navy transition-colors group-hover:text-bronze">
             View profile
-            <span aria-hidden className="transition-transform motion-safe:group-hover:translate-x-0.5">
-              →
+            <span
+              aria-hidden
+              className="transition-transform motion-safe:group-hover:translate-x-0.5"
+            >
+              &rarr;
             </span>
           </span>
         )}
-      </figcaption>
-    </figure>
+      </div>
+    </div>
   );
 }
